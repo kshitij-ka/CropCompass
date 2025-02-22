@@ -1,11 +1,11 @@
 import React from "react";
+import Piechart from "../../components/Piechart";
 
 const Dashboard = () => {
   return (
     <>
-      
       <div className="w-full bg-white rounded-lg shadow p-4">
-        <div className="flex flex-col justify-center items-center mb-4">
+        {/* <div className="flex flex-col justify-center items-center mb-4">
           <h2 className="text-2xl font-bold font-sans border-b-2 py-2">
             Upcoming Sessions{" "}
           </h2>
@@ -45,6 +45,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         <div className="mb-4">
           <h3 className="text-lg font-medium">Weekly Summary</h3>
           <div className="grid grid-cols-8 gap-2 mt-4">
@@ -140,6 +141,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         <div className="mb-4">
           <h3 className="text-lg font-medium">Notifications</h3>
           <div className="grid grid-cols-1 gap-4 mt-4">
@@ -193,6 +195,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+        </div> */}
+
+        <div className="mb-4">
+          <Piechart />
         </div>
       </div>
     </>

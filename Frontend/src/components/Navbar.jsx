@@ -38,7 +38,7 @@ const Navbar = () => {
               alt="Flowbite Logo"
             />
             <span className="self-center text-xl font-bold whitespace-nowrap dark:text-white">
-              MentorFlux
+              Farmalyze
             </span>
           </a>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">

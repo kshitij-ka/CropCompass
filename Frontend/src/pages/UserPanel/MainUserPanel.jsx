@@ -36,7 +36,7 @@ const MainUserPanel = () => {
   return (
     <>
       <div className="container mx-auto p-4 ">
-        <div className="flex items-center mb-4 md:hidden">
+        <div className="flex items-center  mb-4 md:hidden ">
           <img
             src={`${user.avatar}`}
             alt="Profile Picture"
@@ -45,7 +45,7 @@ const MainUserPanel = () => {
           <span className="text-lg font-medium">Hello, {user.name}</span>
         </div>
         <div className="flex flex-row gap-4">
-          <div className="w-1.5/12 md:w-3/12 bg-white rounded-lg shadow p-4">
+          <div className="w-1.5/12  bg-white md:w-3/12  rounded-lg shadow p-4">
             <div className="hidden md:flex items-center mb-4">
               <img
                 src={`${user.avatar}`}
