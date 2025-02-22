@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" class="flex items-center gap-2">
                 <img
-                  src="/images/logo.jpg"
+                  src="/images/logo.png"
                   className="h-9 rounded-full"
                   alt="Flowbite Logo"
                 />
