@@ -11,13 +11,11 @@ import Footer from "./Footer";
 const HomePage = () => {
   return (
     <>
-      <Hero />
-      <Testimonial />
-      <About />
-      <Customization />
-      <SubjectSection />
-      <ReviewSection />
-      <Footer />
+      <div className=" bg-[url(/images/bgphoto.png)] bg-no-repeat bg-cover">
+        <Hero />
+        <Testimonial />
+        <Footer />
+      </div>
     </>
   );
 };

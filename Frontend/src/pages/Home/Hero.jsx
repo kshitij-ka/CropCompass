@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
-      <section className="bg-[#FBFFE4] py-12 w-full flex justify-center">
+      <section className=" py-12 w-full flex justify-center pt-28 text-gray-100">
         <div className="flex flex-col-reverse md:flex-row justify-between w-10/12 h-auto">
           <div className="container mx-auto flex flex-col justify-between h-full w-full">
             <div className="text-center md:text-start flex flex-col justify-around h-full">
@@ -23,7 +23,7 @@ const Hero = () => {
       </section>
 
       
-      <div className=" flex justify-center bg-[#FBFFE4]">
+      <div className=" flex justify-center">
         <div className=" flex justify-between  py-8 w-5/6 ">     
 
           <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -47,7 +47,7 @@ const Hero = () => {
           <div className="flex flex-col gap-10 justify-between ">
             
             <div>
-              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#8cc0b4] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#A3D1C6] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
               <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
               </a>
@@ -80,7 +80,7 @@ const Hero = () => {
 
 
             <div>
-              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#8cc0b4] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
               <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
               </a>
