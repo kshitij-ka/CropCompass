@@ -11,10 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "@splinetool/react-spline": "^4.0.0",
     "apexcharts": "^4.5.0",
     "chart.js": "^4.4.8",
-    "flowbite": "^2.5.1",
-    "@splinetool/react-spline": "^4.0.0",
     "flowbite": "^2.5.1",
     "framer-motion": "^12.4.7",
     "react": "^18.3.1",
