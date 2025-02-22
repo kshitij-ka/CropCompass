@@ -1,6 +1,6 @@
 # Status200
 
-Bhakti's branch for frontend developement.
+Frontend branch for testing.
 
 ---
 
