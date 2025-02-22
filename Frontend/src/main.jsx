@@ -25,6 +25,7 @@ import FeedBackAndRatings from "./pages/UserPanel/FeedBackAndRatings.jsx";
 import Monitoring from "./pages/UserPanel/Monitoring.jsx";
 import AddFarm from "./pages/UserPanel/Farm/AddFarm.jsx";
 import UpdateFarm from "./pages/UserPanel/Farm/UpdateForm.jsx";
+import FarmPage from "./pages/UserPanel/Farm/FarmPage.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
@@ -57,6 +58,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="monitoring" element={<Monitoring />} />
               <Route path="addfarm" element={<AddFarm />} />
               <Route path="updatefarm" element={<UpdateFarm />} />
+              <Route path="farmpage/:farmId" element={<FarmPage />} />
             </Route>
           </Route>
         </Routes>
