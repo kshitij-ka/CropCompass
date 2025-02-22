@@ -53,10 +53,10 @@ const SignupPage = () => {
   };
 
   return (
-    <section className="bg-gray-100 font-sans h-[91vh] flex flex-col justify-center md:p-5 ">
-      <div className="container mx-auto p-4 mt-64 sm:mt-32 md:mt-0">
+    <section className="bg-[url(https://i.pinimg.com/736x/6c/d2/cc/6cd2cc05a7e464a78bdf1124b4ad30f1.jpg)] bg-cover font-sans flex flex-col justify-center md:p-5 ">
+      <div className="container mx-auto p-4 pt-24 sm:mt-32 md:mt-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center md:hidden">
+          <div className="bg-gradient-to-br from-purple-300 to-pink-200 rounded-lg shadow-md  min-h-40 object-center md:hidden">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
                 src="/images/background1.jpg"
@@ -64,22 +64,19 @@ const SignupPage = () => {
                 className="absolute order-3 w-full h-full"
               />
               <h1 className="text-6xl font-bold text-white mb-4 md:text-6xl lg:text-9xl relative ml-8">
-                Welcome to MentorFlux!
+                Welcome to Crop Compass
               </h1>
-              {/* <img src="./images/background.jpg" alt="" className="absolute order-3"/> */}
-              {/* <img
-              src="https://cdn.pixabay.com/photo/2017/02/21/15/19/arrow-2074591_960_720.png"
-              alt="Arrow"
-              className="w-16 h-16 text-white"
-            /> */}
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md h-full lg:p-16">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="backdrop-blur-md bg-gradient-to-tr from-slate-300/10 to-slate-200/30 rounded-lg shadow-md lg:p-36">
+            <h1 className="text-2xl font-bold text-gray-50 mb-4">
               Register Your account
             </h1>
-            <p className="text-gray-600 mb-6">
-              Welcome to MentorFlux. Please register your new account.
+            <p className="text-gray-100">
+              Welcome to Crop Compass. 
+            </p>
+            <p className="text-gray-100 mb-6">
+              Please register your new account.           
             </p>
             <form
               action="#"
@@ -90,7 +87,7 @@ const SignupPage = () => {
                 <div className="w-full">
                   <label
                     htmlFor="username"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-100 dark:text-white"
                   >
                     First Name
                   </label>
@@ -99,14 +96,14 @@ const SignupPage = () => {
                     id="firstName"
                     ref={firstNameElement}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your First name here..."
+                    placeholder="John"
                     required
                   />
                 </div>
                 <div className="w-full">
                   <label
                     htmlFor="username"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-100 dark:text-white"
                   >
                     Last Name
                   </label>
@@ -115,7 +112,7 @@ const SignupPage = () => {
                     id="LastName"
                     ref={lastNameElement}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Enter your Last name here..."
+                    placeholder="Doe"
                     required
                   />
                 </div>
@@ -124,7 +121,7 @@ const SignupPage = () => {
               <div>
                 <label
                   htmlFor="username"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-100 dark:text-white"
                 >
                   Email
                 </label>
@@ -132,26 +129,10 @@ const SignupPage = () => {
                   type="email"
                   id="email"
                   ref={emailElement}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Please Enter your Email here..."
+                  className="bg-gray-50 border border-gray-300 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="user@mail.com"
                   required
                 />
-              </div>
-              <div className="w-full">
-                <label
-                  htmlFor="countries"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Select your Role
-                </label>
-                <select
-                  id="role"
-                  ref={roleElement}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                >
-                  <option>Student</option>
-                  <option>Mentor</option>
-                </select>
               </div>
               <div>
                 <label
@@ -165,7 +146,7 @@ const SignupPage = () => {
                   id="password"
                   ref={passwordElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Please enter password having at least 6 unique letters.. "
+                  placeholder="At least 6 unique Characters.. "
                   required
                 />
               </div>
@@ -189,12 +170,14 @@ const SignupPage = () => {
                   className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                 ></a>
               </div>
-              <button
-                type="submit"
-                className="text-white bg-purple-500 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Register your Account
-              </button>
+              <div className=" flex justify-center">
+                <button
+                  type="submit"
+                  className="text-white w-1/2 backdrop-blur-lg bg-gradient-to-tr from-slate-100/15 to-slate-200/15 shadow-lg   hover:backdrop-blur-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Register your Account
+                </button>
+              </div>
               <p className="text-gray-600 text-center mt-4">
                 Already have an Account ?{" "}
                 <Link
@@ -206,7 +189,7 @@ const SignupPage = () => {
               </p>
             </form>
           </div>
-          <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center hidden md:block">
+          {/* <div className=" backdrop-blur-sm  rounded-lg shadow-md md:block">
             <div className="flex flex-col items-center justify-center h-full relative text-center">
               <img
                 src="/images/background1.jpg"
@@ -216,14 +199,8 @@ const SignupPage = () => {
               <h1 className="text-5xl font-bold text-white mb-4 md:text-5xl lg:text-8xl relative ml-8 text-center">
                 Welcome to MentorFlux!
               </h1>
-              {/* <img src="./images/background.jpg" alt="" className="absolute order-3"/> */}
-              {/* <img
-              src="https://cdn.pixabay.com/photo/2017/02/21/15/19/arrow-2074591_960_720.png"
-              alt="Arrow"
-              className="w-16 h-16 text-white"
-            /> */}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

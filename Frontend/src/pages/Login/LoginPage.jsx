@@ -39,38 +39,29 @@ const LoginPage = () => {
       navigate("/");
     }
   };
+
+
   return (
-    <section className="bg-gray-100 font-sans h-[91vh] flex flex-col justify-center md:p-5">
-      <div className="container mx-auto p-4 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center">
-            <div className="flex flex-col items-center justify-center h-full relative">
-              <img
-                src="/images/background1.jpg"
-                alt=""
-                className="absolute order-3 w-full h-full"
-              />
-              <h1 className="text-6xl font-bold text-white mb-4 md:text-6xl lg:text-9xl relative ml-8">
+    <section className="bg-[url(/images/loginBG.png)] bg-cover font-sans  flex flex-col justify-center md:p-5 ">
+      <div className="container mx-auto ">
+        <div className="flex justify-between pt-24">
+          <div className="   rounded-lg shadow-md ">
+            <div className="flex flex-col items-center justify-center h-full ">
+              <h1 className="text-6xl  font-bold text-white mb-4 md:text-6xl lg:text-9xl  ml-8">
                 Welcome Back!
               </h1>
-              {/* <img src="/images/background.jpg" alt="" className="absolute order-3"/> */}
-              {/* <img
-                src="https://cdn.pixabay.com/photo/2017/02/21/15/19/arrow-2074591_960_720.png"
-                alt="Arrow"
-                className="w-16 h-16 text-white"
-              /> */}
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md h-full lg:p-36">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Login</h1>
-            <p className="text-gray-600 mb-6">
+          <div className=" backdrop-blur-md bg-gradient-to-tr from-slate-300/10 to-slate-200/30 rounded-lg shadow-md lg:p-36">
+            <h1 className="text-2xl font-bold text-gray-50 mb-4">Login</h1>
+            <p className="text-gray-100 mb-6">
               Welcome back! Please login to your account.
             </p>
             <form className="space-y-6" onSubmit={handleLogin}>
               <div>
                 <label
                   for="username"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-100 dark:text-white"
                 >
                   Email
                 </label>
@@ -86,7 +77,7 @@ const LoginPage = () => {
               <div>
                 <label
                   for="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-100 dark:text-white"
                 >
                   Password
                 </label>
@@ -109,7 +100,7 @@ const LoginPage = () => {
                   />
                   <label
                     for="remember_me"
-                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    className="ml-2 text-sm font-medium text-gray-100 dark:text-gray-300"
                   >
                     Remember Me
                   </label>
@@ -118,16 +109,18 @@ const LoginPage = () => {
                   to={"/user/forgetpassword"}
                   className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                 >
-                  Forget Password?
+                  Forgot Password?
                 </Link>
               </div>
-              <button
-                type="submit"
-                className="text-white bg-purple-500 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                Login
-              </button>
-              <p className="text-gray-600 text-center mt-4">
+              <div className=" flex justify-center">
+                <button
+                  type="submit"
+                  className="text-white w-1/2 backdrop-blur-lg bg-gradient-to-tr from-slate-100/15 to-slate-200/15 shadow-lg   hover:backdrop-blur-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  Login
+                </button>
+              </div>
+              <p className="text-gray-100 text-center mt-4">
                 New User?{" "}
                 <Link
                   to={"/user/signup"}
