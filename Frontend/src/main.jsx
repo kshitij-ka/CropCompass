@@ -1,12 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
 import { SocketProvider } from "./context/SocketProvider.jsx";
 
-import MentifyStore from "../src/store/index.js";
 import { Provider } from "react-redux";
+import MentifyStore from "./store/index.js";
+
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import SignupPage from "./pages/Login/SignupPage.jsx";
 import MainUserPanel from "./pages/UserPanel/MainUserPanel.jsx";
@@ -22,88 +23,42 @@ import ScheduleMeeting from "./pages/UserPanel/ScheduleMeeting.jsx";
 import Support from "./pages/UserPanel/Support.jsx";
 import FeedBackAndRatings from "./pages/UserPanel/FeedBackAndRatings.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "/home",
-        element: <HomePage />,
-      },
-    ],
-  },
-
-  {
-    path: "/user",
-    element: <App />,
-    children: [
-      {
-        path: "/user/login",
-        element: <LoginPage />,
-      },
-      {
-        path: "/user/dashboard",
-        element: <MainUserPanel />,
-        children: [
-          {
-            path: "/user/dashboard",
-            element: <Dashboard />,
-          },
-          {
-            path: "/user/dashboard/history",
-            element: <History />,
-          },
-          {
-            path: "/user/dashboard/notifications",
-            element: <Notifications />,
-          },
-          {
-            path: "/user/dashboard/settings",
-            element: <Settings />,
-          },
-          {
-            path: "/user/dashboard/scheduledmeetings",
-            element: <ScheduleMeeting />,
-          },
-          {
-            path: "/user/dashboard/support",
-            element: <Support />,
-          },
-          {
-            path: "/user/dashboard/feedback",
-            element: <FeedBackAndRatings />,
-          },
-        ],
-      },
-      {
-        path: "/user/signup",
-        element: <SignupPage />,
-      },
-      {
-        path: "/user/forgetpassword",
-        element: <ForgetPassword />,
-      },
-      {
-        path: "/user/api/v1/password/reset/:token",
-        element: <ResetPassword />,
-      },
-      
-    ],
-  },
-  
-]);
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
       <SocketProvider>
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <Routes>
+            {/* Routes for the main App */}
+            <Route path="/" element={<App />}>
+              <Route index element={<HomePage />} />
+              <Route path="home" element={<HomePage />} />
+            </Route>
+
+            {/* User related routes */}
+            <Route path="user" element={<App />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="signup" element={<SignupPage />} />
+              <Route path="forgetpassword" element={<ForgetPassword />} />
+              <Route
+                path="api/v1/password/reset/:token"
+                element={<ResetPassword />}
+              />
+
+              <Route path="dashboard" element={<MainUserPanel />}>
+                <Route index element={<Dashboard />} />
+                <Route path="history" element={<History />} />
+                <Route path="notifications" element={<Notifications />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="scheduledmeetings" element={<ScheduleMeeting />} />
+                <Route path="support" element={<Support />} />
+                <Route path="feedback" element={<FeedBackAndRatings />} />
+              </Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </SocketProvider>
     </Provider>
   </StrictMode>
 );
+d;
