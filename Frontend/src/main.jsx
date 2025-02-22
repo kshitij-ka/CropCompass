@@ -22,6 +22,7 @@ import Settings from "./pages/UserPanel/Settings.jsx";
 import ScheduleMeeting from "./pages/UserPanel/ScheduleMeeting.jsx";
 import Support from "./pages/UserPanel/Support.jsx";
 import FeedBackAndRatings from "./pages/UserPanel/FeedBackAndRatings.jsx";
+import Monitoring from "./pages/UserPanel/Monitoring.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -53,6 +54,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="scheduledmeetings" element={<ScheduleMeeting />} />
                 <Route path="support" element={<Support />} />
                 <Route path="feedback" element={<FeedBackAndRatings />} />
+                <Route path="monitoring" element={<Monitoring />} />
               </Route>
             </Route>
           </Routes>
