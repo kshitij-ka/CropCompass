@@ -15,7 +15,6 @@ const FarmList = () => {
       .then(setLoading(false))
       .catch((error) => console.error(error));
   }, []);
-
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       {loading ? (
