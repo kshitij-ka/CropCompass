@@ -1,13 +1,14 @@
-import express from "express";
-import {
+const { checkAuthenticated } = require("../Middlewares/authentication.js");
+
+const express = require("express");
+const {
   createTask,
   getTasksByFarm,
   getTaskById,
   updateTask,
   deleteTask,
   updateTaskStatus,
-} from "../controllers/taskController.js";
-const { checkAuthenticated } = require("../Middlewares/authentication.js");
+} = require("../Controllers/task.controller.js");
 
 const router = express.Router();
 
@@ -19,6 +20,6 @@ router.put("/:taskId", checkAuthenticated, updateTask); // Update task details
 router.delete("/:taskId", checkAuthenticated, deleteTask); // Delete a task
 
 // Update task status (Pending → Completed)
-router.patch("/:taskId/status", protect, updateTaskStatus);
+router.patch("/:taskId/status", checkAuthenticated, updateTaskStatus);
 
-export default router;
+module.exports = router;

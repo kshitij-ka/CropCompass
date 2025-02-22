@@ -1,9 +1,9 @@
-import Task from "../models/taskModel.js";
-import Farm from "../models/farmModel.js";
-import Crop from "../models/cropModel.js";
+const Task = require("../Models/task.model.js");
+const Farm = require("../Models/farm.model.js");
+const Crop = require("../Models/crop.model.js");
 
 // Create a new task
-export const createTask = async (req, res) => {
+const createTask = async (req, res) => {
   try {
     const { farm, crop, taskType, description, assignedDate, status } =
       req.body;
@@ -37,7 +37,7 @@ export const createTask = async (req, res) => {
 };
 
 // Get all tasks for a specific farm
-export const getTasksByFarm = async (req, res) => {
+const getTasksByFarm = async (req, res) => {
   try {
     const tasks = await Task.find({ farm: req.params.farmId }).populate("crop");
 
@@ -48,7 +48,7 @@ export const getTasksByFarm = async (req, res) => {
 };
 
 // Get a single task by ID
-export const getTaskById = async (req, res) => {
+const getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.taskId).populate("farm crop");
 
@@ -61,7 +61,7 @@ export const getTaskById = async (req, res) => {
 };
 
 // Update task details
-export const updateTask = async (req, res) => {
+const updateTask = async (req, res) => {
   try {
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.taskId,
@@ -79,7 +79,7 @@ export const updateTask = async (req, res) => {
 };
 
 // Delete a task
-export const deleteTask = async (req, res) => {
+const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.taskId);
 
@@ -94,7 +94,7 @@ export const deleteTask = async (req, res) => {
 };
 
 // Update task status (Pending → Completed)
-export const updateTaskStatus = async (req, res) => {
+const updateTaskStatus = async (req, res) => {
   try {
     const { status } = req.body;
 
@@ -108,4 +108,13 @@ export const updateTaskStatus = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+module.exports = {
+  createTask,
+  getTasksByFarm,
+  getTaskById,
+  updateTask,
+  deleteTask,
+  updateTaskStatus,
 };

@@ -1,12 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const { Server } = require("socket.io");
-const { createServer } = require("http");
+
 const userRoute = require("./Routes/user.routes.js");
 const farmRoute = require("./Routes/farm.routes.js");
 const cropRoute = require("./Routes/crop.routes.js");
-
+const financeRoute = require("./Routes/finance.routes.js");
+const taskRoute = require("./Routes/task.routes.js");
 const { checkAuthenticated } = require("./Middlewares/authentication.js");
 const dotenv = require("dotenv");
 
@@ -37,5 +37,9 @@ app.use("/api/v1", userRoute);
 app.use("/api/v1/farm", farmRoute);
 
 app.use("/api/v1/crop", cropRoute);
+
+app.use("/api/v1/finance", financeRoute);
+
+app.use("/api/v1/task", taskRoute);
 
 module.exports = app;
