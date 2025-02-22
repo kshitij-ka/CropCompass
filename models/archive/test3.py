@@ -8,7 +8,7 @@ model_name = "TonyStarkD99/CLIP-Crop_Disease-Large"
 model = CLIPModel.from_pretrained(model_name)
 
 # Load your image
-image_path = "/home/overnion/Status200/tomato.png"  # Replace with your image path
+image_path = "/home/overnion/Status200/rice.png"  # Replace with your image path
 image = Image.open(image_path)
 
 # Define the class labels (text prompts)
