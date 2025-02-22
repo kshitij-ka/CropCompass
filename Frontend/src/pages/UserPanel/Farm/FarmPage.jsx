@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Farm from "./Farm";
-import CropList from "./CropList";
+import CropTable from "./CropTable";
 
 export default function FarmPage() {
   const { farmId } = useParams();
@@ -60,7 +60,7 @@ export default function FarmPage() {
         <Farm farmData={farmData} farmId={farmId}></Farm>
       </div>
       <div>
-        <CropList></CropList>
+        <CropTable farmId={farmId}></CropTable>
       </div>
     </div>
   );
