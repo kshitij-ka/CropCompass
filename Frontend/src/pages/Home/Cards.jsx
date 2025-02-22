@@ -31,10 +31,11 @@ export const CardWithImage = () => {
               </a>
               <div class="p-6 backdrop-blur-md  rounded-b-lg">
                   <a href="#">
-                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Excellent Dashboards</h5>
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">High tech, high yields?</h5>
                   </a>
-                  <p class="mb-3 font-normal text-white  dark:text-gray-400">Our descriptive dashboards give insights into your crop's health and keeps track of your burning expenses</p>
-                  <a href="#" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
+                  <p class="mb-3 font-normal text-white  dark:text-gray-400">The Kenyan farmers deploying AI to increase productivity
+This article is more than 4 months old. AI apps are increasingly popular among small-scale farmers seeking to improve the quality and quantity of their crop.</p>
+                  <a href="https://www.theguardian.com/world/2024/sep/30/high-tech-high-yields-the-kenyan-farmers-deploying-ai-to-increase-productivity" target="_blank" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
                       Read more
                       <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -45,12 +46,12 @@ export const CardWithImage = () => {
     )
 }
 
-export const CardOnlyText = () => {
+export const CardOnlyText = (props) => {
     return(
         <div>
-              <a href="#" class="block max-w-sm p-6 rounded-lg shadow-md backdrop-blur-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-              <p class="font-normal text-gray-50 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <a href={props.href} target="_blank" class="block max-w-sm p-6 rounded-lg shadow-md backdrop-blur-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white"> {props.headingText} </h5>
+              <p class="font-normal text-gray-50 dark:text-gray-400"> {props.bodyText} </p>
               </a>
         </div>
     )
@@ -59,11 +60,11 @@ export const CardOnlyText = () => {
 export const CardWithButton = () => {
     return(
         <div class="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                <a href="https://www.reuters.com/sustainability/land-use-biodiversity/comment-how-empowering-smallholder-farmers-with-ai-tools-can-bolster-global-food-2025-01-10/" target="_blank">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Empowering smallholder farmers with AI tools can bolster global food security</h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-50 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <a href="#" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
+                <p class="mb-3 font-normal text-gray-50 dark:text-gray-400"> AI-powered weather forecasts help rural Indian farmers make informed planting decisions, reducing debt and boosting savings.</p>
+                <a href="https://www.reuters.com/sustainability/land-use-biodiversity/comment-how-empowering-smallholder-farmers-with-ai-tools-can-bolster-global-food-2025-01-10/" target="_blank" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
                       Read more
                       <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -76,8 +77,8 @@ export const CardWithButton = () => {
 export const CardWithOnlyImage = () => {
     return(
         <div class="w-full max-w-sm bg-white rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img class=" rounded-lg" src="/images/plant.png" alt="product image" />
+            <a href="https://theprint.in/economy/telangana-is-the-success-story-of-indian-agritech-ai-tools-soil-testing-e-commerce-more/1630359/" target="_blank">
+                <img class=" rounded-lg" src="https://i.pinimg.com/736x/2b/2a/0f/2b2a0f7003bd3e4201573c1189d600de.jpg" alt="product image" />
             </a>
         </div>
     )
