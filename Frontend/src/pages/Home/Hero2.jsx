@@ -41,13 +41,13 @@ function Hero2() {
           </ScrollReveal>
         
         <div className="flex flex-col gap-10 justify-between ">
-          <ScrollReveal direction='up' > <CardOnlyText /> </ScrollReveal>
+          <ScrollReveal direction='up' > <CardOnlyText headingText = {"AI for agriculture: How Indian farmers are harvesting innovation"} bodyText={"Farmers participating in the programme saw a 21% increase in chili yields per acre, a 9% reduction in pesticide use, a 5% decrease in fertilizer usage, and an 8% improvement in unit prices due to quality enhancements."} href={"https://www.weforum.org/impact/ai-for-agriculture-in-india/ "} /> </ScrollReveal>
           <ScrollReveal direction='up'> <CardWithButton /> </ScrollReveal>
         </div>
 
         <div className=" flex flex-col justify-between">
+          <ScrollReveal direction='up'> <CardOnlyText headingText={"SugarChain: Blockchain technology meets Agriculture"} bodyText={"The use of blockchain technology can help farmers automate processes with high trust, addressing issues like middlemen involvement and ensuring accurate compensation for their products"} href={"https://arxiv.org/abs/2301.08405"} /> </ScrollReveal>
           <ScrollReveal direction='up'> <CardWithOnlyImage /> </ScrollReveal>
-          <ScrollReveal direction='up'> <CardOnlyText /> </ScrollReveal>
         </div>
         </div>
       </div>
