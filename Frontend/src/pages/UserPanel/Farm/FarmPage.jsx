@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Farm from "./Farm";
-import AddCrop from "../Crops/AddCrop";
+import AddCrop from "./AddCrop";
 
 export default function FarmPage() {
   const { farmId } = useParams();
