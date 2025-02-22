@@ -1,11 +1,28 @@
-import Crop from "../models/cropModel.js";
-import Farm from "../models/farmModel.js";
+const Crop = require("../Models/crop.model.js");
+const Farm = require("../Models/farm.model.js");
+const { uploadOnCloudinary } = require("../Utils/cloudinary.js");
 
 // Create a new crop
-export const createCrop = async (req, res) => {
+const createCrop = async (req, res) => {
   try {
-    const { name, farm, image, harvestDate, growthStage, healthStatus } =
-      req.body;
+    const { name, farm, harvestDate, growthStage, healthStatus } = req.body;
+    if (!req.file.path) {
+      res.status(500).json({
+        success: false,
+        message: "Avatar not uploaded on cloudinary.",
+      });
+    }
+
+    const imageUrl = await uploadOnCloudinary(req.file.path);
+
+    console.log("Image url is : ", imageUrl);
+
+    if (!imageUrl) {
+      return res.status(500).json({
+        success: false,
+        message: "Image not uploaded on cloudinary.",
+      });
+    }
 
     // Check if the farm exists
     const existingFarm = await Farm.findById(farm);
@@ -15,7 +32,7 @@ export const createCrop = async (req, res) => {
     const crop = new Crop({
       name,
       farm,
-      image,
+      image: imageUrl,
       harvestDate,
       growthStage,
       healthStatus,
@@ -34,8 +51,9 @@ export const createCrop = async (req, res) => {
 };
 
 // Get all crops for a specific farm
-export const getCropsByFarm = async (req, res) => {
+const getCropsByFarm = async (req, res) => {
   try {
+    console.log("My farm id is : ", req.params.farmId);
     const crops = await Crop.find({ farm: req.params.farmId });
 
     res.status(200).json(crops);
@@ -45,7 +63,7 @@ export const getCropsByFarm = async (req, res) => {
 };
 
 // Get a single crop by ID
-export const getCropById = async (req, res) => {
+const getCropById = async (req, res) => {
   try {
     const crop = await Crop.findById(req.params.cropId).populate("farm");
 
@@ -58,7 +76,7 @@ export const getCropById = async (req, res) => {
 };
 
 // Update crop details
-export const updateCrop = async (req, res) => {
+const updateCrop = async (req, res) => {
   try {
     const updatedCrop = await Crop.findByIdAndUpdate(
       req.params.cropId,
@@ -76,7 +94,7 @@ export const updateCrop = async (req, res) => {
 };
 
 // Delete a crop
-export const deleteCrop = async (req, res) => {
+const deleteCrop = async (req, res) => {
   try {
     const crop = await Crop.findById(req.params.cropId);
 
@@ -94,7 +112,7 @@ export const deleteCrop = async (req, res) => {
 };
 
 // Update crop growth stage
-export const updateGrowthStage = async (req, res) => {
+const updateGrowthStage = async (req, res) => {
   try {
     const { growthStage } = req.body;
 
@@ -111,7 +129,7 @@ export const updateGrowthStage = async (req, res) => {
 };
 
 // Update crop health status
-export const updateHealthStatus = async (req, res) => {
+const updateHealthStatus = async (req, res) => {
   try {
     const { healthStatus } = req.body;
 
@@ -125,4 +143,14 @@ export const updateHealthStatus = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+module.exports = {
+  createCrop,
+  getCropsByFarm,
+  getCropById,
+  updateCrop,
+  deleteCrop,
+  updateGrowthStage,
+  updateHealthStatus,
 };
