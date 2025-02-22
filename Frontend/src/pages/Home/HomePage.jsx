@@ -2,17 +2,14 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Hero from "./Hero";
 import Testimonial from "./Testimonial";
-import About from "./About";
-import Customization from "./Customization";
-import SubjectSection from "./SubjectSection";
-import ReviewSection from "./ReviewSection";
+import Hero2 from "./Hero2";
 import Footer from "./Footer";
 
 const HomePage = () => {
   return (
     <>
       <div className=" bg-[url(/images/bgphoto.png)] bg-no-repeat bg-cover">
-        <Hero />
+        <Hero2 />
         <Testimonial />
         <Footer />
       </div>
