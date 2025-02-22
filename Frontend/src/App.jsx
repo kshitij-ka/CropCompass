@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import { useEffect } from "react";
 import { userSliceActions } from "./store/userSlice";
 
@@ -36,7 +37,7 @@ function App() {
   return (
     <>
       <div className="w-full h-auto flex-col relative">
-        <Navbar />
+        <Navbar2 />
         <Outlet />
         <div
           className={`${
