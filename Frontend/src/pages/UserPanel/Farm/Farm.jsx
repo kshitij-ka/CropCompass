@@ -1,7 +1,13 @@
-const Farm = ({ farmData }) => {
+import AddCrop from "./AddCrop";
+
+const Farm = ({ farmData, farmId }) => {
+  console.log("Farm id is : ", farmId);
   return (
     <div className="w-full ">
-      <h1 className="text-2xl font-bold mb-4">{farmData.name}</h1>
+      <div className="flex justify-between">
+        <h1 className="text-2xl font-bold mb-4 m-3">{farmData.name}</h1>
+        <AddCrop farmId={farmId}></AddCrop>
+      </div>
 
       <table className="min-w-full text-left">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
