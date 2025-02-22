@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddFarm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [farmName, setFarmName] = useState("");
   const [location, setLocation] = useState("");
   const [waterContent, setWaterContent] = useState("");
+  const [sizeContent, setSizeContent] = useState("");
   const [soilType, setSoilType] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
-
+  const navigator = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const farmData = {
@@ -16,6 +18,7 @@ const AddFarm = () => {
       location,
       waterContent,
       soilType,
+      size: sizeContent,
     };
 
     console.log(farmData);
@@ -37,6 +40,7 @@ const AddFarm = () => {
         throw new Error("Failed to add farm");
       }
 
+      navigator("farmpage");
       setSuccess(true);
       setError(null);
       setIsModalOpen(false);
@@ -174,6 +178,24 @@ const AddFarm = () => {
                       id="waterContent"
                       value={waterContent}
                       onChange={(e) => setWaterContent(e.target.value)}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-400 focus:border-transparent transition duration-200 ease-in-out bg-white/80"
+                      placeholder="Enter water content"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="waterContent"
+                      className="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Size of Land
+                    </label>
+                    <input
+                      type="text"
+                      id="waterContent"
+                      value={sizeContent}
+                      onChange={(e) => setSizeContent(e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-400 focus:border-transparent transition duration-200 ease-in-out bg-white/80"
                       placeholder="Enter water content"
                       required
