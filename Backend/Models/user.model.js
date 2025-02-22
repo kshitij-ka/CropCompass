@@ -11,19 +11,7 @@ const userSchema = new mongoose.Schema(
       maxLength: [30, "Please Enter the valid name"],
       minLength: [2, "Name should have more than 5 characters"],
     },
-
-    skills: [
-      {
-        type: String,
-      },
-    ],
-    uniqueRole: {
-      type: String,
-    },
     country: {
-      type: String,
-    },
-    description: {
       type: String,
     },
     email: {
@@ -41,23 +29,9 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "/images/profile.jpeg",
     },
-    role: {
-      type: String,
-      default: "user",
-    },
-    mainInterest: [
-      {
-        type: String,
-      },
-    ],
-    documents: [
-      {
-        type: String,
-      },
-    ],
-    meettingFees: {
-      type: Number,
-    },
+    role: { type: String, enum: ["farmer", "admin"], default: "farmer" },
+    farms: [{ type: mongoose.Schema.Types.ObjectId, ref: "Farm" }],
+
     resetPasswordToken: String,
     resetPasswordExpiry: Date,
   },

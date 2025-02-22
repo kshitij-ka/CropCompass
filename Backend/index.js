@@ -2,6 +2,7 @@ const server = require("./app.js");
 const dotenv = require("dotenv");
 const cloudinary = require("cloudinary").v2;
 const DB_connect = require("./Database/DB_connect.js");
+const app = require("./app.js");
 
 // dotenv Configuration
 dotenv.config({
@@ -17,7 +18,7 @@ cloudinary.config({
 DB_connect();
 
 // Listening the port
-server.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is Running on ", process.env.PORT);
   console.log("Frontend URI : ", process.env.FRONTEND_URI);
 });
