@@ -6,8 +6,6 @@ import FarmList from "../../components/FarmList";
 import AddFarm from "./Farm/AddFarm";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="w-full bg-white rounded-lg shadow p-4">
       <div className="mb-4 flex justify-end space-x-4">
@@ -22,5 +20,4 @@ const Dashboard = () => {
     </div>
   );
 };
-
 export default Dashboard;
