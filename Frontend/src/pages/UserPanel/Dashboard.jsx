@@ -1,5 +1,6 @@
 import React from "react";
 import Piechart from "../../components/Piechart";
+import TotalSpent from "../../components/TotalSpent";
 
 const Dashboard = () => {
   return (
@@ -197,8 +198,9 @@ const Dashboard = () => {
           </div>
         </div> */}
 
-        <div className="mb-4">
+        <div className="mb-4 flex ">
           <Piechart />
+          <TotalSpent />
         </div>
       </div>
     </>
