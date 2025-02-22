@@ -8,15 +8,31 @@ model_name = "TonyStarkD99/CLIP-Crop_Disease-Large"
 model = CLIPModel.from_pretrained(model_name)
 
 # Load your image
-image_path = "/home/overnion/Status200/potato.png"  # Replace with your image path
+image_path = "/home/overnion/Status200/tomato.png"  # Replace with your image path
 image = Image.open(image_path)
 
 # Define the class labels (text prompts)
 class_labels = [
     "healthy plant",
-    "diseased plant",
-    "wilted plant",
-    "pest-infested plant"
+    "powdery mildew",
+    "leaf rust",
+    "stem rust",
+    "fusarium head blight",
+    "gray leaf spot",
+    "bacterial blight",
+    "downy mildew",
+    "aphid infestation",
+    "white mold",
+    "black rot",
+    "root rot",
+    "yellow leaf curl",
+    "blight",
+    "necrotic spots",
+    "chlorosis",
+    "wilt",
+    "damping off",
+    "viral infection",
+    "pest damage"
 ]
 
 # Resize and normalize the image
@@ -46,5 +62,5 @@ predicted_class = class_labels[predicted_class_idx]
 
 # Print the predicted class and probabilities
 print("Predicted class:", predicted_class)
-print("Probabilities:", probs.detach().numpy())
+# print("Probabilities:", probs.detach().numpy())
 
