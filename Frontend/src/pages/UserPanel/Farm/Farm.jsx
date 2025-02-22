@@ -1,19 +1,61 @@
-const Farm = ({ data }) => {
+const Farm = ({ farmData }) => {
   return (
-    <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-      <td className="px-6 py-4">{data.name}</td>
-      <td className="px-6 py-4">{data.location}</td>
-      <td className="px-6 py-4">{data.soilType}</td>
-      <td className="px-6 py-4">{data.size}</td>
-      <td className="px-6 py-4">
-        <a
-          href="#"
-          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-        >
-          Edit
-        </a>
-      </td>
-    </tr>
+    <div className="w-full ">
+      <h1 className="text-2xl font-bold mb-4">{farmData.name}</h1>
+
+      <table className="min-w-full text-left">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" className="px-6 py-3">
+              Farm Name
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Location
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Type
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Size (acres)
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Water Content
+            </th>
+            <th scope="col" className="px-6 py-3">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700">
+            {/* Clicking on the name cell can navigate to a more detailed view if needed */}
+            <td
+              className="px-6 py-4 cursor-pointer hover:text-blue-600 transition"
+              onClick={() => {
+                // Navigate to a detailed view for this farm if desired
+                navigate(`farmpage/${farmData._id}`);
+              }}
+            >
+              {farmData.name}
+            </td>
+            <td className="px-6 py-4">{farmData.location}</td>
+            <td className="px-6 py-4">{farmData.soilType}</td>
+            <td className="px-6 py-4">{farmData.size}</td>
+            <td className="px-6 py-4">{farmData.waterContent}</td>
+            <td className="px-6 py-4">
+              <button
+                onClick={() =>
+                  navigate(`/user/dashboard/updatefarm?farmId=${farmData._id}`)
+                }
+                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default Farm;
