@@ -2,7 +2,7 @@ const Navbar2 = () => {
     return (
     <div className=" flex  justify-center rounded-full">
       <nav className=" h-18 mt-3 mb-3 w-[97.5%] mx-5 fixed z-20 dark:bg-gray-800/30 backdrop-blur-md rounded-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-100/0 to-gray-500/20 pointer-events-none rounded-full"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-100/10 to-gray-500/20 pointer-events-none rounded-full"></div>
         <div className="relative h-full flex items-center justify-between p-4">
 
           <a

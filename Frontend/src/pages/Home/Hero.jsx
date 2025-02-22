@@ -26,16 +26,16 @@ const Hero = () => {
       <div className=" flex justify-center">
         <div className=" flex justify-between  py-8 w-5/6 ">     
 
-          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div class="max-w-sm  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
                   <img class="rounded-t-lg" src="/images/plant.png" alt="plant" />
               </a>
-              <div class="p-8 bg-[#A3D1C6] rounded-b-lg">
+              <div class="p-8 backdrop-blur-md  rounded-b-lg">
                   <a href="#">
                       <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Noteworthy technology acquisitions 2021</h5>
                   </a>
                   <p class="mb-3 font-normal text-white  dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                  <a href="#" class="inline-flex shadow-md items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#5aa392] rounded-lg hover:bg-[#3a685d] focus:bg-[#3a685d] dark:bg-[#5aa392] dark:hover:bg-[#3a685d] dark:focus:ring-[#3a685d]">
+                  <a href="#" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
                       Read more
                       <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -47,19 +47,19 @@ const Hero = () => {
           <div className="flex flex-col gap-10 justify-between ">
             
             <div>
-              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#A3D1C6] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-              <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <a href="#" class="block max-w-sm p-6 rounded-lg shadow-md backdrop-blur-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <p class="font-normal text-gray-50 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
               </a>
             </div>
 
 
-            <div class="max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Noteworthy technology acquisitions 2021</h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <a href="#" class="inline-flex shadow-md items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#5aa392] rounded-lg hover:bg-[#3a685d] focus:bg-[#3a685d] dark:bg-[#5aa392] dark:hover:bg-[#3a685d] dark:focus:ring-[#3a685d]">
+                <p class="mb-3 font-normal text-gray-50 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                <a href="#" class="inline-flex shadow-md backdrop-blur-md bg-gradient-to-tr from-gray-700/20 to-gray-50/20 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:backdrop-blur-xl ">
                       Read more
                       <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -72,7 +72,7 @@ const Hero = () => {
 
           <div className=" flex flex-col justify-between">
           
-            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <div class="w-full max-w-sm bg-white rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img class=" rounded-lg" src="/images/plant.png" alt="product image" />
                 </a>
@@ -80,9 +80,9 @@ const Hero = () => {
 
 
             <div>
-              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-              <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              <a href="#" class="block max-w-sm p-6 backdrop-blur-xl rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <p class="font-normal text-gray-50 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
               </a>
             </div>
 
