@@ -260,6 +260,8 @@ const resetPassword = catchAsyncErrors(async (req, res) => {
 
 // get user personal details
 const getUserDetails = catchAsyncErrors(async (req, res) => {
+
+
   const user = await User.findById(req.user._id);
 
   if (!user) {

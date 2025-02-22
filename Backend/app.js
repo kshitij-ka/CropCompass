@@ -4,6 +4,8 @@ const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const { createServer } = require("http");
 const userRoute = require("./Routes/user.routes.js");
+const farmRoute = require("./Routes/farm.routes.js");
+
 const { checkAuthenticated } = require("./Middlewares/authentication.js");
 const dotenv = require("dotenv");
 
@@ -30,5 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", userRoute);
+
+app.use("/api/v1/farm", farmRoute);
 
 module.exports = app;

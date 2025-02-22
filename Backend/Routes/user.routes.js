@@ -33,7 +33,7 @@ router.route("/logout").get(logoutUser);
 
 router.route("/update/:id").put(updateUserDetails);
 
-router.route("/me").get(getUserDetails);
+router.route("/me").get(checkAuthenticated, getUserDetails);
 
 router.route("/getuser").get(intializeUser);
 
@@ -45,6 +45,8 @@ router.route("/user/delete/:id").delete(DeleteUser);
 
 router.route("/user/updateRole/:id").put(updateUserRole);
 
-router.route("/user/avatar").put(checkAuthenticated(),upload.single("avatar"), updateAvatar);
+router
+  .route("/user/avatar")
+  .put(checkAuthenticated, upload.single("avatar"), updateAvatar);
 
 module.exports = router;
