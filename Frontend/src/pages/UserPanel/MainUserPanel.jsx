@@ -27,7 +27,7 @@ const MainUserPanel = () => {
 
     //console.log("User Logged out data is : ", data);
 
-    if (data.success == true) {
+    if (data.success === true) {
       navigate("/user/login");
     }
   };
@@ -35,8 +35,8 @@ const MainUserPanel = () => {
   const user = useSelector((store) => store.user);
   return (
     <>
-      <div className="container mx-auto p-4 ">
-        <div className="flex items-center  mb-4 md:hidden ">
+      <div className="container mx-auto p-4">
+        <div className="flex items-center mb-4 md:hidden">
           <img
             src={`${user.avatar}`}
             alt="Profile Picture"
@@ -45,86 +45,92 @@ const MainUserPanel = () => {
           <span className="text-lg font-medium">Hello, {user.name}</span>
         </div>
         <div className="flex flex-row gap-4">
-          <div className="w-1.5/12  bg-white md:w-3/12  rounded-lg shadow p-4">
-            <div className="hidden md:flex items-center mb-4">
+          {/* Updated Sidebar */}
+          <div className="w-full md:w-1/4 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg p-6">
+            <div className="hidden md:flex items-center mb-6">
               <img
                 src={`${user.avatar}`}
                 alt="Profile Picture"
-                className="rounded-full w-10 h-10 mr-2"
+                className="w-12 h-12 rounded-full mr-3 border-2 border-green-500"
               />
-              <span className="text-lg font-medium">Hello, {user.name}</span>
+              <span className="text-xl font-semibold text-gray-800">
+                Hello, {user.name}
+              </span>
             </div>
-            <ul className="list-none">
-              <li className="py-2 border-b border-gray-200">
-                <Link to={"/user/dashboard"} className="flex items-center">
-                  <IoIosHome className="text-xl font-bold text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  to={"/user/dashboard"}
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                >
+                  <IoIosHome className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Dashboard
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/scheduledmeetings"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <RiCalendarScheduleLine className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <RiCalendarScheduleLine className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Scheduled Meeting
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/history"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <MdHistory className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <MdHistory className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     History
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/notifications"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <IoIosNotifications className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <IoIosNotifications className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Notifications
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/feedback"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <MdFeedback className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <MdFeedback className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Feedback and Ratings
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/support"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <MdOutlineSupportAgent className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <MdOutlineSupportAgent className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Support
                   </span>
                 </Link>
               </li>
-              <li className="py-2 border-b border-gray-200">
+              <li>
                 <Link
                   to={"/user/dashboard/settings"}
-                  className="flex items-center"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
                 >
-                  <IoSettings className="text-xl text-gray-700" />
-                  <span className="ml-2 text-sm font-semibold text-gray-500 hidden md:block">
+                  <IoSettings className="text-2xl text-green-600" />
+                  <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
                     Settings
                   </span>
                 </Link>
@@ -147,7 +153,7 @@ const MainUserPanel = () => {
                   <span className="sr-only">Open user menu</span>
                   <BsThreeDotsVertical className="text-lg" />
                 </button>
-                {/* <!-- Dropdown menu --> */}
+                {/* Dropdown menu */}
                 <div
                   className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                   id="user-dropdown"
@@ -156,7 +162,7 @@ const MainUserPanel = () => {
                     <span className="block text-sm text-gray-900 dark:text-white">
                       Bonnie Green
                     </span>
-                    <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                    <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
                       name@flowbite.com
                     </span>
                   </div>
@@ -228,13 +234,12 @@ const MainUserPanel = () => {
                 className="rounded-full w-24 h-24 mx-auto"
               />
               <h4 className="text-lg font-medium mt-2">{user.name}</h4>
-              {/* <span className="text-gray-500 text-sm">@thomasdox</span> */}
               <p className="text-gray-500 text-sm mt-2">
                 Join on {user.createdAt && user.createdAt.substring(0, 10)}
               </p>
               <p className="text-gray-500 text-sm mt-2">
                 {user.description == null &&
-                  "I am a Senior Software Engineer at Google and also mentored 50+ students to get there dream job."}
+                  "I am a Senior Software Engineer at Google and also mentored 50+ students to get their dream job."}
               </p>
               <div className="flex justify-center mt-4">
                 <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
