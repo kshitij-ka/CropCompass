@@ -23,47 +23,44 @@ import ScheduleMeeting from "./pages/UserPanel/ScheduleMeeting.jsx";
 import Support from "./pages/UserPanel/Support.jsx";
 import FeedBackAndRatings from "./pages/UserPanel/FeedBackAndRatings.jsx";
 import Monitoring from "./pages/UserPanel/Monitoring.jsx";
-import AddFarm from "./pages/UserPanel/AddFarm.jsx";
-import UpdateFarm from "./pages/UserPanel/UpdateForm.jsx";
-
+import AddFarm from "./pages/UserPanel/Farm/AddFarm.jsx";
+import UpdateFarm from "./pages/UserPanel/Farm/UpdateForm.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
-      <SocketProvider>
-        <BrowserRouter>
-          <Routes>
-            {/* Routes for the main App */}
-            <Route path="/" element={<App />}>
-              <Route index element={<HomePage />} />
-              <Route path="home" element={<HomePage />} />
-            </Route>
+      <BrowserRouter>
+        <Routes>
+          {/* Routes for the main App */}
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<HomePage />} />
+          </Route>
 
-            {/* User related routes */}
-            <Route path="user" element={<App />}>
-              <Route path="login" element={<LoginPage />} />
-              <Route path="signup" element={<SignupPage />} />
-              <Route path="forgetpassword" element={<ForgetPassword />} />
-              <Route
-                path="api/v1/password/reset/:token"
-                element={<ResetPassword />}
-              />
+          {/* User related routes */}
+          <Route path="user" element={<App />}>
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<SignupPage />} />
+            <Route path="forgetpassword" element={<ForgetPassword />} />
+            <Route
+              path="api/v1/password/reset/:token"
+              element={<ResetPassword />}
+            />
 
-              <Route path="dashboard" element={<MainUserPanel />}>
-                <Route index element={<Dashboard />} />
-                <Route path="history" element={<History />} />
-                <Route path="notifications" element={<Notifications />} />
-                <Route path="settings" element={<Settings />} />
-                <Route path="scheduledmeetings" element={<ScheduleMeeting />} />
-                <Route path="support" element={<Support />} />
-                <Route path="feedback" element={<FeedBackAndRatings />} />
-                <Route path="monitoring" element={<Monitoring />} />
-                <Route path="addfarm" element={<AddFarm />} />
-                <Route path="updatefarm" element={<UpdateFarm />} />
-              </Route>
+            <Route path="dashboard" element={<MainUserPanel />}>
+              <Route index element={<Dashboard />} />
+              <Route path="history" element={<History />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="scheduledmeetings" element={<ScheduleMeeting />} />
+              <Route path="support" element={<Support />} />
+              <Route path="feedback" element={<FeedBackAndRatings />} />
+              <Route path="monitoring" element={<Monitoring />} />
+              <Route path="addfarm" element={<AddFarm />} />
+              <Route path="updatefarm" element={<UpdateFarm />} />
             </Route>
-          </Routes>
-        </BrowserRouter>
-      </SocketProvider>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Provider>
   </StrictMode>
 );
