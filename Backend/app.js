@@ -9,6 +9,7 @@ const financeRoute = require("./Routes/finance.routes.js");
 const taskRoute = require("./Routes/task.routes.js");
 const { checkAuthenticated } = require("./Middlewares/authentication.js");
 const dotenv = require("dotenv");
+const { run } = require("./Utils/model.js");
 
 dotenv.config({
   path: "./.env",
@@ -41,5 +42,7 @@ app.use("/api/v1/crop", cropRoute);
 app.use("/api/v1/finance", financeRoute);
 
 app.use("/api/v1/task", taskRoute);
+
+
 
 module.exports = app;
