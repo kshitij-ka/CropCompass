@@ -1,3 +1,4 @@
+# Import libraries
 from PIL import Image, UnidentifiedImageError
 from transformers import ViTImageProcessor, ViTForImageClassification
 
@@ -9,11 +10,11 @@ model = ViTForImageClassification.from_pretrained(
     ignore_mismatched_sizes=True
 )
 
-# Load your image
+# Load image
 try:
-    image = Image.open('/home/overnion/Status200/potato.png')  # Replace with the actual path to your image
+    image = Image.open('/home/overnion/Status200/tomato.png')
     # Convert the image to RGB if it's not already
-    if image.mode != 'RGB':
+    if (image.mode != 'RGB'):
         image = image.convert('RGB')
 except FileNotFoundError:
     print("Error: Image file not found.")
@@ -25,7 +26,7 @@ except Exception as e:
     print(f"An error occurred: {e}")
     exit()
 
-# Prepare the image for the model
+# Preparing the image for the model
 inputs = image_processor(images=image, return_tensors="pt")
 
 # Make the prediction
