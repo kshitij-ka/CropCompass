@@ -7,7 +7,6 @@ const Td = ({ children }) => {
       <td
         className="px-6 py-4"
         onClick={() => {
-          console.log("Td", children._id);
           navigate(`farmpage/${children._id}`);
         }}
       >
