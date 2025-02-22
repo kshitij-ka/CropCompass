@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Piechart from "../../components/monitoring charts/Piechart";
 import TotalSpent from "../../components/TotalSpent";
 import FarmList from "../../components/FarmList";
-import AddFarm from "./AddFarm";
+import AddFarm from "./Farm/AddFarm";
 
 const Dashboard = () => {
   const navigate = useNavigate();
