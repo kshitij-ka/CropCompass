@@ -4,111 +4,90 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
-      <section className="bg-white py-12 w-full flex justify-center">
+      <section className="bg-[#FBFFE4] py-12 w-full flex justify-center">
         <div className="flex flex-col-reverse md:flex-row justify-between w-10/12 h-auto">
           <div className="container mx-auto flex flex-col justify-between h-full w-full">
-            <div className="text-center md:text-start flex flex-col gap-5 justify-around h-full">
-              <h2 className="text-xl font-bold mb-4 text-yellow-600">
-                100% SATISFACTION GUARANTEE
-              </h2>
-              <h1 className="text-6xl md:text-8xl md:font-extrabold font-bold mb-4">
-                Find Your Perfect Mentor
+            <div className="text-center md:text-start flex flex-col justify-around h-full">
+              <h1 className="text-6xl md:text-6xl md:w-2/3 md:font-extrabold font-bold">
+                Anything and Everything you Need to know About
               </h1>
-              <div className="flex gap-4 justify-center md:justify-start">
-                <form class="w-full md:w-3/5">
-                  <label
-                    for="default-search"
-                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-                  >
-                    Search
-                  </label>
-                  <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                      <svg
-                        class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                        />
-                      </svg>
-                    </div>
-                    <input
-                      type="search"
-                      id="default-search"
-                      class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Search for mentors"
-                      required
-                    />
-                    <Link
-                      to={"/mentor"}
-                      type="button"
-                      class="text-white  absolute end-2.5 bottom-2.5 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-                    >
-                      Find your Mentor
-                    </Link>
-                  </div>
-                </form>
-
-                {/* 
-                <Link
-                  to={"/mentor"}
-                  type="button"
-                  className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-base px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                >
-                  Find your Mentor
-                </Link>
-                <button
-                  type="button"
-                  className="text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                >
-                  Contact Us
-                </button> */}
-              </div>
-              <p className="text-lg mb-8 my-6">
-                Find guidance, support, and industry insights from seasoned
-                professionals. Achieve your goals with our mentorship
-                platform.Our platform bridges the gap between students and
-                experienced mentors.
+              <p className="text-2xl font-semibold mb-8 ">
+                Your crops and their Health!
               </p>
             </div>
           </div>
           <div className="w-full md:w-4/5 object-contain flex justify-center items-center">
-            <img src="/images/student.png" className="w-full h-auto" alt="" />
+            <img src="/images/plant.png" className="w-full h-auto rounded-3xl shadow-xl" alt="plant" />
           </div>
         </div>
       </section>
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 mt-8">
-        <div className="w-full p-4">
-          <div className="bg-blue-500 rounded-lg p-6 text-center">
-            <h3 className="text-white font-bold text-3xl mb-2">870</h3>
-            <p className="text-white font-bold">Expert tutors</p>
+
+      
+      <div className=" flex justify-center bg-[#FBFFE4]">
+        <div className=" flex justify-between  py-8 w-5/6 ">     
+
+          <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <a href="#">
+                  <img class="rounded-t-lg" src="/images/plant.png" alt="plant" />
+              </a>
+              <div class="p-8 bg-[#A3D1C6] rounded-b-lg">
+                  <a href="#">
+                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                  </a>
+                  <p class="mb-3 font-normal text-white  dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                  <a href="#" class="inline-flex shadow-md items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#5aa392] rounded-lg hover:bg-[#3a685d] focus:bg-[#3a685d] dark:bg-[#5aa392] dark:hover:bg-[#3a685d] dark:focus:ring-[#3a685d]">
+                      Read more
+                      <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                      </svg>
+                  </a>
+              </div>
           </div>
-        </div>
-        <div className="w-full p-4">
-          <div className="bg-blue-500 rounded-lg p-6 text-center">
-            <h3 className="text-white font-bold text-3xl mb-2">20,000+</h3>
-            <p className="text-white font-bold">Hours tutored</p>
+
+          <div className="flex flex-col gap-10 justify-between ">
+            
+            <div>
+              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#8cc0b4] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              </a>
+            </div>
+
+
+            <div class="max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                <a href="#" class="inline-flex shadow-md items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#5aa392] rounded-lg hover:bg-[#3a685d] focus:bg-[#3a685d] dark:bg-[#5aa392] dark:hover:bg-[#3a685d] dark:focus:ring-[#3a685d]">
+                      Read more
+                      <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                      </svg>
+                  </a>
+            </div>
+
           </div>
-        </div>
-        <div className="w-full p-4">
-          <div className="bg-blue-500 rounded-lg p-6 text-center">
-            <h3 className="text-white font-bold text-3xl mb-2">298</h3>
-            <p className="text-white font-bold">Subjects and courses</p>
+
+
+          <div className=" flex flex-col justify-between">
+          
+            <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class=" rounded-lg" src="/images/plant.png" alt="product image" />
+                </a>
+            </div>
+
+
+            <div>
+              <a href="#" class="block max-w-sm p-6 bg-[#A3D1C6] border border-gray-200 rounded-lg shadow-md hover:bg-[#8cc0b4] dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+              </a>
+            </div>
+
           </div>
-        </div>
-        <div className="w-full p-4">
-          <div className="bg-blue-500 rounded-lg p-6 text-center">
-            <h3 className="text-white font-bold text-3xl mb-2">72,920</h3>
-            <p className="text-white font-bold">Active students</p>
-          </div>
+          
         </div>
       </div>
     </>
@@ -116,3 +95,8 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
+
+// {grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2}

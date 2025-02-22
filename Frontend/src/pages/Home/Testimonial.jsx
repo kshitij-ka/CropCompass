@@ -6,7 +6,7 @@ import { FaMessage } from "react-icons/fa6";
 const Testimonial = () => {
   return (
     <>
-      <section className="bg-gray-100 py-12 px-2 md:px-32">
+      <section className="bg-[#FBFFE4] py-12 px-2 md:px-32">
         <div className="container mx-auto">
           <div className="text-center">
             <h2 className="text-xl sm:text-4xl font-bold mb-4">WHY CHOOSE US</h2>
@@ -16,7 +16,7 @@ const Testimonial = () => {
           </div>
           <div className="flex flex-col sm:flex-row  justify-center mt-8 h-auto">
             <div className="w-full h-full md:w-1/3 p-4">
-              <div className="bg-white rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
+              <div className="bg-[#B3D8A8] rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
                 <IoMdContacts className=" text-4xl p-1 rounded-lg text-white bg-blue-600 " />
 
                 <h3 className="text-xl font-bold mb-2">One-on-One Mentoring</h3>
@@ -28,7 +28,7 @@ const Testimonial = () => {
             </div>
 
             <div className="w-full h-full md:w-1/3 p-4">
-              <div className="bg-white rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
+              <div className="bg-[#B3D8A8] rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
                 <FaClock className=" text-4xl p-1.5 rounded-lg text-white bg-green-600 " />
 
                 <h3 className="text-xl font-bold mb-2">24/7 Mentor Availability</h3>
@@ -40,7 +40,7 @@ const Testimonial = () => {
             </div>
 
             <div className="w-full h-full md:w-1/3 p-4">
-              <div className="bg-white rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
+              <div className="bg-[#B3D8A8] rounded-lg p-6 text-start shadow-md flex flex-col gap-2">
                 <FaMessage className=" text-4xl p-2 rounded-lg text-white bg-orange-600 " />
 
                 <h3 className="text-xl font-bold mb-2">Interactive Session</h3>
