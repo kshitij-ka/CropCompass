@@ -57,7 +57,7 @@ const AddCrop = ({ farmId }) => {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="block text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        className="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg text-sm px-5 py-2.5 text-center h-10 font-extrabold"
         type="button"
       >
         Add New Crop
@@ -176,7 +176,7 @@ const AddCrop = ({ farmId }) => {
                       id="growthStage"
                       value={growthStage}
                       onChange={(e) => setGrowthStage(e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                      className="mt-1 block w-full px-3 py-2 rounded-md border-gray-300 shadow-sm"
                       required
                     >
                       <option value="Planted">Planted</option>
