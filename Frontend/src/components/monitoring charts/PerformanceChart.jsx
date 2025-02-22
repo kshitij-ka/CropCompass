@@ -24,11 +24,24 @@ ChartJS.register(
 
 const PerformanceChart = () => {
   const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     datasets: [
       {
         label: "Yield",
-        data: [65, 59, 80, 81, 56, 55, 70], // hard-coded values
+        data: [75, 68, 85, 88, 60, 62, 78, 90, 95, 92, 88, 80], // slightly improved values
         fill: false,
         backgroundColor: "rgb(75, 192, 192)",
         borderColor: "rgba(75, 192, 192, 0.2)",
