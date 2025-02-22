@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import { useEffect } from "react";
 import { userSliceActions } from "./store/userSlice";
 
@@ -36,19 +37,18 @@ function App() {
   return (
     <>
       <div className="w-full h-auto flex-col relative">
-        <Navbar />
-        <div className="h-28"></div>
+        <Navbar2 />
         <Outlet />
         <div
           className={`${
             loader ? "block" : "hidden"
           } absolute w-full h-full bg-black  opacity-50  top-0 left-0`}
         >
-          <div className="text-center my-96">
+          <div class="text-center my-96">
             <div role="status">
               <svg
                 aria-hidden="true"
-                className="inline w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-900"
+                class="inline w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-900"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ function App() {
                   fill="currentFill"
                 />
               </svg>
-              <span className="sr-only">Loading...</span>
+              <span class="sr-only">Loading...</span>
             </div>
           </div>
         </div>

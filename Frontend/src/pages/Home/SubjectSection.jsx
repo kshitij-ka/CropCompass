@@ -162,7 +162,7 @@ const SubjectSection = () => {
               >
                 <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 md:w-9 md:h-9 text-gray-500 bg-gray-100 rounded-lg dark:bg-gray-800 dark:text-gray-200">
                   <FaReplyAll className="text-base sm:text-xl" />
-                  <span className="sr-only">Check icon</span>
+                  <span class="sr-only">Check icon</span>
                 </div>
                 <div className="ms-3 text-base sm:text-xl font-bold  text-black font-sans">
                   See all

@@ -55,43 +55,45 @@ const MentorSessionCard = ({ session }) => {
   const realTimeString = timeStringtoRealTime(schduledTime);
 
   return (
-    <li className="flex flex-col gap-5 w-full h-auto max-h-28 px-3 py-1 rounded-md hover:bg-slate-100 border-b-2">
-      <div className="flex items-center">
-        <div className="flex-shrink-0">
-          <img
-            className="w-8 h-8 rounded-full"
-            src="/images/profile.jpeg"
-            alt="Neil image"
-          />
-        </div>
-        <div className="flex-1 min-w-0 ms-4">
-          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
-            {user.role === "user" ? mentorName : studentName}
-          </p>
-          <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-            {user.role === "user" ? mentorMail : studentMail}
-          </p>
-        </div>
-        <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-          ₹{amountPaid}
-        </div>
-      </div>
-      <div className="flex justify-between">
-        <div className="flex items-center">
-          <div>
-            <p className="text-gray-500">
-              {timeStringToDayName(schduledTime)},
-              {realTimeString.substring(21, 26) +
-                " " +
-                realTimeString.substring(30)}
+    <>
+      <li class="flex flex-col gap-5 w-full h-auto max-h-28 px-3 py-1 rounded-md hover:bg-slate-100 border-b-2">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img
+              class="w-8 h-8 rounded-full"
+              src="/images/profile.jpeg"
+              alt="Neil image"
+            />
+          </div>
+          <div class="flex-1 min-w-0 ms-4">
+            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+              {user.role === "user" ? mentorName : studentName}
+            </p>
+            <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+              {user.role === "user" ? mentorMail : studentMail}
             </p>
           </div>
+          <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+            ₹{amountPaid}
+          </div>
         </div>
-        <div className="flex items-center">
-          <p className="text-gray-500">{realTimeString.substring(0, 18)}</p>
+        <div className="flex justify-between">
+          <div className="flex items-center">
+            <div>
+              <p className="text-gray-500">
+                {timeStringToDayName(schduledTime)},
+                {realTimeString.substring(21, 26) +
+                  " " +
+                  realTimeString.substring(30)}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center">
+            <p className="text-gray-500">{realTimeString.substring(0, 18)}</p>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </>
   );
 };
 

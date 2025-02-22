@@ -66,3 +66,43 @@ createRoot(document.getElementById("root")).render(
     </Provider>
   </StrictMode>
 );
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Provider store={MentifyStore}>
+      <SocketProvider>
+        <BrowserRouter>
+          <Routes>
+            {/* Routes for the main App */}
+            <Route path="/" element={<App />}>
+              <Route index element={<HomePage />} />
+              <Route path="home" element={<HomePage />} />
+            </Route>
+
+            {/* User related routes */}
+            <Route path="user" element={<App />}>
+              <Route path="login" element={<LoginPage />} />
+              <Route path="signup" element={<SignupPage />} />
+              <Route path="forgetpassword" element={<ForgetPassword />} />
+              <Route
+                path="api/v1/password/reset/:token"
+                element={<ResetPassword />}
+              />
+
+              <Route path="dashboard" element={<MainUserPanel />}>
+                <Route index element={<Dashboard />} />
+                <Route path="history" element={<History />} />
+                <Route path="notifications" element={<Notifications />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="scheduledmeetings" element={<ScheduleMeeting />} />
+                <Route path="support" element={<Support />} />
+                <Route path="feedback" element={<FeedBackAndRatings />} />
+              </Route>
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </SocketProvider>
+    </Provider>
+  </StrictMode>
+);
+d;

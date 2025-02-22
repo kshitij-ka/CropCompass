@@ -1,30 +1,134 @@
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { BACKEND_URL } from "../constants";
+
 const Navbar = () => {
+  const user = useSelector((store) => store.user);
+
+  //console.log("User is : ", user);
+
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/logout`, {
+      method: "Get",
+      credentials: "include",
+    });
+
+    const data = await responce.json();
+
+    //console.log("User Logged out data is : ", data);
+
+    if (data.success == true) {
+      navigate("/user/login");
+    }
+  };
   return (
-    <div className=" flex  justify-center rounded-full">
-      <nav className=" h-18 mt-3 mb-3 w-[97.5%] mx-5 fixed z-20 dark:bg-gray-800/30 backdrop-blur-md rounded-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-100/10 to-gray-500/20 pointer-events-none rounded-full"></div>
-        <div className="relative h-full flex items-center justify-between p-4">
+    <>
+      <nav className="bg-[#3D8D7A] dark:bg-gray-900">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src="/images/logo.png" className="size-10" alt="Logo" />
-            <span className="self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white">
+            <img
+              src="/images/logo.png"
+              className="size-12 mr-2 "
+              alt="Logo"
+            />
+            <span className="self-center text-4xl font-bold whitespace-nowrap dark:text-white">
               Crop Compass
             </span>
           </a>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="text-black  bg-white  hover:bg-purple-200 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-full text-sm py-2 px-4 text-center"
+              className="flex text-sm bg-white rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              id="user-menu-button"
+              aria-expanded="false"
+              data-dropdown-toggle="user-dropdown"
+              data-dropdown-placement="bottom"
             >
-              Get started
+              <span className="sr-only">Open user menu</span>
+              <img
+                className="size-9 rounded-full"
+                src={`${user?.avatar}`}
+                alt="user photo"
+              />
             </button>
+            {/* <!-- Dropdown menu --> */}
+            <div
+              className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 cursor-pointer"
+              id="user-dropdown"
+            >
+              {user?.name !== "Unloggedin User" && (
+                <div className="px-4 py-3">
+                  <span className="block text-sm text-gray-900 dark:text-white">
+                    {user?.name}
+                  </span>
+                  <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
+                    {user?.email}
+                  </span>
+                </div>
+              )}
+
+              <ul className="py-2" aria-labelledby="user-menu-button">
+                {user?.name !== "Unloggedin User" && (
+                  <>
+                    <li>
+                      <Link
+                        to={"/user/dashboard"}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to={"/user/dashboard/settings"}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Settings
+                      </Link>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                  </>
+                )}
+
+                {user?.name === "Unloggedin User" ? (
+                  <li>
+                    <Link
+                      to={"/user/login"}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign In
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <a
+                      onClick={handleLogOut}
+                      className="block px-4 py-2 text-sm text-[#FBFFE4] hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign out
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
             <button
-              data-collapse-toggle="navbar-sticky"
+              data-collapse-toggle="navbar-user"
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 mt-2 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-purple-400 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-user"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -47,22 +151,22 @@ const Navbar = () => {
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-sticky"
+            id="navbar-user"
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 bg-transparent font-bold">
+            <ul className="flex text-xl flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-[#A3D1C6] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-[#3D8D7A] dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-50 rounded-sm md:bg-transparent md:text-gray-50 md:p-0 md:dark:text-gray-50"
+                <Link
+                  to={"/"}
+                  className="block py-2 px-3 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-gray-50 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-50 md:p-0 md:dark:hover:text-gray-100 dark:text-white dark:hover:bg-purple-400 dark:hover:text-white md:dark:hover:bg-transparent "
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   About
                 </a>
@@ -70,7 +174,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-gray-50 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-50 md:p-0 md:dark:hover:text-gray-100 dark:text-white dark:hover:bg-purple-400 dark:hover:text-white md:dark:hover:bg-transparent `0"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Services
                 </a>
@@ -78,7 +182,15 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-gray-50 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-50 md:p-0 md:dark:hover:text-gray-50 dark:text-white dark:hover:bg-purple-400 dark:hover:text-white md:dark:hover:bg-transparent `0"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Contact
                 </a>
@@ -87,7 +199,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
