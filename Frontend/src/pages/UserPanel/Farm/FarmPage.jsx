@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Farm from "./Farm";
-import AddCrop from "./AddCrop";
+import CropList from "./CropList";
 
 export default function FarmPage() {
   const { farmId } = useParams();
@@ -50,11 +50,18 @@ export default function FarmPage() {
     );
   }
 
+  console.log("My farm id is : ", farmId);
+
   return (
     <div className="w-full bg-white rounded-lg shadow p-4">
       {/* Back Button */}
-      <Farm farmData={farmData}></Farm>
-      <AddCrop></AddCrop>
+
+      <div className="mb-4 flex justify-end">
+        <Farm farmData={farmData} farmId={farmId}></Farm>
+      </div>
+      <div>
+        <CropList></CropList>
+      </div>
     </div>
   );
 }
