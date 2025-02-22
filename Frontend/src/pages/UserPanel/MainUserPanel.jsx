@@ -36,7 +36,7 @@ const MainUserPanel = () => {
   return (
     <>
       <div className="container mx-auto p-4 ">
-        <div className="flex items-center mb-4 md:hidden">
+        <div className="flex items-center  mb-4 md:hidden ">
           <img
             src={`${user.avatar}`}
             alt="Profile Picture"
@@ -45,7 +45,7 @@ const MainUserPanel = () => {
           <span className="text-lg font-medium">Hello, {user.name}</span>
         </div>
         <div className="flex flex-row gap-4">
-          <div className="w-1.5/12 md:w-3/12 bg-white rounded-lg shadow p-4">
+          <div className="w-1.5/12  bg-white md:w-3/12  rounded-lg shadow p-4">
             <div className="hidden md:flex items-center mb-4">
               <img
                 src={`${user.avatar}`}
@@ -198,7 +198,7 @@ const MainUserPanel = () => {
                 <button
                   data-collapse-toggle="navbar-user"
                   type="button"
-                  class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                  className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                   aria-controls="navbar-user"
                   aria-expanded="false"
                 >
@@ -221,30 +221,30 @@ const MainUserPanel = () => {
                 </button>
               </div>
             </div>
-            <div class="mb-4">
+            <div className="mb-4">
               <img
                 src={`${user.avatar}`}
                 alt="Profile Picture"
-                class="rounded-full w-24 h-24 mx-auto"
+                className="rounded-full w-24 h-24 mx-auto"
               />
-              <h4 class="text-lg font-medium mt-2">{user.name}</h4>
-              {/* <span class="text-gray-500 text-sm">@thomasdox</span> */}
-              <p class="text-gray-500 text-sm mt-2">
+              <h4 className="text-lg font-medium mt-2">{user.name}</h4>
+              {/* <span className="text-gray-500 text-sm">@thomasdox</span> */}
+              <p className="text-gray-500 text-sm mt-2">
                 Join on {user.createdAt && user.createdAt.substring(0, 10)}
               </p>
-              <p class="text-gray-500 text-sm mt-2">
+              <p className="text-gray-500 text-sm mt-2">
                 {user.description == null &&
                   "I am a Senior Software Engineer at Google and also mentored 50+ students to get there dream job."}
               </p>
-              <div class="flex justify-center mt-4">
-                <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
+              <div className="flex justify-center mt-4">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
                   <FaHome className="text-lg font-extrabold" />
                 </button>
-                <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
                   <IoMdSettings className="text-lg font-extrabold" />
                 </button>
                 <button
-                  class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded"
                   onClick={handleLogOut}
                 >
                   <RiLogoutBoxLine className="text-lg font-extrabold" />

@@ -44,11 +44,11 @@ function App() {
             loader ? "block" : "hidden"
           } absolute w-full h-full bg-black  opacity-50  top-0 left-0`}
         >
-          <div class="text-center my-96">
+          <div className="text-center my-96">
             <div role="status">
               <svg
                 aria-hidden="true"
-                class="inline w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-900"
+                className="inline w-12 h-12 text-gray-200 animate-spin dark:text-gray-600 fill-blue-900"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ function App() {
                   fill="currentFill"
                 />
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           </div>
         </div>
