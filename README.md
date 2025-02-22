@@ -1,7 +1,8 @@
 # Status200
 
-Karan's branch for backend developement.
+Main branch, used for merging frontend and backend branches.
 
 ---
+
 
 
