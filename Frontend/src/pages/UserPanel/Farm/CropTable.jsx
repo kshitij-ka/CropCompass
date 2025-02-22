@@ -4,6 +4,20 @@ const CropTable = ({ farmId }) => {
   const [crops, setCrops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const handleRemoveCrop = async (cropId) => {
+    try {
+      await fetch(`http://localhost:8000/api/v1/crop/${cropId}`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setCrops(crops.filter((crop) => crop._id !== cropId));
+    } catch (err) {
+      setError(err.message);
+    }
+  };
   useEffect(() => {
     const fetchCrops = async () => {
       try {
@@ -31,7 +45,7 @@ const CropTable = ({ farmId }) => {
     };
 
     fetchCrops();
-  }, [farmId]);
+  }, []);
 
   if (loading) {
     return (
@@ -83,6 +97,9 @@ const CropTable = ({ farmId }) => {
               </th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                 Harvest Date
+              </th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                Remove Crop
               </th>
             </tr>
           </thead>
@@ -138,6 +155,17 @@ const CropTable = ({ farmId }) => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
                     {new Date(crop.harvestDate).toLocaleDateString()}
+                  </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">
+                    <button
+                      type="button"
+                      class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                      onClick={() => handleRemoveCrop(crop._id)}
+                    >
+                      Remove
+                    </button>
                   </div>
                 </td>
               </tr>
