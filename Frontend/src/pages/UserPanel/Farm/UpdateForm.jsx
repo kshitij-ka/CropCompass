@@ -6,6 +6,7 @@ const UpdateFarm = () => {
   const [location, setLocation] = useState("");
   const [waterContent, setWaterContent] = useState("");
   const [soilType, setSoilType] = useState("");
+  const [sizeContent, setSizeContent] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const UpdateFarm = () => {
       location,
       waterContent,
       soilType,
+      size: sizeContent,
     };
 
     try {
@@ -112,6 +114,22 @@ const UpdateFarm = () => {
               id="soilType"
               value={soilType}
               onChange={(e) => setSoilType(e.target.value)}
+              className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              required
+            />
+          </div>
+          <div className="mb-5">
+            <label
+              htmlFor="soilType"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Size of Land
+            </label>
+            <input
+              type="text"
+              id="soilType"
+              value={sizeContent}
+              onChange={(e) => setSizeContent(e.target.value)}
               className="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               required
             />
