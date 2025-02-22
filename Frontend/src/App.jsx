@@ -37,6 +37,7 @@ function App() {
     <>
       <div className="w-full h-auto flex-col relative">
         <Navbar />
+        <div className="h-28"></div>
         <Outlet />
         <div
           className={`${
