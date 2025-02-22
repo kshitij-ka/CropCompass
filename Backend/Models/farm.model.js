@@ -9,6 +9,7 @@ const farmSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    size: { type: String },
     waterContent: { type: String, required: true },
     soilType: { type: String, required: true },
     fertilizer: [
