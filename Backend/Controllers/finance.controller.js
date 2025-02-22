@@ -1,8 +1,8 @@
-import Finance from "../models/financeModel.js";
-import Farm from "../models/farmModel.js";
+const Finance = require("../Models/finance.model.js");
+const Farm = require("../Models/farm.model.js");
 
 // Create finance record for a farm
-export const createFinance = async (req, res) => {
+const createFinance = async (req, res) => {
   try {
     const { farm } = req.body;
 
@@ -31,8 +31,9 @@ export const createFinance = async (req, res) => {
 };
 
 // Get finance details by farm ID
-export const getFinanceByFarm = async (req, res) => {
+const getFinanceByFarm = async (req, res) => {
   try {
+    console.log("My farm id is : ", req.params.farmId);
     const finance = await Finance.findOne({ farm: req.params.farmId });
 
     if (!finance)
@@ -45,7 +46,7 @@ export const getFinanceByFarm = async (req, res) => {
 };
 
 // Add a transaction (expense/revenue)
-export const addTransaction = async (req, res) => {
+const addTransaction = async (req, res) => {
   try {
     const { type, amount, description } = req.body;
 
@@ -70,7 +71,7 @@ export const addTransaction = async (req, res) => {
 };
 
 // Delete a transaction
-export const deleteTransaction = async (req, res) => {
+const deleteTransaction = async (req, res) => {
   try {
     const finance = await Finance.findById(req.params.financeId);
     if (!finance)
@@ -97,7 +98,7 @@ export const deleteTransaction = async (req, res) => {
 };
 
 // Get all transactions for a farm's finance
-export const getTransactions = async (req, res) => {
+const getTransactions = async (req, res) => {
   try {
     const finance = await Finance.findById(req.params.financeId);
     if (!finance)
@@ -110,7 +111,7 @@ export const getTransactions = async (req, res) => {
 };
 
 // Get total expenses and revenue
-export const getFinancialSummary = async (req, res) => {
+const getFinancialSummary = async (req, res) => {
   try {
     const finance = await Finance.findById(req.params.financeId);
     if (!finance)
@@ -123,4 +124,13 @@ export const getFinancialSummary = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+};
+
+module.exports = {
+  createFinance,
+  getFinanceByFarm,
+  addTransaction,
+  deleteTransaction,
+  getTransactions,
+  getFinancialSummary,
 };

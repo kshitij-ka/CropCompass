@@ -5,11 +5,12 @@ const Finance = require("../Models/finance.model.js");
 // Create a farm
 const createFarm = async (req, res) => {
   try {
-    const { name, location, waterContent, soilType } = req.body;
+    const { name, location, waterContent, soilType, size } = req.body;
 
     const farm = new Farm({
       name,
       location,
+      size,
       waterContent,
       soilType,
       owner: req.user._id,
