@@ -12,7 +12,7 @@ const Dashboard = () => {
         <AddFarm />
       </div>
 
-      <div className="mb-4 flex space-x-4">
+      <div className="mb-4 flex space-x-10">
         <Piechart />
         <TotalSpent />
       </div>

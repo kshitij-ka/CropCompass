@@ -69,7 +69,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/scheduledmeetings"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -79,7 +79,7 @@ const MainUserPanel = () => {
                     Scheduled Meeting
                   </span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to={"/user/dashboard/monitoring"}
@@ -91,7 +91,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/notifications"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -101,8 +101,8 @@ const MainUserPanel = () => {
                     Notifications
                   </span>
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/feedback"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -113,7 +113,8 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/support"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -124,6 +125,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
+              */}
               <li>
                 <Link
                   to={"/user/dashboard/settings"}
