@@ -50,7 +50,7 @@ const Testimonial = () => {
                   scrollArea={myRef}
                   startDelay={100}
                   cursorColor="white"
-                  text="Record breaking features like never before!"
+                  text="⠀Unparalled management for crops & farms."
                   typeSpeed={100}
                 />
               </h1>
@@ -65,7 +65,7 @@ const Testimonial = () => {
                   alt="dashboard"
                   className="w-7 h-7"
                 ></img>
-                <a href="#">
+                <a href="/user/dashboard/">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     Excellent Dashboards
                   </h5>
@@ -112,7 +112,7 @@ const Testimonial = () => {
                   symptoms.
                 </p>
                 <a
-                  href="#"
+                  href="/predict"
                   className="inline-flex font-medium items-center text-blue-600 hover:underline"
                 >
                   Check Out
@@ -138,7 +138,7 @@ const Testimonial = () => {
             <ScrollReveal direction="up">
               <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <img src="/images/planner.png" className="w-7 h-7" alt="" />
-                <a href="#">
+                <a href="/user/dashboard/monitoring">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     Crop Planner
                   </h5>
