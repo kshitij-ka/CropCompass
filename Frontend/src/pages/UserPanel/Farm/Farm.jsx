@@ -1,7 +1,7 @@
 import AddCrop from "./AddCrop";
+import EditFarm from "./EditFarm";
 
 const Farm = ({ farmData, farmId }) => {
-  console.log("Farm id is : ", farmId);
   return (
     <div className="w-full ">
       <div className="flex justify-between">
@@ -48,16 +48,7 @@ const Farm = ({ farmData, farmId }) => {
             <td className="px-6 py-4">{farmData.soilType}</td>
             <td className="px-6 py-4">{farmData.size}</td>
             <td className="px-6 py-4">{farmData.waterContent}</td>
-            <td className="px-6 py-4">
-              <button
-                onClick={() =>
-                  navigate(`/user/dashboard/updatefarm?farmId=${farmData._id}`)
-                }
-                className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Edit
-              </button>
-            </td>
+            <td className="px-6 py-4">Edit</td>
           </tr>
         </tbody>
       </table>

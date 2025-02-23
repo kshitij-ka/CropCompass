@@ -44,6 +44,7 @@ const AddFarm = () => {
       setSuccess(true);
       setError(null);
       setIsModalOpen(false);
+      window.location.reload();
     } catch (err) {
       setError(err.message);
       setSuccess(false);
@@ -53,7 +54,9 @@ const AddFarm = () => {
   return (
     <>
       <button
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => {
+          setIsModalOpen(true);
+        }}
         className="block text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         type="button"
       >

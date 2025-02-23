@@ -5,7 +5,6 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { MdHistory } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 import { MdFeedback } from "react-icons/md";
 import { MdOutlineSupportAgent } from "react-icons/md";
@@ -13,6 +12,7 @@ import { IoSettings } from "react-icons/io5";
 import { RiCalendarScheduleLine } from "react-icons/ri";
 import { IoIosHome } from "react-icons/io";
 import { BACKEND_URL } from "../../constants";
+import { IoMdStats } from "react-icons/io";
 
 const MainUserPanel = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const MainUserPanel = () => {
         </div>
         <div className="flex flex-row gap-4">
           {/* Updated Sidebar */}
-          <div className="w-full md:w-1/4 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg p-6">
+          <div className="w-full md:w-1/4 bg-gradient-to-br from-white/30 to-gray-50/30 rounded-xl shadow-lg p-6 backdrop-blur-lg">
             <div className="hidden md:flex items-center mb-6">
               <img
                 src={`${user.avatar}`}
@@ -61,7 +61,7 @@ const MainUserPanel = () => {
               <li>
                 <Link
                   to={"/user/dashboard"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <IoIosHome className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
@@ -72,7 +72,7 @@ const MainUserPanel = () => {
               <li>
                 <Link
                   to={"/user/dashboard/scheduledmeetings"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <RiCalendarScheduleLine className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
@@ -82,19 +82,19 @@ const MainUserPanel = () => {
               </li>
               <li>
                 <Link
-                  to={"/user/dashboard/history"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  to={"/user/dashboard/monitoring"}
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
-                  <MdHistory className="text-2xl text-green-600" />
+                  <IoMdStats className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
-                    History
+                    Monitor
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
                   to={"/user/dashboard/notifications"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <IoIosNotifications className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
@@ -105,7 +105,7 @@ const MainUserPanel = () => {
               <li>
                 <Link
                   to={"/user/dashboard/feedback"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <MdFeedback className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
@@ -116,7 +116,7 @@ const MainUserPanel = () => {
               <li>
                 <Link
                   to={"/user/dashboard/support"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <MdOutlineSupportAgent className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">
@@ -127,7 +127,7 @@ const MainUserPanel = () => {
               <li>
                 <Link
                   to={"/user/dashboard/settings"}
-                  className="flex items-center p-2 rounded-md hover:bg-green-100 transition-colors"
+                  className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
                 >
                   <IoSettings className="text-2xl text-green-600" />
                   <span className="ml-3 text-lg font-medium text-gray-700 hidden md:block">

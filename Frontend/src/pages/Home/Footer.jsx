@@ -3,11 +3,11 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className=" text-gray-50">
+      <footer className="text-gray-50">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="/" class="flex items-center gap-2">
+              <a href="/" className="flex items-center gap-2">
                 <img
                   src="/images/logo.png"
                   className="h-9 rounded-full"
@@ -25,12 +25,15 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-50 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <a href="https://flowbite.com/" className="hover:underline">
                       Flowbite
                     </a>
                   </li>
                   <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a
+                      href="https://tailwindcss.com/"
+                      className="hover:underline"
+                    >
                       Tailwind CSS
                     </a>
                   </li>
@@ -44,7 +47,7 @@ const Footer = () => {
                   <li className="mb-4">
                     <a
                       href="https://github.com/themesberg/flowbite"
-                      className="hover:underline "
+                      className="hover:underline"
                     >
                       Github
                     </a>
@@ -82,7 +85,7 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-50 sm:text-center dark:text-gray-400">
               © 2024{" "}
-              <a href="/" class="hover:underline">
+              <a href="/" className="hover:underline">
                 Crop Compass™
               </a>
               . All Rights Reserved.
