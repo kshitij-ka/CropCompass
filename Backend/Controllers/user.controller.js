@@ -65,12 +65,12 @@ const loginUser = catchAsyncErrors(async (req, res) => {
 
   return res
     .status(200)
-    .cookie(process.env.TOKEN_NAME, token, {
+    .cookie("uid", token, {
+      httpOnly: true, // Prevent access from JavaScript (recommended for security)
+      secure: false, // ⚠️ Set to `false` for localhost
+      sameSite: "Lax", // Use "Lax" instead of "None" for better compatibility
       path: "/",
-      sameSite: "None",
-      secure: process.env.NODE_ENV === "production",
-      httpOnly: true,
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
     })
     .json({
       success: true,
@@ -260,8 +260,6 @@ const resetPassword = catchAsyncErrors(async (req, res) => {
 
 // get user personal details
 const getUserDetails = catchAsyncErrors(async (req, res) => {
-
-
   const user = await User.findById(req.user._id);
 
   if (!user) {
