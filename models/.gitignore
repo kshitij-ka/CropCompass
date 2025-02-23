@@ -1,0 +1,8 @@
+# python-venv excluded
+include/
+bin/
+lib/
+lib64/
+share/
+lib64
+pyvenv.cfg
