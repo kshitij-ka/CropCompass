@@ -32,15 +32,13 @@ const MainUserPanel = () => {
     }
   };
 
-
-
   const user = useSelector((store) => store.user);
   return (
     <>
       <div className="container mx-auto p-4">
         <div className="flex items-center mb-4 md:hidden">
           <img
-            src={`${user.avatar}`}
+            src={`/images/default1.png`}
             alt="Profile Picture"
             className="rounded-full w-10 h-10 mr-2"
           />
@@ -51,7 +49,7 @@ const MainUserPanel = () => {
           <div className="w-full md:w-1/4 bg-gradient-to-br from-white/30 to-gray-50/30 rounded-xl shadow-lg p-6 backdrop-blur-lg">
             <div className="hidden md:flex items-center mb-6">
               <img
-                src={`${user.avatar}`}
+                src={`/images/default1.png`}
                 alt="Profile Picture"
                 className="w-12 h-12 rounded-full mr-3 border-2 border-green-500"
               />
@@ -233,7 +231,7 @@ const MainUserPanel = () => {
             </div>
             <div className="mb-4">
               <img
-                src={`${user.avatar}`}
+                src={`/images/default1.png`}
                 alt="Profile Picture"
                 className="rounded-full w-24 h-24 mx-auto"
               />
