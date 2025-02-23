@@ -12,10 +12,12 @@ if len(sys.argv) < 2:
     print("Error: No image path provided. Please provide the path to the image as an argument.")
     exit()
 
-# Load the image processor and model from the local directory
-image_processor = ViTImageProcessor.from_pretrained(local_model_path)
+
+# Load the image processor and model
+model_name = 'vishnun0027/Crop_Disease_model_1'
+image_processor = ViTImageProcessor.from_pretrained(model_name)
 model = ViTForImageClassification.from_pretrained(
-    local_model_path,
+    model_name,
     ignore_mismatched_sizes=True
 )
 
