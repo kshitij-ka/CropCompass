@@ -238,8 +238,7 @@ const MainUserPanel = () => {
                 Join on {user.createdAt && user.createdAt.substring(0, 10)}
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                {user.description == null &&
-                  "I am a Senior Software Engineer at Google and also mentored 50+ students to get their dream job."}
+                {user.address == null && "Maharashtra, Pune"}
               </p>
               <div className="flex justify-center mt-4">
                 <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
