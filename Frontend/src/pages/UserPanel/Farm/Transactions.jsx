@@ -7,11 +7,8 @@ const Transactions = ({ farmId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/finance`, {
+    fetch(`http://localhost:8000/api/v1/finance/${farmId}`, {
       credentials: "include",
-
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ farm: farmId }),
     })
       .then((response) => response.json())
       .then((data) => {
