@@ -48,7 +48,9 @@ const Farm = ({ farmData, farmId }) => {
             <td className="px-6 py-4">{farmData.soilType}</td>
             <td className="px-6 py-4">{farmData.size}</td>
             <td className="px-6 py-4">{farmData.waterContent}</td>
-            <td className="px-6 py-4">Edit</td>
+            <td className="px-6 py-4">
+              <EditFarm></EditFarm>
+            </td>
           </tr>
         </tbody>
       </table>
