@@ -146,15 +146,54 @@ const updateHealthStatus = async (req, res) => {
   }
 };
 
-const cropSuggest = async (req, res) => {
+const cropHarvest = async (req, res) => {
   try {
     const crop = await Crop.findById(req.params.cropId).populate("farm");
     console.log(crop);
 
-    //const message = `My crop is ${crop.name}, given that I have planted it on ${crop.plantedDate}, suggest me a date as to when it will be harvested. Give output in the form: ${crop.name} will take .. months to harvest around (give month name and year).`; // for harvest expectation
-    //const message = `Currently I have ${crop.name} in my field. Considering the best optimal time for its harvestation give my location, ${crop.farm.location} and water content of my field is ${crop.farm.waterContent}. Suggest next crop I should grow and give more suggestions around it. Don't tell me when to harvest ${crop.name}, only tell me next best crop to plant in my field and give suggestions around it.`; // for next sowing suggestion
-    //const message = `Considering I have grown ${crop.name} in my field located in ${crop.farm.location} and has water content of ${crop.farm.waterContent}. Suggest pesticides I should use on the crop and when to use it considering my sow date is ${crop.sowDate}. Give precautionary measures and suggestions around it.`; // for pesticides
-    //const message = `Considering I have grown ${crop.name} in my field located in ${crop.farm.location} and has water content of ${crop.farm.waterContent}. Suggest fertilizers I should use on the crop and when to use it, i.e. after how many months after sowing considering sowing date is ${crop.sowDate} considering my sow date is ${crop.sowDate}. Give me precautionary measures.`; // for fertilizers
+    const message = `My crop is ${crop.name}, given that I have planted it on ${crop.plantedDate}, suggest me a date as to when it will be harvested. Give output in the form: ${crop.name} will take .. months to harvest around (give month name and year).`; // for harvest expectation
+
+    const result = await run(message);
+    res.status(200).json({ message: result });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const suggestNextCrop = async (req, res) => {
+  try {
+    const crop = await Crop.findById(req.params.cropId).populate("farm");
+    console.log(crop);
+
+    const message = `Currently I have ${crop.name} in my field. Considering the best optimal time for its harvestation give my location, ${crop.farm.location} and water content of my field is ${crop.farm.waterContent}. Suggest next crop I should grow and give more suggestions around it. Don't tell me when to harvest ${crop.name}, only tell me next best crop to plant in my field and give suggestions around it.`; // for next sowing suggestion
+
+    const result = await run(message);
+    res.status(200).json({ message: result });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const suggestPesticides = async (req, res) => {
+  try {
+    const crop = await Crop.findById(req.params.cropId).populate("farm");
+    console.log(crop);
+
+    const message = `Considering I have grown ${crop.name} in my field located in ${crop.farm.location} and has water content of ${crop.farm.waterContent}. Suggest pesticides I should use on the crop and when to use it considering my sow date is ${crop.sowDate}. Give precautionary measures and suggestions around it.`; // for pesticides
+
+    const result = await run(message);
+    res.status(200).json({ message: result });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const suggestFertilizers = async (req, res) => {
+  try {
+    const crop = await Crop.findById(req.params.cropId).populate("farm");
+    console.log(crop);
+
+    const message = `Considering I have grown ${crop.name} in my field located in ${crop.farm.location} and has water content of ${crop.farm.waterContent}. Suggest fertilizers I should use on the crop and when to use it, i.e. after how many months after sowing considering sowing date is ${crop.sowDate} considering my sow date is ${crop.sowDate}. Give me precautionary measures.`; // for fertilizers
 
     const result = await run(message);
     res.status(200).json({ message: result });
@@ -171,5 +210,8 @@ module.exports = {
   deleteCrop,
   updateGrowthStage,
   updateHealthStatus,
-  cropSuggest,
+  cropHarvest,
+  suggestNextCrop,
+  suggestPesticides,
+  suggestFertilizers,
 };
