@@ -36,7 +36,7 @@ const Piechart = () => {
   return (
     <div className="bg-white md:p-6 block max-w-sm p-6 bg-no-repeat bg-center bg-cover border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
       <h5 className="text-xl font-bold text-gray-900 dark:text-white mb-4 ">
-        Cost Analysis
+        Farm Info
       </h5>
       <Chart options={chartOptions} series={series} type="donut" height={320} />
     </div>

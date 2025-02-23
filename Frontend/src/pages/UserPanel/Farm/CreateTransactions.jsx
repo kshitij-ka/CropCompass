@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Laoder from "../../../components/Laoder";
+import Loader from "../../../components/Loader";
 
 const CreateFinance = () => {
   const [loading, setLoading] = useState(false);
@@ -34,17 +34,13 @@ const CreateFinance = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 border rounded shadow">
-      <h2 className="text-xl font-bold mb-4">Create Finance</h2>
-      <button
-        onClick={handleCreateFinance}
-        disabled={loading}
-        className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        {loading ? <Laoder></Laoder> : "Create Finance"}
-      </button>
-      {message && <p className="mt-4 text-sm text-green-600">{message}</p>}
-    </div>
+    <button
+      onClick={handleCreateFinance}
+      disabled={loading}
+      className="mt-4 w-30 inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      {loading ? <Loader></Loader> : "Create Finance"}
+    </button>
   );
 };
 

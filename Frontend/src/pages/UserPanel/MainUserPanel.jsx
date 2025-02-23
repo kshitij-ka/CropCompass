@@ -71,7 +71,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/scheduledmeetings"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -81,7 +81,7 @@ const MainUserPanel = () => {
                     Scheduled Meeting
                   </span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to={"/user/dashboard/monitoring"}
@@ -93,7 +93,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/notifications"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -103,8 +103,8 @@ const MainUserPanel = () => {
                     Notifications
                   </span>
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/feedback"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -115,7 +115,8 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/support"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -126,6 +127,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
+              */}
               <li>
                 <Link
                   to={"/user/dashboard/settings"}
@@ -240,8 +242,7 @@ const MainUserPanel = () => {
                 Join on {user.createdAt && user.createdAt.substring(0, 10)}
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                {user.description == null &&
-                  "I am a Senior Software Engineer at Google and also mentored 50+ students to get their dream job."}
+                {user.address == null && "Maharashtra, Pune"}
               </p>
               <div className="flex justify-center mt-4">
                 <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">

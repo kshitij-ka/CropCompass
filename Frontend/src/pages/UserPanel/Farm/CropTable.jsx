@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Laoder from "../../../components/Laoder";
+import Loader from "../../../components/Loader";
 
 const CropTable = ({ farmId }) => {
   const [crops, setCrops] = useState([]);
@@ -49,7 +49,7 @@ const CropTable = ({ farmId }) => {
   }, []);
 
   if (loading) {
-    return <Laoder></Laoder>;
+    return <Loader></Loader>;
   }
 
   if (error) {

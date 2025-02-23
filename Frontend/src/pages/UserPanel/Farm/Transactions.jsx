@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Td from "../../../components/Td";
-import Laoder from "../../../components/Laoder";
+import Loader from "../../../components/Loader";
 
 const Transactions = ({ farmId }) => {
   const [data, setData] = useState([]);
@@ -25,34 +25,36 @@ const Transactions = ({ farmId }) => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       {loading ? (
-        <Laoder></Laoder>
+        <Loader />
       ) : (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Farm name
+                Field
               </th>
               <th scope="col" className="px-6 py-3">
-                Location
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Type
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Size (acres)
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
+                Value
               </th>
             </tr>
           </thead>
           <tbody>
-            {Array.isArray(data) && data.length > 0 ? (
+            {!Array.isArray(data) ? (
+              // Data is an object: show key-value pairs
+              Object.entries(data).map(([key, value]) => (
+                <tr key={key}>
+                  <td className="px-6 py-3 font-bold">{key}</td>
+                  <td className="px-6 py-3">
+                    {typeof value === "object" ? JSON.stringify(value) : value}
+                  </td>
+                </tr>
+              ))
+            ) : // Data is an array: render using your Td component
+            data.length > 0 ? (
               data.map((item) => <Td key={item.id} children={item} />)
             ) : (
               <tr>
-                <td colSpan={5} className="text-center">
+                <td colSpan={2} className="text-center">
                   No data available
                 </td>
               </tr>
