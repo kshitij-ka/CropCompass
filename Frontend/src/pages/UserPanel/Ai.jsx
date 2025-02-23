@@ -33,9 +33,9 @@ const Ai = () => {
         throw new Error("Prediction request failed");
       }
 
-      const data = await response.json();
+      const result = await response.json();
       // Assuming the API returns a JSON object with an "output" field.
-      setPrediction(data.output || "No prediction returned");
+      setPrediction(result.data || "No prediction returned");
     } catch (err) {
       console.error("Error during prediction:", err);
       setError(err.message);
