@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 const Navbar2 = () => {
+
+  const [isLoggedIn, setLoggedIn] = useState(false)
     return (
     <div className=" flex  justify-center rounded-full">
       <nav className=" h-18 mt-3 mb-3 w-[97.5%] mx-5 fixed z-20 dark:bg-gray-800/30 backdrop-blur-md rounded-full">
@@ -21,35 +26,17 @@ const Navbar2 = () => {
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="text-black  bg-white  hover:bg-purple-200 focus:ring-4 focus:outline-none focus:ring-black-300 font-medium rounded-full text-sm py-2 px-4 text-center"
+              className="text-black  bg-white  hover:bg-purple-200 font-medium rounded-full text-sm py-2 px-4 text-center" 
             >
-              Get started
+              {isLoggedIn? (
+                <Link to={"/user/dashboard/addfarm"}>Get Started</Link>
+              ) : (
+                <Link to={"/user/login"}>Log In</Link>
+              )}
             </button>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 mt-2 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-purple-400 dark:focus:ring-gray-600"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
+            
           </div>
+
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-sticky"
