@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
-import Td from "./Td";
-import Laoder from "./Laoder";
+import Td from "../../../components/Td";
+import Laoder from "../../../components/Laoder";
 
-const FarmList = () => {
+const Transactions = ({ farmId }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    fetch("http://localhost:8000/api/v1/farm", {
+    fetch(`http://localhost:8000/api/v1/finance/${farmId}`, {
       credentials: "include",
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
-      .then((data) => setData(data))
-      .then(setLoading(false))
-      .catch((error) => console.error(error));
-  }, []);
+      .then((data) => {
+        setData(data);
+        console.log("Fetched data:", data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching transactions:", error);
+        setLoading(false);
+      });
+  }, [farmId]);
+
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       {loading ? (
@@ -42,7 +48,7 @@ const FarmList = () => {
             </tr>
           </thead>
           <tbody>
-            {data.length > 0 ? (
+            {Array.isArray(data) && data.length > 0 ? (
               data.map((item) => <Td key={item.id} children={item} />)
             ) : (
               <tr>
@@ -58,4 +64,4 @@ const FarmList = () => {
   );
 };
 
-export default FarmList;
+export default Transactions;
