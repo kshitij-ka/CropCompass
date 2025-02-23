@@ -4,6 +4,7 @@ import Farm from "./Farm";
 import CropTable from "./CropTable";
 import Transactions from "./Transactions";
 import CreateTransactions from "./CreateTransactions";
+import Laoder from "../../../components/Laoder";
 
 export default function FarmPage() {
   const { farmId } = useParams();
@@ -37,11 +38,7 @@ export default function FarmPage() {
   }, [farmId]);
 
   if (loading) {
-    return (
-      <div className="w-full bg-white rounded-lg shadow p-4">
-        <p>Loading farm data...</p>
-      </div>
-    );
+    return <Laoder></Laoder>;
   }
 
   if (!farmData) {
