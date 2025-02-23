@@ -9,6 +9,7 @@ import {
   HeroSecn,
 } from "./Cards";
 import Testimonial from "./Testimonial";
+import Navbar2 from "../../components/Navbar2";
 
 const ScrollReveal = ({ children, direction = "left" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -37,6 +38,7 @@ function Hero2() {
 
   return (
     <div>
+      <Navbar2 />
       <ScrollReveal direction="up">
         <HeroSecn />
       </ScrollReveal>
