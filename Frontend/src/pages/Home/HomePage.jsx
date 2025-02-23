@@ -10,7 +10,7 @@ const HomePage = () => {
     <>
       <div className=" bg-[url(/images/bgphoto.png)] bg-no-repeat bg-cover">
         <Hero2 />
-        <Testimonial />
+        
         <Footer />
       </div>
     </>

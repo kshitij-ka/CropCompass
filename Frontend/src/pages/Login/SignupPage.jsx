@@ -13,18 +13,12 @@ const SignupPage = () => {
 
   const handleRegisteration = async (event) => {
     event.preventDefault();
-    let userRole;
-    if (roleElement.current.value == "Student") {
-      userRole = "user";
-    } else {
-      userRole = "mentor";
-    }
+
     const user = {
       name:
         firstNameElement.current.value + " " + lastNameElement.current.value,
       email: emailElement.current.value,
       password: passwordElement.current.value,
-      role: userRole,
     };
 
     event.preventDefault();
@@ -45,7 +39,6 @@ const SignupPage = () => {
     lastNameElement.current.value = "";
     emailElement.current.value = "";
     passwordElement.current.value = "";
-    roleElement.current.value = "";
 
     if (data.success == true) {
       navigate("/user/login");
@@ -72,11 +65,9 @@ const SignupPage = () => {
             <h1 className="text-2xl font-bold text-gray-50 mb-4">
               Register Your account
             </h1>
-            <p className="text-gray-100">
-              Welcome to Crop Compass. 
-            </p>
+            <p className="text-gray-100">Welcome to Crop Compass.</p>
             <p className="text-gray-100 mb-6">
-              Please register your new account.           
+              Please register your new account.
             </p>
             <form
               action="#"
@@ -129,7 +120,7 @@ const SignupPage = () => {
                   type="email"
                   id="email"
                   ref={emailElement}
-                  className="bg-gray-50 border border-gray-300 text-gray-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="user@mail.com"
                   required
                 />
