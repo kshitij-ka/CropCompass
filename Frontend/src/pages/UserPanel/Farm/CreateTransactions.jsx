@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Laoder from "../../../components/Laoder";
 
 const CreateFinance = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ const CreateFinance = () => {
         disabled={loading}
         className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        {loading ? "Creating..." : "Create Finance"}
+        {loading ? <Laoder></Laoder> : "Create Finance"}
       </button>
       {message && <p className="mt-4 text-sm text-green-600">{message}</p>}
     </div>
