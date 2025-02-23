@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Farm from "./Farm";
 import CropTable from "./CropTable";
+import Transactions from "./Transactions";
+import CreateTransactions from "./CreateTransactions";
 
 export default function FarmPage() {
   const { farmId } = useParams();
@@ -59,8 +61,14 @@ export default function FarmPage() {
       <div className="mb-4 flex justify-end">
         <Farm farmData={farmData} farmId={farmId}></Farm>
       </div>
-      <div>
+      <div className="mb-4 ">
         <CropTable farmId={farmId}></CropTable>
+      </div>
+      <div className="mb-4 flex justify-end">
+        <CreateTransactions farmId={farmId}></CreateTransactions>
+      </div>
+      <div className="mb-4 ">
+        <Transactions farmId={farmId}></Transactions>
       </div>
     </div>
   );

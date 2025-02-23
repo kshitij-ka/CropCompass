@@ -17,6 +17,7 @@ const EditFarm = ({ _id, onDelete }) => {
         if (onDelete) onDelete(_id);
       }
       setModalOpen(false); // Close the modal after the operation
+      window.location.reload();
     } catch (error) {
       console.error("Error deleting farm:", error);
     }

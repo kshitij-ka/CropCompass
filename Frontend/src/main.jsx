@@ -26,7 +26,6 @@ import Monitoring from "./pages/UserPanel/Monitoring.jsx";
 import AddFarm from "./pages/UserPanel/Farm/AddFarm.jsx";
 import UpdateFarm from "./pages/UserPanel/Farm/UpdateForm.jsx";
 import FarmPage from "./pages/UserPanel/Farm/FarmPage.jsx";
-import EditFarm from "./pages/UserPanel/Farm/EditFarm.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
