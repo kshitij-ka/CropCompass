@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import Td from "../../../components/Td";
+import Laoder from "../../../components/Laoder";
 
 const Transactions = ({ farmId }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/finance/${farmId}`, {
+    fetch(`http://localhost:8000/api/v1/finance`, {
       credentials: "include",
-      method: "GET",
+
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ farm: farmId }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -26,7 +28,7 @@ const Transactions = ({ farmId }) => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       {loading ? (
-        <div>Loading...</div>
+        <Laoder></Laoder>
       ) : (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
