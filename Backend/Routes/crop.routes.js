@@ -7,6 +7,7 @@ const {
   deleteCrop,
   updateHealthStatus,
   updateGrowthStage,
+  cropSuggest,
 } = require("../Controllers/crop.controller.js");
 const { checkAuthenticated } = require("../Middlewares/authentication.js");
 const upload = require("../Middlewares/multer.js");
@@ -21,5 +22,6 @@ router.put("/:cropId", checkAuthenticated, updateCrop); // Update crop details
 router.delete("/:cropId", checkAuthenticated, deleteCrop); // Delete a crop
 router.put("/health/:cropId", checkAuthenticated, updateHealthStatus);
 router.put("/growth/:cropId", checkAuthenticated, updateGrowthStage);
+router.get("/suggest/:cropId", checkAuthenticated, cropSuggest);
 
 module.exports = router;
