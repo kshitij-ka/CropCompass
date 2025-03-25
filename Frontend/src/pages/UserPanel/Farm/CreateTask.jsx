@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCreateTaskMutation } from "../../../store/api/taskApi";
 
 const CreateTask = ({ farmId, onTaskCreated }) => {
   const [farm, setFarm] = useState(farmId);
@@ -9,6 +10,8 @@ const CreateTask = ({ farmId, onTaskCreated }) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
+
+  const [createTask] = useCreateTaskMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,20 +30,11 @@ const CreateTask = ({ farmId, onTaskCreated }) => {
       status,
     };
 
+    console.log("Task Data is worked : ", taskData);
+
     try {
-      const response = await fetch("http://localhost:8000/api/v1/task", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(taskData),
-      });
-      if (!response.ok) {
-        throw new Error("Failed to create task");
-      }
-      const data = await response.json();
-      console.log("Task created:", data);
+      const res = await createTask(taskData).unwrap();
+
       setMessage("Task created successfully!");
       setModalOpen(false);
       // Call the parent's callback with the newly created task

@@ -1,10 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../../components/Loader";
+import { useGetTransactionsQuery } from "../../../store/api/financeApi";
+
+function formatTimestamp(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true, // Ensures AM/PM format
+  });
+}
 
 const FinanceSummary = ({ farmId, financeId }) => {
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  console.log("Finance id /mljkfgj is : ", financeId);
+
+  const {
+    data: transaction,
+    error: transactionError,
+    isLoading,
+  } = useGetTransactionsQuery(financeId);
+
+  console.log("Transaction data is : ", transaction);
 
   useEffect(() => {
     const fetchSummary = async () => {
@@ -52,23 +76,48 @@ const FinanceSummary = ({ farmId, financeId }) => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Farm name
+                Type of Transaction
               </th>
               <th scope="col" className="px-6 py-3">
-                Location
+                Amount
               </th>
               <th scope="col" className="px-6 py-3">
-                Type
+                Description
               </th>
               <th scope="col" className="px-6 py-3">
-                Size (acres)
+                Date
               </th>
               <th scope="col" className="px-6 py-3">
                 Action
               </th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            {transaction?.map((transaction) => (
+              <tr>
+                <td scope="col" className="px-6 py-3">
+                  {transaction.type}
+                </td>
+                <td scope="col" className="px-6 py-3">
+                  {transaction.amount}
+                </td>
+                <td scope="col" className="px-6 py-3">
+                  {transaction.description}
+                </td>
+                <td scope="col" className="px-6 py-3">
+                  {formatTimestamp(transaction.date)}
+                </td>
+                <td className="px-6 py-4">
+                  <button
+                    className="block text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5"
+                    type="button"
+                  >
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

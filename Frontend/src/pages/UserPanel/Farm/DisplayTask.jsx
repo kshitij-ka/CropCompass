@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../../components/Loader";
+import { useGetTasksByFarmQuery } from "../../../store/api/taskApi";
 
 const DisplayTast = ({ farmId }) => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const {
+    data: taskList,
+    error: taskError,
+    isLoading,
+  } = useGetTasksByFarmQuery(farmId);
+
+  console.log("Task list is : ", taskList);
 
   // Function to delete a task and update the state
   const handleDeleteTask = async (taskId) => {
@@ -31,33 +40,11 @@ const DisplayTast = ({ farmId }) => {
   };
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/task/farm/${farmId}`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch tasks");
-        }
-        const data = await response.json();
-        setTasks(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTasks();
-  }, [farmId]);
+    if (taskList) {
+      setTasks(taskList);
+      setLoading(false);
+    }
+  }, [farmId, taskList]);
 
   if (loading) return <div>Loading tasks...</div>;
   if (error) return <div className="text-red-600">Error: {error}</div>;
