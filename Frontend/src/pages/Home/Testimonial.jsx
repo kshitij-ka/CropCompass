@@ -112,7 +112,7 @@ const Testimonial = () => {
                   symptoms.
                 </p>
                 <a
-                  href="/predict"
+                  href="/ai"
                   className="inline-flex font-medium items-center text-blue-600 hover:underline"
                 >
                   Check Out

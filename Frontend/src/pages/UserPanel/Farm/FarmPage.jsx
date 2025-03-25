@@ -9,49 +9,63 @@ import AddTransaction from "./AddTransactions";
 import FinanceSummary from "./FinanceSummary";
 import CreateTask from "./CreateTask";
 import DisplayTast from "./DisplayTask";
+import { useGetFarmByIdQuery } from "../../../store/api/farmApi";
 
 export default function FarmPage() {
   const { farmId } = useParams();
   const navigate = useNavigate();
-  const [farmData, setFarmData] = useState(null);
+  const [farmData, setFarmData] = useState("");
   const [loading, setLoading] = useState(true);
 
+  console.log("Farm id is : ", farmId);
+
+  const { data: farm, error, isLoading } = useGetFarmByIdQuery(farmId);
+
   useEffect(() => {
-    async function fetchFarmData() {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/farm/${farmId}`,
-          {
-            method: "GET",
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const jsonData = await response.json();
-        console.log("Fetched farm data:", jsonData);
-        setFarmData(jsonData);
-      } catch (error) {
-        console.error("Error fetching farm data: ", error);
-      } finally {
-        setLoading(false);
-      }
+    if (!isLoading && !error && farm) {
+      setFarmData(farm);
+      setLoading(false);
     }
-    fetchFarmData();
-  }, [farmId]);
+  }, [farm]);
 
-  if (loading) {
-    return <Loader />;
-  }
+  console.log("djoejwrru9", farmData);
 
-  if (!farmData) {
-    return (
-      <div className="w-full bg-white rounded-lg shadow p-4">
-        <p>No farm data found.</p>
-      </div>
-    );
-  }
+  // useEffect(() => {
+  //   async function fetchFarmData() {
+  //     try {
+  //       const response = await fetch(
+  //         `http://localhost:8000/api/v1/farm/${farmId}`,
+  //         {
+  //           method: "GET",
+  //           credentials: "include",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       );
+  //       const jsonData = await response.json();
+  //       console.log("Fetched farm data:", jsonData);
+  //       setFarmData(jsonData);
+  //     } catch (error) {
+  //       console.error("Error fetching farm data: ", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchFarmData();
+  // }, [farmId]);
+
+  // if (loading) {
+  //   return <Loader />;
+  // }
+
+  // if (!farmData) {
+  //   return (
+  //     <div className="w-full bg-white rounded-lg shadow p-4">
+  //       <p>No farm data found.</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="w-full bg-white rounded-lg shadow p-4 space-y-8">
@@ -82,14 +96,14 @@ export default function FarmPage() {
       {/* Add Transaction Modal Section */}
       <section>
         <div className="flex justify-end">
-          <AddTransaction farmId={farmId} />
+          <AddTransaction farmId={farmId} financeId={farmData?.finances?._id} />
         </div>
       </section>
 
       {/* Finance Summary Section */}
       <section>
         <div className="flex justify-end">
-          <FinanceSummary farmId={farmId} />
+          <FinanceSummary farmId={farmId} financeId={farmData?.finances?._id} />
         </div>
       </section>
 

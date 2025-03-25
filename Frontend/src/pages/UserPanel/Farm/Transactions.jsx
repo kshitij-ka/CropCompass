@@ -31,34 +31,22 @@ const Transactions = ({ farmId }) => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Field
+                Total Expenses
               </th>
               <th scope="col" className="px-6 py-3">
-                Value
+                totalRevenue
               </th>
             </tr>
           </thead>
           <tbody>
-            {!Array.isArray(data) ? (
-              // Data is an object: show key-value pairs
-              Object.entries(data).map(([key, value]) => (
-                <tr key={key}>
-                  <td className="px-6 py-3 font-bold">{key}</td>
-                  <td className="px-6 py-3">
-                    {typeof value === "object" ? JSON.stringify(value) : value}
-                  </td>
-                </tr>
-              ))
-            ) : // Data is an array: render using your Td component
-            data.length > 0 ? (
-              data.map((item) => <Td key={item.id} children={item} />)
-            ) : (
-              <tr>
-                <td colSpan={2} className="text-center">
-                  No data available
-                </td>
-              </tr>
-            )}
+            <tr>
+              <td className="px-6 py-3">
+                {data.totalExpenses ? data.totalExpenses : "N/A"}
+              </td>
+              <td className="px-6 py-3">
+                {data.totalRevenue ? data.totalRevenue : "N/A"}
+              </td>
+            </tr>
           </tbody>
         </table>
       )}

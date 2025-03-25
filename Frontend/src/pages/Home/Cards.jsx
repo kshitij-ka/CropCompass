@@ -41,13 +41,7 @@ export const HeroSecn = () => {
           <button
             type="button"
             className="text-black w-auto max-w-lg  bg-white  hover:bg-purple-200 font-medium rounded-full text-sm py-2 px-4 text-center"
-          >
-            {isLoggedIn ? (
-              <Link to={"/user/dashboard"}>Start Managing Your Farm</Link>
-            ) : (
-              <Link to={"/user/login"}>Log In</Link>
-            )}
-          </button>
+          ></button>
         </div>
         <div className="w-full md:w-4/5 object-contain flex justify-center items-center">
           <img

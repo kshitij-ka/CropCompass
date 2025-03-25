@@ -1,42 +1,52 @@
 import React, { useState } from "react";
 import Loader from "../../../components/Loader";
+import { useAddTransactionMutation } from "../../../store/api/financeApi";
 
-const AddTransaction = ({ farmId }) => {
+const AddTransaction = ({ farmId, financeId }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [type, setType] = useState("Expense");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [addTransaction] = useAddTransactionMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
 
+    const transactionData = {
+      type,
+      amount: parseFloat(amount),
+      description,
+    };
+    console.log("Transaction data:", transactionData);
+
     try {
-      const response = await fetch(
-        `http://localhost:8000/api/v1/finance/${farmId}/transaction`,
-        {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            type,
-            amount: parseFloat(amount),
-            description,
-          }),
-        }
-      );
+      const response = await addTransaction({ financeId, transactionData });
+      // const response = await fetch(
+      //   `http://localhost:8000/api/v1/finance/${farmId}/transaction`,
+      //   {
+      //     method: "POST",
+      //     credentials: "include",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       type,
+      //       amount: parseFloat(amount),
+      //       description,
+      //     }),
+      //   }
+      // );
 
-      if (!response.ok) {
-        throw new Error("Failed to create transaction");
-      }
+      // if (!response.ok) {
+      //   throw new Error("Failed to create transaction");
+      // }
 
-      const data = await response.json();
-      console.log("Transaction created:", data);
+      // const data = await response.json();
+      console.log("Transaction created:", response);
       setMessage("Transaction created successfully!");
       // Optionally clear the form
       setType("Expense");

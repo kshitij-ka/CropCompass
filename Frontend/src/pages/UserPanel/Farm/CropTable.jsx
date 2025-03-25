@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../../components/Loader";
+import { Link } from "react-router-dom";
+import { useGetCropsByFarmQuery } from "../../../store/api/cropApi";
 
 const CropTable = ({ farmId }) => {
   const [crops, setCrops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const {
+    data: cropsData,
+    error: cropsError,
+    isLoading: cropsLoading,
+  } = useGetCropsByFarmQuery(farmId);
+
+  console.log("Crops data is :", cropsData);
   const handleRemoveCrop = async (cropId) => {
     try {
       await fetch(`http://localhost:8000/api/v1/crop/${cropId}`, {
@@ -19,34 +29,13 @@ const CropTable = ({ farmId }) => {
       setError(err.message);
     }
   };
+
   useEffect(() => {
-    const fetchCrops = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/crop/farm/${farmId}`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch crops");
-        }
-
-        const data = await response.json();
-        setCrops(data || []);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCrops();
-  }, []);
+    if (cropsData) {
+      setCrops(cropsData);
+      setLoading(false);
+    }
+  }, [cropsData]);
 
   if (loading) {
     return <Loader></Loader>;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCreateCropMutation } from "../../../store/api/cropApi";
 
 const AddCrop = ({ farmId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,7 @@ const AddCrop = ({ farmId }) => {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [createCrop] = useCreateCropMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,14 +32,17 @@ const AddCrop = ({ farmId }) => {
     }
     console.log(formData);
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/crop`, {
-        method: "POST",
-        credentials: "include",
-        body: formData,
-      });
-      if (!response.ok) {
-        throw new Error("Failed to create crop");
-      }
+      const response = await createCrop(formData);
+      // const response = await fetch(`http://localhost:8000/api/v1/crop`, {
+      //   method: "POST",
+      //   credentials: "include",
+      //   body: formData,
+      // });
+      // if (!response.ok) {
+      //   throw new Error("Failed to create crop");
+      // }
+
+      console.log(response);
       setSuccess("Crop created successfully!");
       // Reset form fields
       setName("");
@@ -46,6 +51,7 @@ const AddCrop = ({ farmId }) => {
       setGrowthStage("");
       setHealthStatus("");
       setImage(null);
+      setIsModalOpen(false);
     } catch (err) {
       setError(err.message);
     } finally {

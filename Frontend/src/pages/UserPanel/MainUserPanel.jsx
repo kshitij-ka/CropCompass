@@ -243,9 +243,12 @@ const MainUserPanel = () => {
                 {user.address == null && "Maharashtra, Pune"}
               </p>
               <div className="flex justify-center mt-4">
-                <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
+                <Link
+                  to="/"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2"
+                >
                   <FaHome className="text-lg font-extrabold" />
-                </button>
+                </Link>
                 <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
                   <IoMdSettings className="text-lg font-extrabold" />
                 </button>
