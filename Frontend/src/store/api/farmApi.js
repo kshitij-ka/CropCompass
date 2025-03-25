@@ -1,9 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const API_URI = import.meta.env.VITE_API_URL;
+
 export const farmApi = createApi({
   reducerPath: "farmApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/v1/farm",
+    baseUrl: `${API_URI}/api/v1/farm`,
     credentials: "include",
   }),
   tagTypes: ["Farms"],

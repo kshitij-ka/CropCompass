@@ -10,16 +10,24 @@ import FinanceSummary from "./FinanceSummary";
 import CreateTask from "./CreateTask";
 import DisplayTast from "./DisplayTask";
 import { useGetFarmByIdQuery } from "../../../store/api/farmApi";
+import { useGetCropByIdQuery } from "../../../store/api/cropApi";
 
-export default function FarmPage() {
-  const { farmId } = useParams();
+export default function CropPage() {
+  const { cropId } = useParams();
   const navigate = useNavigate();
   const [farmData, setFarmData] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const farmId = cropId;
+
   console.log("Farm id is : ", farmId);
 
   const { data: farm, error, isLoading } = useGetFarmByIdQuery(farmId);
+  const {
+    data: crop,
+    error: cropError,
+    isLoading: cropLoading,
+  } = useGetCropByIdQuery(cropId);
 
   useEffect(() => {
     if (!isLoading && !error && farm) {
@@ -28,53 +36,23 @@ export default function FarmPage() {
     }
   }, [farm]);
 
-  console.log("djoejwrru9", farmData);
-
-  // useEffect(() => {
-  //   async function fetchFarmData() {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:8000/api/v1/farm/${farmId}`,
-  //         {
-  //           method: "GET",
-  //           credentials: "include",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       const jsonData = await response.json();
-  //       console.log("Fetched farm data:", jsonData);
-  //       setFarmData(jsonData);
-  //     } catch (error) {
-  //       console.error("Error fetching farm data: ", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  //   fetchFarmData();
-  // }, [farmId]);
-
-  // if (loading) {
-  //   return <Loader />;
-  // }
-
-  // if (!farmData) {
-  //   return (
-  //     <div className="w-full bg-white rounded-lg shadow p-4">
-  //       <p>No farm data found.</p>
-  //     </div>
-  //   );
-  // }
-
-  console.log("Backend URI ", import.meta.env.VITE_API_URL);
+  console.log("djoejwrru9", crop);
 
   return (
     <div className="w-full bg-white rounded-lg shadow p-4 space-y-8">
       {/* Header Section */}
       <header className="mb-4">
-        <div className="flex justify-end">
-          <Farm farmData={farmData} farmId={farmId} />
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold">{crop?.name}</h2>
+          <div className="flex items-center space-x-4">
+            <button
+              type="button"
+              className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+              onClick={() => navigate(`/user/dashboard`)}
+            >
+              Back
+            </button>
+          </div>
         </div>
       </header>
 
