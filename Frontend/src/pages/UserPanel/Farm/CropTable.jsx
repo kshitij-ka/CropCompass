@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Loader from "../../../components/Loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useGetCropsByFarmQuery } from "../../../store/api/cropApi";
 
 const CropTable = ({ farmId }) => {
   const [crops, setCrops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const {
     data: cropsData,
@@ -91,7 +93,13 @@ const CropTable = ({ farmId }) => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {crops.map((crop) => (
-              <tr key={crop._id} className="hover:bg-gray-50">
+              <tr
+                key={crop._id}
+                className="hover:bg-gray-50"
+                onClick={() => {
+                  navigate(`/user/dashboard/croppage/${crop._id}`);
+                }}
+              >
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="h-12 w-12 rounded-full overflow-hidden">
                     {crop.image ? (
