@@ -16,7 +16,7 @@ const CropTable = ({ farmId }) => {
     isLoading: cropsLoading,
   } = useGetCropsByFarmQuery(farmId);
 
-  console.log("Crops data is :", cropsData);
+ 
   const handleRemoveCrop = async (cropId) => {
     try {
       await fetch(`http://localhost:8000/api/v1/crop/${cropId}`, {

@@ -25,7 +25,7 @@ const MainUserPanel = () => {
 
     const data = await responce.json();
 
-    //console.log("User Logged out data is : ", data);
+    
 
     if (data.success === true) {
       navigate("/user/login");

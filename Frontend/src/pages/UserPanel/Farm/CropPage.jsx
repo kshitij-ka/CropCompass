@@ -38,7 +38,7 @@ export default function CropPage() {
 
   const farmId = cropId;
 
-  console.log("Farm id is : ", farmId);
+ 
 
   const { data: farm, error, isLoading } = useGetFarmByIdQuery(farmId);
   const {
@@ -54,14 +54,14 @@ export default function CropPage() {
     }
   }, [farm]);
 
-  console.log("djoejwrru9", crop);
+ 
   const {
     data: harvest,
     isLoading: harvestLoading,
     error: harvestError,
   } = useCropHarvestQuery(cropId);
 
-  console.log("Haraufugfudg : ", harvest);
+ 
 
   const {
     data: pesticides,

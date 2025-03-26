@@ -20,14 +20,14 @@ const MentorSessionCard = ({ session }) => {
 
   const user = useSelector((store) => store.user);
 
-  //console.log("User in the Dashborde : ");
+ 
 
   let timeStringToDayName = (dateStr) => {
     // for getting day name by time string
     // const dateStr = "2024-09-26T04:31:50.646+00:00";
     const date = new Date(dateStr);
     const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
-    //console.log(dayName);
+  
     return dayName;
   };
 
@@ -48,7 +48,7 @@ const MentorSessionCard = ({ session }) => {
     };
 
     const istDate = date.toLocaleString("en-US", options);
-    console.log(istDate); // Output: "September 26, 2024, 10:01:50 AM"
+   
     return istDate;
   };
 

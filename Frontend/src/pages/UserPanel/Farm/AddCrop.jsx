@@ -30,7 +30,7 @@ const AddCrop = ({ farmId }) => {
     if (image) {
       formData.append("image", image);
     }
-    console.log(formData);
+
     try {
       const response = await createCrop(formData);
       // const response = await fetch(`http://localhost:8000/api/v1/crop`, {
@@ -42,7 +42,7 @@ const AddCrop = ({ farmId }) => {
       //   throw new Error("Failed to create crop");
       // }
 
-      console.log(response);
+     
       setSuccess("Crop created successfully!");
       // Reset form fields
       setName("");

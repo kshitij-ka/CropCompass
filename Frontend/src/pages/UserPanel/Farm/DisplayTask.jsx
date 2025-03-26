@@ -13,7 +13,7 @@ const DisplayTast = ({ farmId }) => {
     isLoading,
   } = useGetTasksByFarmQuery(farmId);
 
-  console.log("Task list is : ", taskList);
+ 
 
   // Function to delete a task and update the state
   const handleDeleteTask = async (taskId) => {
@@ -32,7 +32,7 @@ const DisplayTast = ({ farmId }) => {
       // Optionally check the response, but we'll update state regardless.
       // Remove the deleted task from state.
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== taskId));
-      console.log(`Task ${taskId} deleted successfully.`);
+
     } catch (error) {
       console.error("Error deleting task:", error);
       // Optionally, you could set an error state here.

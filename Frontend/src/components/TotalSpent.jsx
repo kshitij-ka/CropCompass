@@ -22,7 +22,7 @@ const TotalSpent = () => {
     }
   }, [farmList]);
 
-  console.log("My farm list is : ", farmList);
+ 
   return (
     <div className="h-full">
       <a

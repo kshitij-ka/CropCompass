@@ -20,7 +20,7 @@ const FinanceSummary = ({ farmId, financeId }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  console.log("Finance id /mljkfgj is : ", financeId);
+
 
   const {
     data: transaction,
@@ -28,7 +28,7 @@ const FinanceSummary = ({ farmId, financeId }) => {
     isLoading,
   } = useGetTransactionsQuery(financeId);
 
-  console.log("Transaction data is : ", transaction);
+ 
 
   useEffect(() => {
     const fetchSummary = async () => {
@@ -39,7 +39,7 @@ const FinanceSummary = ({ farmId, financeId }) => {
           `http://localhost:8000/api/v1/finance/summary/${financeId}`,
           { credentials: "include" }
         );
-        console.log("Summary response:", response);
+       
         if (!response.ok) {
           throw new Error("Failed to fetch summary");
         }

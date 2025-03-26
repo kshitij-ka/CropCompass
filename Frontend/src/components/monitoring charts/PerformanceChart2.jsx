@@ -33,17 +33,19 @@ const calculateSpend = (farmList) => {
     for (let j = 0; j < farmList[i]?.finances?.transactions.length; j++) {
       if (!farmList[i]?.finances?.transactions[j]) continue;
       if (!farmList[i]?.finances?.transactions[j]?.amount) continue;
-      if (farmList[i]?.finances?.transactions[j]?.type == "Revenue") continue;
+      if (farmList[i]?.finances?.transactions[j]?.type == "Expense") continue;
       totalSpend.push(farmList[i]?.finances?.transactions[j]?.amount);
     }
   }
   return totalSpend;
 };
 
-const PerformanceChart = () => {
+const PerformanceChart2 = () => {
   const [totalSpend, setTotalSpend] = useState(0);
   const [spentList, setSpentList] = useState([]);
   const { data: farmList, isLoading, error } = useGetFarmsQuery();
+
+  
 
   useEffect(() => {
     if (!isLoading && !error && farmList) {
@@ -51,6 +53,8 @@ const PerformanceChart = () => {
       setSpentList(calculateSpend(farmList));
     }
   }, [farmList]);
+
+ 
 
   const data = {
     labels: [
@@ -89,4 +93,4 @@ const PerformanceChart = () => {
   return <Line data={data} options={options} />;
 };
 
-export default PerformanceChart;
+export default PerformanceChart2;

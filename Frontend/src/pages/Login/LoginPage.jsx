@@ -28,7 +28,7 @@ const LoginPage = () => {
 
     const user = await responce.json();
 
-    //console.log("User Login Data is here : ", user);
+   
 
     dispatch(userSliceActions.addUser(user.data));
 

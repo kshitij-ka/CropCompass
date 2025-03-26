@@ -14,7 +14,7 @@ const EditFarm = ({ _id, onDelete }) => {
       //   credentials: "include",
       // });
       // const data = await response.json();
-      console.log("Delete response:", res);
+     
 
       if (!res) {
         return null;

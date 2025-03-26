@@ -13,7 +13,7 @@ const Transactions = ({ farmId }) => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        console.log("Fetched data:", data);
+
         setLoading(false);
       })
       .catch((error) => {

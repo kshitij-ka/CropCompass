@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../../../components/Loader";
 import { useParams } from "react-router-dom";
 import { useCreateFinanceMutation } from "../../../store/api/financeApi";
+import { useGetFarmByIdQuery } from "../../../store/api/farmApi";
 
 const CreateFinance = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  const [farm, setFarm] = useState("");
   // Hardcoded farm ID from your example
   const { farmId } = useParams();
   const [createFinance] = useCreateFinanceMutation();
 
+  const { data: farmData, isLoading, error } = useGetFarmByIdQuery(farmId);
+
+
+
+  useEffect(() => {
+    if (!isLoading && !error && farmData) {
+      setFarm(farmData);
+    }
+  }, [farmData]);
   const handleCreateFinance = async () => {
     setLoading(true);
     setMessage("");
@@ -24,12 +36,12 @@ const CreateFinance = () => {
       //   body: JSON.stringify({ farm: farmId }),
       // });
 
-      console.log("Trance opdien ", responce);
+   
       if (!response.ok) {
         throw new Error("Failed to create finance");
       }
       const data = await response.json();
-      console.log("Finance response:", data);
+
       setMessage("Finance created successfully!");
     } catch (error) {
       console.error("Error creating finance:", error);

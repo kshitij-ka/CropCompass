@@ -21,7 +21,7 @@ const AddTransaction = ({ farmId, financeId }) => {
       amount: parseFloat(amount),
       description,
     };
-    console.log("Transaction data:", transactionData);
+   
 
     try {
       const response = await addTransaction({ financeId, transactionData });
@@ -46,7 +46,7 @@ const AddTransaction = ({ farmId, financeId }) => {
       // }
 
       // const data = await response.json();
-      console.log("Transaction created:", response);
+    
       setMessage("Transaction created successfully!");
       // Optionally clear the form
       setType("Expense");

@@ -17,7 +17,7 @@ export default function FarmPage() {
   const [farmData, setFarmData] = useState("");
   const [loading, setLoading] = useState(true);
 
-  console.log("Farm id is : ", farmId);
+ 
 
   const { data: farm, error, isLoading } = useGetFarmByIdQuery(farmId);
 
@@ -28,46 +28,11 @@ export default function FarmPage() {
     }
   }, [farm]);
 
-  console.log("djoejwrru9", farmData);
+ 
 
-  // useEffect(() => {
-  //   async function fetchFarmData() {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:8000/api/v1/farm/${farmId}`,
-  //         {
-  //           method: "GET",
-  //           credentials: "include",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       const jsonData = await response.json();
-  //       console.log("Fetched farm data:", jsonData);
-  //       setFarmData(jsonData);
-  //     } catch (error) {
-  //       console.error("Error fetching farm data: ", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  //   fetchFarmData();
-  // }, [farmId]);
+  
 
-  // if (loading) {
-  //   return <Loader />;
-  // }
-
-  // if (!farmData) {
-  //   return (
-  //     <div className="w-full bg-white rounded-lg shadow p-4">
-  //       <p>No farm data found.</p>
-  //     </div>
-  //   );
-  // }
-
-  console.log("Backend URI ", import.meta.env.VITE_API_URL);
+ 
 
   return (
     <div className="w-full bg-white rounded-lg shadow p-4 space-y-8">

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const HeroSecn = () => {
   const user = useSelector((store) => store.user);
 
-  console.log("User is : ", user);
+ 
 
   const [isLoggedIn, setLoggedIn] = useState(false);
 
@@ -25,7 +25,7 @@ export const HeroSecn = () => {
 
     const user = await responce.json();
 
-    //console.log("User Login Data is here : ", user);
+  
 
     dispatch(userSliceActions.addUser(user.data));
   };

@@ -24,11 +24,11 @@ const AddFarm = () => {
       size: sizeContent,
     };
 
-    console.log(farmData);
+   
 
     try {
       const res = await createFarm(farmData);
-      console.log(res);
+    
 
       if (res.error) {
         return null;

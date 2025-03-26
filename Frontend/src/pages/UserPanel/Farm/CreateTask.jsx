@@ -30,7 +30,7 @@ const CreateTask = ({ farmId, onTaskCreated }) => {
       status,
     };
 
-    console.log("Task Data is worked : ", taskData);
+  
 
     try {
       const res = await createTask(taskData).unwrap();

@@ -6,7 +6,7 @@ const Notification = ({ notification }) => {
     // const dateStr = "2024-09-26T04:31:50.646+00:00";
     const date = new Date(dateStr);
     const dayName = date.toLocaleDateString("en-US", { weekday: "long" });
-    //console.log(dayName);
+
     return dayName;
   };
 
@@ -27,7 +27,7 @@ const Notification = ({ notification }) => {
     };
 
     const istDate = date.toLocaleString("en-US", options);
-    //console.log(istDate); // Output: "September 26, 2024, 10:01:50 AM"
+
     return istDate;
   };
 
