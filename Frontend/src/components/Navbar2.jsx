@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 const Navbar2 = () => {
   const user = useSelector((store) => store.user);
 
-  
-
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -22,8 +20,6 @@ const Navbar2 = () => {
     });
 
     const user = await responce.json();
-
-  
 
     dispatch(userSliceActions.addUser(user.data));
   };
