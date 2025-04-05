@@ -75,29 +75,7 @@ const Notifications = () => {
     },
   ];
 
-  // for getting day name by time string
-  // const dateStr = '2024-09-26T04:31:50.646+00:00';
-  // const date = new Date(dateStr);
-  // const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
-  // console.log(dayName); // Output: "Thursday"
-
-  // for converting the to get time in am or pm
-  // const utcDateStr = '2024-09-26T04:31:50.646+00:00';
-  // const date = new Date(utcDateStr);
-  // India TimeZone is Asia/Kolkata, which is UTC+5:30
-  // const options = {
-  //     timeZone: 'Asia/Kolkata',
-  //     hour: 'numeric',
-  //     minute: 'numeric',
-  //     second: 'numeric',
-  //     hour12: true,
-  //   year: 'numeric',
-  //   month: 'long',
-  //   day: 'numeric'
-  // };
-
-  // const istDate = date.toLocaleString('en-US', options);
-  // console.log(istDate); // Output: "September 26, 2024, 10:01:50 AM"
+  
 
   return (
     <>

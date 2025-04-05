@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Td from "../../../components/Td";
-import Laoder from "../../../components/Laoder";
+import Loader from "../../../components/Loader";
 
 const Transactions = ({ farmId }) => {
   const [data, setData] = useState([]);
@@ -13,7 +13,7 @@ const Transactions = ({ farmId }) => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        console.log("Fetched data:", data);
+
         setLoading(false);
       })
       .catch((error) => {
@@ -25,38 +25,28 @@ const Transactions = ({ farmId }) => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
       {loading ? (
-        <Laoder></Laoder>
+        <Loader />
       ) : (
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Farm name
+                Total Expenses
               </th>
               <th scope="col" className="px-6 py-3">
-                Location
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Type
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Size (acres)
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
+                totalRevenue
               </th>
             </tr>
           </thead>
           <tbody>
-            {Array.isArray(data) && data.length > 0 ? (
-              data.map((item) => <Td key={item.id} children={item} />)
-            ) : (
-              <tr>
-                <td colSpan={5} className="text-center">
-                  No data available
-                </td>
-              </tr>
-            )}
+            <tr>
+              <td className="px-6 py-3">
+                {data.totalExpenses ? data.totalExpenses : "N/A"}
+              </td>
+              <td className="px-6 py-3">
+                {data.totalRevenue ? data.totalRevenue : "N/A"}
+              </td>
+            </tr>
           </tbody>
         </table>
       )}

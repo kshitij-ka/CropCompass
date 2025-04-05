@@ -39,6 +39,7 @@ const getUserFarms = async (req, res) => {
 // Get a single farm by ID
 const getFarmById = async (req, res) => {
   try {
+    console.log("also i am clla ing", "My farm id is : ", req.params.farmId);
     const farm = await Farm.findById(req.params.farmId)
       .populate("crops")
       .populate("finances");

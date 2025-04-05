@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCreateFarmMutation } from "../../../store/api/farmApi";
 
 const AddFarm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +12,8 @@ const AddFarm = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const navigator = useNavigate();
+
+  const [createFarm] = useCreateFarmMutation();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const farmData = {
@@ -21,26 +24,16 @@ const AddFarm = () => {
       size: sizeContent,
     };
 
-    console.log(farmData);
+   
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/farm", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(farmData),
-      });
+      const res = await createFarm(farmData);
+    
 
-      const data = await response.json();
-      console.log(data);
-
-      if (!response.ok) {
-        throw new Error("Failed to add farm");
+      if (res.error) {
+        return null;
       }
 
-      navigator("farmpage");
       setSuccess(true);
       setError(null);
       setIsModalOpen(false);

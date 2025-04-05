@@ -1,18 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import { Link } from "react-router-dom";
 
 export const HeroSecn = () => {
+  const user = useSelector((store) => store.user);
+
+ 
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (user.name !== "Unloggedin User") {
+      setLoggedIn(true);
+    }
+  }, [user]);
+
+  const handleUserSession = async (event) => {
+    event.preventDefault();
+    const responce = await fetch(`http://localhost:8000/api/v1/me`, {
+      credentials: "include",
+    });
+
+    const user = await responce.json();
+
+  
+
+    dispatch(userSliceActions.addUser(user.data));
+  };
   return (
     <section className=" py-40 w-full flex justify-center text-gray-100">
       <div className="flex flex-col-reverse md:flex-row justify-between w-10/12 h-auto">
         <div className="container mx-auto flex flex-col justify-between h-full w-full">
           <div className="text-center md:text-start flex flex-col justify-around h-full">
-            <h1 className="text-6xl md:text-6xl md:w-2/3 md:font-extrabold font-bold">
-              Anything and Everything you Need to know About
+            <h1 className="text-6xl md:text-6xl md:w-2/3 md:font-extrabold font-bold ">
+              One stop solution for every farmer's need.
             </h1>
-            <p className="text-2xl font-semibold mb-8 ">
-              Your crops and their Health!
-            </p>
           </div>
+          <button
+            type="button"
+            className="text-black w-auto max-w-lg  bg-white  hover:bg-purple-200 font-medium rounded-full text-sm py-2 px-4 text-center"
+          ></button>
         </div>
         <div className="w-full md:w-4/5 object-contain flex justify-center items-center">
           <img
@@ -28,7 +57,7 @@ export const HeroSecn = () => {
 
 export const CardWithImage = () => {
   return (
-    <div className="max-w-sm  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm   rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img
           className="rounded-t-lg"
@@ -99,10 +128,7 @@ export const CardOnlyText = (props) => {
 export const CardWithButton = () => {
   return (
     <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-      <a
-        href="https://www.reuters.com/sustainability/land-use-biodiversity/comment-how-empowering-smallholder-farmers-with-ai-tools-can-bolster-global-food-2025-01-10/"
-        target="_blank"
-      >
+      <a target="_blank">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">
           Empowering smallholder farmers with AI tools can bolster global food
           security

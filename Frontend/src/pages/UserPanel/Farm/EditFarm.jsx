@@ -1,23 +1,26 @@
 import React, { useState } from "react";
+import { useDeleteFarmMutation } from "../../../store/api/farmApi";
 
 const EditFarm = ({ _id, onDelete }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [deleteFarm] = useDeleteFarmMutation();
 
   // This function will run when the "Yes, I'm sure" button is clicked.
   const handleDeleteFarm = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/farm/${_id}`, {
-        method: "DELETE",
-        credentials: "include",
-      });
-      const data = await response.json();
-      console.log("Delete response:", data);
-      if (data.success) {
-        // Notify the parent component to update its state
-        if (onDelete) onDelete(_id);
+      const res = await deleteFarm(_id);
+      // const response = await fetch(`http://localhost:8000/api/v1/farm/${_id}`, {
+      //   method: "DELETE",
+      //   credentials: "include",
+      // });
+      // const data = await response.json();
+     
+
+      if (!res) {
+        return null;
       }
+
       setModalOpen(false); // Close the modal after the operation
-      window.location.reload();
     } catch (error) {
       console.error("Error deleting farm:", error);
     }

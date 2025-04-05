@@ -26,11 +26,14 @@ import Monitoring from "./pages/UserPanel/Monitoring.jsx";
 import AddFarm from "./pages/UserPanel/Farm/AddFarm.jsx";
 import UpdateFarm from "./pages/UserPanel/Farm/UpdateForm.jsx";
 import FarmPage from "./pages/UserPanel/Farm/FarmPage.jsx";
+import Ai from "./pages/UserPanel/Ai.jsx";
+import CropPage from "./pages/UserPanel/Farm/CropPage.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
       <BrowserRouter>
         <Routes>
+          <Route path="/ai" element={<Ai />} />
           {/* Routes for the main App */}
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
@@ -59,6 +62,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="addfarm" element={<AddFarm />} />
               <Route path="updatefarm" element={<UpdateFarm />} />
               <Route path="farmpage/:farmId" element={<FarmPage />} />
+              <Route path="croppage/:cropId" element={<CropPage />} />
             </Route>
           </Route>
         </Routes>

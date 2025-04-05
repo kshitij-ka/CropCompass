@@ -35,8 +35,8 @@ const Testimonial = () => {
   return (
     <>
       <section className=" py-12 px-2 md:px-32  text-white">
-        <div className="container mx-auto ">
-          <div className="text-center flex-col justify-center align-middle ">
+        <div className="container mx-auto min-h-[20]">
+          <div className="text-center flex-col justify-center align-middle  min-h-full">
             <ScrollReveal direction="up">
               <h2 className="text-xl sm:text-4xl font-bold mb-4 drop-shadow-md">
                 WHY CHOOSE US?
@@ -50,33 +50,29 @@ const Testimonial = () => {
                   scrollArea={myRef}
                   startDelay={100}
                   cursorColor="white"
-                  text="Record breaking features like never before!"
+                  text="⠀Unparalled management for crops & farms."
                   typeSpeed={100}
                 />
               </h1>
             </ScrollReveal>
           </div>
 
-          <div className="flex flex-col sm:flex-row  justify-around mt-8 h-auto">
+          <div className="flex flex-col sm:flex-row  justify-around mt-8 h-auto min-h-[50]">
             <ScrollReveal direction="up">
               <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <svg
-                  className="w-7 h-7 text-gray-200 dark:text-gray-400 mb-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                </svg>
-                <a href="#">
+                <img
+                  src="/images/dashboard.png"
+                  alt="dashboard"
+                  className="w-7 h-7"
+                ></img>
+                <a href="/user/dashboard/">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     Excellent Dashboards
                   </h5>
                 </a>
                 <p className="mb-3 font-normal text-gray-50 dark:text-gray-400">
                   Our descriptive dashboards give insights into your crop's
-                  health and keeps track of your burning expenses
+                  health and keeps track of your burning expenses.
                 </p>
                 <a
                   href="#"
@@ -103,16 +99,8 @@ const Testimonial = () => {
             </ScrollReveal>
 
             <ScrollReveal direction="up">
-              <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <svg
-                  className="w-7 h-7 text-gray-200 dark:text-gray-400 mb-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                </svg>
+              <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 pb-13">
+                <img src="/images/crops.png" className="w-7 h-7" alt="" />
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     {" "}
@@ -121,10 +109,10 @@ const Testimonial = () => {
                 </a>
                 <p className="mb-3 font-normal text-gray-50 dark:text-gray-400">
                   Predict the possible crop diseases based on their shown
-                  symptoms
+                  symptoms.
                 </p>
                 <a
-                  href="#"
+                  href="/ai"
                   className="inline-flex font-medium items-center text-blue-600 hover:underline"
                 >
                   Check Out
@@ -149,16 +137,8 @@ const Testimonial = () => {
 
             <ScrollReveal direction="up">
               <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <svg
-                  className="w-7 h-7 text-gray-200 dark:text-gray-400 mb-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M18 5h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C8.4.842 6.949 0 5.5 0A3.5 3.5 0 0 0 2 3.5c.003.52.123 1.033.351 1.5H2a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V7a2 2 0 0 0-2-2ZM8.058 5H5.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM11 13H9v7h2v-7Zm-4 0H2v5a2 2 0 0 0 2 2h3v-7Zm6 0v7h3a2 2 0 0 0 2-2v-5h-5Z" />
-                </svg>
-                <a href="#">
+                <img src="/images/planner.png" className="w-7 h-7" alt="" />
+                <a href="/user/dashboard/monitoring">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     Crop Planner
                   </h5>
@@ -166,7 +146,7 @@ const Testimonial = () => {
                 <p className="mb-3 font-normal text-gray-50 dark:text-gray-400">
                   Based on previous season's crop and used pertilizers and
                   pesticides, plan what crops would best suit the present state
-                  of your soil
+                  of your soil.
                 </p>
                 <a
                   href="#"
