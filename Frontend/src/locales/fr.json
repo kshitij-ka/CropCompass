@@ -1,0 +1,19 @@
+{
+  "welcome": "Bienvenue sur CropCompass",
+  "dashboard": "Tableau de bord",
+  "settings": "Paramètres",
+
+  "login_welcome_back": "Bon retour !",
+  "login_title": "Connexion",
+  "login_subtitle": "Bon retour ! Veuillez vous connecter à votre compte.",
+  "login_email_label": "E-mail",
+  "login_email_placeholder": "nomutilisateur@gmail.com",
+  "login_password_label": "Mot de passe",
+  "login_password_placeholder": "********",
+  "login_remember_me": "Se souvenir de moi",
+  "login_forgot_password": "Mot de passe oublié ?",
+  "login_button": "Connexion",
+  "login_new_user": "Nouvel utilisateur ?",
+  "login_signup": "S'inscrire",
+  "main_login_heading": "Bienvenue sur le portail de connexion"
+}
