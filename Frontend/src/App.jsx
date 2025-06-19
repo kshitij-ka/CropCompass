@@ -1,45 +1,68 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-//import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Navbar2 from "./components/Navbar2";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { userSliceActions } from "./store/userSlice";
-
 import { Outlet } from "react-router-dom";
 import { BACKEND_URL } from "./constants";
 
+// Simple LanguageSwitcher component
+function LanguageSwitcher({ language, setLanguage }) {
+  return (
+    <select
+      value={language}
+      onChange={(e) => {
+        setLanguage(e.target.value);
+        localStorage.setItem("language", e.target.value);
+      }}
+      className="absolute top-2 right-2 p-1 rounded border"
+      aria-label="Select language"
+    >
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      {/* Add more languages here */}
+    </select>
+  );
+}
+
 function App() {
   const user = useSelector((store) => store.user);
-
   const dispatch = useDispatch();
-
   const loader = useSelector((store) => store.loader);
+
+  // Language state, initialized from localStorage or default to 'en'
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "en"
+  );
+
+  console.log("Current language:", language);
 
   useEffect(() => {
     async function initialiseUser() {
-      if (user.role == "unloggeduser") {
+      if (user.role === "unloggeduser") {
         const responce = await fetch(`${BACKEND_URL}/api/v1/getuser`, {
           method: "GET",
           credentials: "include",
         });
 
         const userData = await responce.json();
-
-        //console.log("User Datae is ", userData);
-
         dispatch(userSliceActions.addUser(userData.data));
-
-        //console.log("Updated User is : ", user);
       }
     }
     initialiseUser();
   }, []);
+
   return (
     <>
       <div className="w-full h-auto flex-col relative">
-        
+        {/* 2. Language Switcher visible on all pages */}
+        <LanguageSwitcher language={language} setLanguage={setLanguage} />
 
-        <Outlet />
+        {/* 3. Pass language as prop to Navbar2 and Outlet if needed */}
+        <Navbar2 language={language} />
+        <Outlet context={{ language }} />
+
         <div
           className={`${
             loader ? "block" : "hidden"
@@ -73,3 +96,4 @@ function App() {
 }
 
 export default App;
+
