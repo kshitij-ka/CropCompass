@@ -21,6 +21,7 @@ function LanguageSwitcher({ language, setLanguage }) {
     >
       <option value="en">English</option>
       <option value="hi">Hindi (हिंदी)</option>
+      <option value="mr">Marathi (मराठी)</option>
       <option value="fr">Français</option>
       {/* Add more languages here */}
     </select>
