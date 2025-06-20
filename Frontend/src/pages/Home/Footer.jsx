@@ -1,6 +1,13 @@
 import React from "react";
+import { t } from "../../service/translation"; 
+import { useOutletContext } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
+  // Get language from context if available, else from props, default to "en"
+  const outletContext = useOutletContext?.();
+  const language =
+    (outletContext && outletContext.language) || props.language || "en";
+
   return (
     <>
       <footer className="text-gray-50">
@@ -11,10 +18,10 @@ const Footer = () => {
                 <img
                   src="/images/logo.png"
                   className="h-9 rounded-full"
-                  alt="Logo"
+                  alt={t("footer_logo_alt", language)}
                 />
                 <span className="self-center text-xl font-bold whitespace-nowrap dark:text-white">
-                  Crop Compass
+                  {t("footer_brand", language)}
                 </span>
               </a>
             </div>
@@ -24,9 +31,9 @@ const Footer = () => {
             <span className="text-sm text-gray-50 sm:text-center dark:text-gray-400">
               © 2025{" "}
               <a href="/" className="hover:underline">
-                Crop Compass™
+                {t("footer_brand", language)}™
               </a>
-              . All Rights Reserved.
+              . {t("footer_rights_reserved", language)}
             </span>
           </div>
         </div>
@@ -36,3 +43,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

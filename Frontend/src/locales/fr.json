@@ -15,5 +15,39 @@
   "login_button": "Connexion",
   "login_new_user": "Nouvel utilisateur ?",
   "login_signup": "S'inscrire",
-  "main_login_heading": "Bienvenue sur le portail de connexion"
+  "main_login_heading": "Bienvenue sur le portail de connexion",
+
+  "customization_schedule": "PERSONNALISEZ AVEC VOTRE EMPLOI DU TEMPS",
+  "customization_tutors_title": "Des tuteurs talentueux et qualifiés à votre service",
+  "customization_paragraph": "Notre système de planification vous permet de sélectionner en fonction de votre temps libre. Texte de démonstration Lorem ipsum pour le modèle. Suivez les horaires de vos étudiants et de tutorat, et ne manquez jamais vos cours. Le meilleur système de planification de cours en ligne avec une accessibilité facile. Lorem ipsum est un texte de remplacement couramment utilisé pour démontrer la forme visuelle",
+  "customization_get_started": "Commencer",
+  "customization_image_alt": "Illustration d'interaction",
+
+  "footer_logo_alt": "Logo de Crop Compass",
+  "footer_brand": "Crop Compass",
+  "footer_rights_reserved": "Tous droits réservés.",
+
+  "hero2_card1_heading": "L’IA pour l’agriculture : comment les agriculteurs indiens récoltent l’innovation",
+  "hero2_card1_body": "Les agriculteurs participant au programme ont constaté une augmentation de 21 % des rendements de piment par acre, une réduction de 9 % de l’utilisation de pesticides, une diminution de 5 % de l’utilisation d’engrais et une amélioration de 8 % des prix unitaires grâce à l’amélioration de la qualité.",
+  "hero2_card2_heading": "SugarChain : la blockchain rencontre l’agriculture",
+  "hero2_card2_body": "L’utilisation de la technologie blockchain peut aider les agriculteurs à automatiser les processus avec une grande confiance, à résoudre les problèmes liés aux intermédiaires et à garantir une rémunération précise de leurs produits",
+
+  "hero_heading_main": "Tout ce que vous devez savoir sur",
+  "hero_heading_sub": "Vos cultures et leur santé !",
+  "hero_image_alt": "plante",
+  "hero_card1_image_alt": "plante",
+  "hero_card1_title": "Acquisitions technologiques remarquables 2021",
+  "hero_card1_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse.",
+  "hero_card1_read_more": "Lire la suite",
+  "hero_card2_title": "Acquisitions technologiques remarquables 2021",
+  "hero_card2_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse.",
+  "hero_card3_title": "Acquisitions technologiques remarquables 2021",
+  "hero_card3_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse.",
+  "hero_card3_read_more": "Lire la suite",
+  "hero_card4_image_alt": "image du produit",
+  "hero_card5_title": "Acquisitions technologiques remarquables 2021",
+  "hero_card5_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse."
+
+
+
 }

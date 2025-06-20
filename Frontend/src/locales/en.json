@@ -15,6 +15,39 @@
   "login_button": "Login",
   "login_new_user": "New User?",
   "login_signup": "Signup",
-  "main_login_heading": "Welcome to the Login Portal"
+  "main_login_heading": "Welcome to the Login Portal",
+
+  "customization_schedule": "CUSTOMIZE WITH YOUR SCHEDULE",
+  "customization_tutors_title": "Talented and Qualified Tutors to Serve You for Help",
+  "customization_paragraph": "Our scheduling system allows you to select based on free time. Lorem ipsum demo text for template. Keep track of your students class and tutoring schedules, and never miss your lectures. The best online class scheduling system with easy accessibility. Lorem ipsum is a placeholder text commonly used to demonstrate the visual form",
+  "customization_get_started": "Get started",
+  "customization_image_alt": "Interaction illustration",
+
+  "footer_logo_alt": "Crop Compass Logo",
+  "footer_brand": "Crop Compass",
+  "footer_rights_reserved": "All Rights Reserved.",
+
+  "hero2_card1_heading": "AI for agriculture: How Indian farmers are harvesting innovation",
+  "hero2_card1_body": "Farmers participating in the programme saw a 21% increase in chili yields per acre, a 9% reduction in pesticide use, a 5% decrease in fertilizer usage, and an 8% improvement in unit prices due to quality enhancements.",
+  "hero2_card2_heading": "SugarChain: Blockchain technology meets Agriculture",
+  "hero2_card2_body": "The use of blockchain technology can help farmers automate processes with high trust, addressing issues like middlemen involvement and ensuring accurate compensation for their products",
+
+  "hero_heading_main": "Anything and Everything you Need to know About",
+  "hero_heading_sub": "Your crops and their Health!",
+  "hero_image_alt": "plant",
+  "hero_card1_image_alt": "plant",
+  "hero_card1_title": "Noteworthy technology acquisitions 2021",
+  "hero_card1_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+  "hero_card1_read_more": "Read more",
+  "hero_card2_title": "Noteworthy technology acquisitions 2021",
+  "hero_card2_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+  "hero_card3_title": "Noteworthy technology acquisitions 2021",
+  "hero_card3_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+  "hero_card3_read_more": "Read more",
+  "hero_card4_image_alt": "product image",
+  "hero_card5_title": "Noteworthy technology acquisitions 2021",
+  "hero_card5_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+
+
 
 }

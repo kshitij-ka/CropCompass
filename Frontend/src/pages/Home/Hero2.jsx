@@ -10,6 +10,8 @@ import {
 } from "./Cards";
 import Testimonial from "./Testimonial";
 import Navbar2 from "../../components/Navbar2";
+import { t } from "../../service/translation"; 
+import { useOutletContext } from "react-router-dom";
 
 const ScrollReveal = ({ children, direction = "left" }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -33,59 +35,50 @@ const ScrollReveal = ({ children, direction = "left" }) => {
   );
 };
 
-function Hero2() {
-  const myRef = document.querySelector(".scrollable-div");
+function Hero2(props) {
+  // Get language from context if available, else from props, default to "en"
+  const outletContext = useOutletContext?.();
+  const language =
+    (outletContext && outletContext.language) || props.language || "en";
 
   return (
     <div>
-      <Navbar2 />
+      <Navbar2 language={language} />
       <ScrollReveal direction="up">
-        <HeroSecn />
+        <HeroSecn language={language} />
       </ScrollReveal>
-      <Testimonial />
-      <div className=" flex justify-center">
-        <div className=" flex justify-between  py-8 w-5/6 ">
+      <Testimonial language={language} />
+      <div className="flex justify-center">
+        <div className="flex justify-between py-8 w-5/6 ">
           <ScrollReveal direction="up">
-            <CardWithImage />
+            <CardWithImage language={language} />
           </ScrollReveal>
 
           <div className="flex flex-col gap-10 justify-between ">
             <ScrollReveal direction="up">
-              {" "}
               <CardOnlyText
-                headingText={
-                  "AI for agriculture: How Indian farmers are harvesting innovation"
-                }
-                bodyText={
-                  "Farmers participating in the programme saw a 21% increase in chili yields per acre, a 9% reduction in pesticide use, a 5% decrease in fertilizer usage, and an 8% improvement in unit prices due to quality enhancements."
-                }
-                href={
-                  "https://www.weforum.org/impact/ai-for-agriculture-in-india/ "
-                }
-              />{" "}
+                headingText={t("hero2_card1_heading", language)}
+                bodyText={t("hero2_card1_body", language)}
+                href="https://www.weforum.org/impact/ai-for-agriculture-in-india/"
+                language={language}
+              />
             </ScrollReveal>
             <ScrollReveal direction="up">
-              {" "}
-              <CardWithButton />{" "}
+              <CardWithButton language={language} />
             </ScrollReveal>
           </div>
 
-          <div className=" flex flex-col justify-between">
+          <div className="flex flex-col justify-between">
             <ScrollReveal direction="up">
-              {" "}
               <CardOnlyText
-                headingText={
-                  "SugarChain: Blockchain technology meets Agriculture"
-                }
-                bodyText={
-                  "The use of blockchain technology can help farmers automate processes with high trust, addressing issues like middlemen involvement and ensuring accurate compensation for their products"
-                }
-                href={"https://arxiv.org/abs/2301.08405"}
-              />{" "}
+                headingText={t("hero2_card2_heading", language)}
+                bodyText={t("hero2_card2_body", language)}
+                href="https://arxiv.org/abs/2301.08405"
+                language={language}
+              />
             </ScrollReveal>
             <ScrollReveal direction="up">
-              {" "}
-              <CardWithOnlyImage />{" "}
+              <CardWithOnlyImage language={language} />
             </ScrollReveal>
           </div>
         </div>
@@ -95,3 +88,4 @@ function Hero2() {
 }
 
 export default Hero2;
+
