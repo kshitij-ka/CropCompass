@@ -1,4 +1,4 @@
-const Laoder = () => {
+const Loader = () => {
   return (
     <div className="w-full bg-white rounded-lg shadow p-4">
       <div class="flex items-center justify-center w-full h-56 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
@@ -26,4 +26,4 @@ const Laoder = () => {
   );
 };
 
-export default Laoder;
+export default Loader;

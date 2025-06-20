@@ -25,7 +25,7 @@ const MainUserPanel = () => {
 
     const data = await responce.json();
 
-    //console.log("User Logged out data is : ", data);
+    
 
     if (data.success === true) {
       navigate("/user/login");
@@ -38,7 +38,7 @@ const MainUserPanel = () => {
       <div className="container mx-auto p-4">
         <div className="flex items-center mb-4 md:hidden">
           <img
-            src={`${user.avatar}`}
+            src={`/images/default1.png`}
             alt="Profile Picture"
             className="rounded-full w-10 h-10 mr-2"
           />
@@ -49,7 +49,7 @@ const MainUserPanel = () => {
           <div className="w-full md:w-1/4 bg-gradient-to-br from-white/30 to-gray-50/30 rounded-xl shadow-lg p-6 backdrop-blur-lg">
             <div className="hidden md:flex items-center mb-6">
               <img
-                src={`${user.avatar}`}
+                src={`/images/default1.png`}
                 alt="Profile Picture"
                 className="w-12 h-12 rounded-full mr-3 border-2 border-green-500"
               />
@@ -69,7 +69,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/scheduledmeetings"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -79,7 +79,7 @@ const MainUserPanel = () => {
                     Scheduled Meeting
                   </span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to={"/user/dashboard/monitoring"}
@@ -91,7 +91,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to={"/user/dashboard/notifications"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -101,8 +101,8 @@ const MainUserPanel = () => {
                     Notifications
                   </span>
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/feedback"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -113,7 +113,8 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
-              <li>
+              */}
+              {/* <li>
                 <Link
                   to={"/user/dashboard/support"}
                   className="flex items-center p-2 rounded-md hover:bg-green-100/30 transition-colors backdrop-blur-md"
@@ -124,6 +125,7 @@ const MainUserPanel = () => {
                   </span>
                 </Link>
               </li>
+              */}
               <li>
                 <Link
                   to={"/user/dashboard/settings"}
@@ -229,7 +231,7 @@ const MainUserPanel = () => {
             </div>
             <div className="mb-4">
               <img
-                src={`${user.avatar}`}
+                src={`/images/default1.png`}
                 alt="Profile Picture"
                 className="rounded-full w-24 h-24 mx-auto"
               />
@@ -238,13 +240,15 @@ const MainUserPanel = () => {
                 Join on {user.createdAt && user.createdAt.substring(0, 10)}
               </p>
               <p className="text-gray-500 text-sm mt-2">
-                {user.description == null &&
-                  "I am a Senior Software Engineer at Google and also mentored 50+ students to get their dream job."}
+                {user.address == null && "Maharashtra, Pune"}
               </p>
               <div className="flex justify-center mt-4">
-                <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
+                <Link
+                  to="/"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2"
+                >
                   <FaHome className="text-lg font-extrabold" />
-                </button>
+                </Link>
                 <button className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
                   <IoMdSettings className="text-lg font-extrabold" />
                 </button>

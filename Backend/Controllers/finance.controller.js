@@ -2,15 +2,55 @@ const Finance = require("../Models/finance.model.js");
 const Farm = require("../Models/farm.model.js");
 
 // Create finance record for a farm
+// const createFinance = async (req, res) => {
+//   try {
+//     const { farm } = req.body;
+
+//     console.log("My farm id is which is going to be created : ", req.body);
+
+//     // Check if the farm exists
+//     const existingFarm = await Farm.findById(farm);
+//     if (!existingFarm)
+//       return res.status(404).json({ message: "Farm not found" });
+
+//     const finance = new Finance({
+//       farm,
+//       transactions: [],
+//       totalExpenses: 0,
+//       totalRevenue: 0,
+//     });
+
+//     await finance.save();
+
+//     // Link finance to farm
+//     existingFarm.finances = finance._id;
+//     await existingFarm.save();
+
+//     res.status(201).json(finance);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 const createFinance = async (req, res) => {
   try {
     const { farm } = req.body;
 
+    console.log("My farm id is which is going to be created : ", farm);
+
     // Check if the farm exists
     const existingFarm = await Farm.findById(farm);
-    if (!existingFarm)
+    if (!existingFarm) {
       return res.status(404).json({ message: "Farm not found" });
+    }
 
+    // Check if finance already exists for this farm
+    if (existingFarm.finances) {
+      return res
+        .status(400)
+        .json({ message: "Finance already exists for this farm" });
+    }
+
+    // Create finance entry
     const finance = new Finance({
       farm,
       transactions: [],
@@ -49,6 +89,12 @@ const getFinanceByFarm = async (req, res) => {
 const addTransaction = async (req, res) => {
   try {
     const { type, amount, description } = req.body;
+
+    console.log("My type is : ", type);
+    console.log("My amount is : ", amount);
+    console.log("My description is : ", description);
+
+    console.log("My finance id is : ", req.params.financeId);
 
     const finance = await Finance.findById(req.params.financeId);
     if (!finance)

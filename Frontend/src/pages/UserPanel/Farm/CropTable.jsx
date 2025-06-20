@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Laoder from "../../../components/Laoder";
+import Loader from "../../../components/Loader";
+import { Link, useNavigate } from "react-router-dom";
+import { useGetCropsByFarmQuery } from "../../../store/api/cropApi";
 
 const CropTable = ({ farmId }) => {
   const [crops, setCrops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  const {
+    data: cropsData,
+    error: cropsError,
+    isLoading: cropsLoading,
+  } = useGetCropsByFarmQuery(farmId);
+
+ 
   const handleRemoveCrop = async (cropId) => {
     try {
       await fetch(`http://localhost:8000/api/v1/crop/${cropId}`, {
@@ -19,37 +31,16 @@ const CropTable = ({ farmId }) => {
       setError(err.message);
     }
   };
+
   useEffect(() => {
-    const fetchCrops = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/crop/farm/${farmId}`,
-          {
-            credentials: "include",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch crops");
-        }
-
-        const data = await response.json();
-        setCrops(data || []);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCrops();
-  }, []);
+    if (cropsData) {
+      setCrops(cropsData);
+      setLoading(false);
+    }
+  }, [cropsData]);
 
   if (loading) {
-    return <Laoder></Laoder>;
+    return <Loader></Loader>;
   }
 
   if (error) {
@@ -102,7 +93,13 @@ const CropTable = ({ farmId }) => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {crops.map((crop) => (
-              <tr key={crop._id} className="hover:bg-gray-50">
+              <tr
+                key={crop._id}
+                className="hover:bg-gray-50"
+                onClick={() => {
+                  navigate(`/user/dashboard/croppage/${crop._id}`);
+                }}
+              >
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="h-12 w-12 rounded-full overflow-hidden">
                     {crop.image ? (

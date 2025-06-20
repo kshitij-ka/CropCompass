@@ -30,7 +30,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-  return res.send("Hiddskpkpk...");
+  return res.send("Server is running...");
 });
 
 app.use("/api/v1", userRoute);
@@ -42,7 +42,5 @@ app.use("/api/v1/crop", cropRoute);
 app.use("/api/v1/finance", financeRoute);
 
 app.use("/api/v1/task", taskRoute);
-
-
 
 module.exports = app;
