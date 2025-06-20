@@ -67,8 +67,16 @@
   "hero_card3_read_more": "Lire la suite",
   "hero_card4_image_alt": "image du produit",
   "hero_card5_title": "Acquisitions technologiques remarquables 2021",
-  "hero_card5_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse."
+  "hero_card5_body": "Voici les plus grandes acquisitions technologiques d'entreprise de 2021 à ce jour, par ordre chronologique inverse.",
 
-
+  "testimonial_heading": "POURQUOI NOUS CHOISIR ?",
+  "testimonial_typewriter": "Gestion inégalée pour les cultures et les fermes.",
+  "testimonial_card1_title": "Tableaux de bord excellents",
+  "testimonial_card1_body": "Nos tableaux de bord descriptifs donnent un aperçu de la santé de vos cultures et suivent vos dépenses importantes.",
+  "testimonial_card2_title": "Prédiction des maladies des cultures",
+  "testimonial_card2_body": "Prédisez les maladies possibles des cultures en fonction des symptômes observés.",
+  "testimonial_card3_title": "Planificateur de cultures",
+  "testimonial_card3_body": "En fonction des cultures de la saison précédente et des engrais et pesticides utilisés, planifiez les cultures qui conviendraient le mieux à l’état actuel de votre sol.",
+  "testimonial_check_out": "Voir"
 
 }

@@ -67,8 +67,16 @@
   "hero_card3_read_more": "Read more",
   "hero_card4_image_alt": "product image",
   "hero_card5_title": "Noteworthy technology acquisitions 2021",
-  "hero_card5_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+  "hero_card5_body": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
 
-
+  "testimonial_heading": "WHY CHOOSE US?",
+  "testimonial_typewriter": "Unparalleled management for crops & farms.",
+  "testimonial_card1_title": "Excellent Dashboards",
+  "testimonial_card1_body": "Our descriptive dashboards give insights into your crop's health and keep track of your burning expenses.",
+  "testimonial_card2_title": "Crop Disease Prediction",
+  "testimonial_card2_body": "Predict the possible crop diseases based on their shown symptoms.",
+  "testimonial_card3_title": "Crop Planner",
+  "testimonial_card3_body": "Based on previous season's crop and used fertilizers and pesticides, plan what crops would best suit the present state of your soil.",
+  "testimonial_check_out": "Check Out"
 
 }
