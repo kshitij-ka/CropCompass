@@ -37,7 +37,6 @@ const AddFarm = () => {
       setSuccess(true);
       setError(null);
       setIsModalOpen(false);
-      window.location.reload();
     } catch (err) {
       setError(err.message);
       setSuccess(false);
