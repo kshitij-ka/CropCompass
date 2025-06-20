@@ -3,9 +3,18 @@ const express = require("express");
 const { spawn } = require("child_process");
 const path = require("path");
 const upload = require("./Middleware/multer");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 // Endpoint to run the Python script
 app.post("/predict", upload.single("image"), (req, res) => {
@@ -22,7 +31,13 @@ app.post("/predict", upload.single("image"), (req, res) => {
   // Collect data from the script
   pythonProcess.stdout.on("data", (data) => {
     console.log(`Output: ${data}`);
-    res.send(data.toString()); // Send the output back to the client
+
+    res.status(200).json({
+      success: true,
+      message: "Image uploaded successfully",
+      data: data.toString(),
+    });
+    //res.send(data.toString()); // Send the output back to the client
   });
 
   // Handle errors
