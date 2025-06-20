@@ -1,6 +1,6 @@
-# Status200
+# CropCompass
 
-Salvi's backend.
+This branch houses backend code developed and maintained by Karan Salvi for this project.
 
 ---
 
