@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { t } from "../service/translation"; 
+import { t } from "../../service/translation";
 
 export const HeroSecn = ({ language = "en" }) => {
   const user = useSelector((store) => store.user);
@@ -151,7 +151,7 @@ export const CardWithButton = ({ language = "en" }) => {
   );
 };
 
-export const CardWithOnlyImage = () => {
+export const CardWithOnlyImage = ({ language = "en" }) => {
   return (
     <div className="w-full max-w-sm bg-white rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
       <a
