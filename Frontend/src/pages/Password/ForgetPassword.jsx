@@ -1,12 +1,17 @@
 import React, { useRef, useState } from "react";
 import { IoIosKey } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
 import { BACKEND_URL } from "../../constants";
+import { t } from "../../service/translation";
 
-const ForgetPassword = () => {
+const ForgetPassword = (props) => {
+  // Get language from context or props, default to 'en'
+  const outletContext = useOutletContext?.();
+  const language =
+    (outletContext && outletContext.language) || props.language || "en";
+
   const emailElement = useRef();
-
   const [status, setStatus] = useState(false);
 
   const handleForgetPassword = async (event) => {
@@ -29,15 +34,18 @@ const ForgetPassword = () => {
       setStatus(true);
     }
   };
+
   return (
     <div className="w-full h-[78vh] flex justify-center items-center">
-      <div className="">
+      <div>
         <div className="flex flex-col items-center gap-12">
           <div className="flex flex-col items-center gap-3">
             <IoIosKey className="text-5xl bg-purple-200 p-2 rounded-full text-purple-500" />
-            <h2 className="text-3xl font-bold font-sans">Forget Password?</h2>
+            <h2 className="text-3xl font-bold font-sans">
+              {t("forget_password_heading", language)}
+            </h2>
             <p className="text-gray-500">
-              No worries, we'll send you resent instructions.
+              {t("forget_password_subtitle", language)}
             </p>
           </div>
           <form
@@ -49,7 +57,7 @@ const ForgetPassword = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="Enter your email"
+                placeholder={t("forget_password_email_placeholder", language)}
                 className="w-full rounded-md border-gray-400 border-2"
                 ref={emailElement}
               />
@@ -58,14 +66,17 @@ const ForgetPassword = () => {
               type="submit"
               className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-base px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
             >
-              {status === false ? "Send Email" : "Email Sent to your Mail"}
+              {status === false
+                ? t("forget_password_send_email", language)
+                : t("forget_password_email_sent", language)}
             </button>
 
             <Link
               to={"/user/login"}
               className="text-center text-gray-600 inline-flex items-center justify-center gap-2"
             >
-              <FaArrowLeft className="text-lg" /> Back to Login Page
+              <FaArrowLeft className="text-lg" />{" "}
+              {t("forget_password_back_to_login", language)}
             </Link>
           </form>
         </div>
@@ -75,3 +86,4 @@ const ForgetPassword = () => {
 };
 
 export default ForgetPassword;
+

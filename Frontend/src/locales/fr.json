@@ -35,6 +35,23 @@
   "signup_journey_heading": "Commencez votre aventure",
   "signup_with": "avec",
 
+  "forget_password_heading": "Mot de passe oublié ?",
+  "forget_password_subtitle": "Pas d'inquiétude, nous vous enverrons des instructions de réinitialisation.",
+  "forget_password_email_placeholder": "Entrez votre e-mail",
+  "forget_password_send_email": "Envoyer l'e-mail",
+  "forget_password_email_sent": "E-mail envoyé à votre adresse",
+  "forget_password_back_to_login": "Retour à la page de connexion",
+
+  "reset_password_heading": "Créer un nouveau mot de passe",
+  "reset_password_subtitle": "Créez ici votre nouveau mot de passe unique et sécurisé.",
+  "reset_password_new_label": "Nouveau mot de passe :",
+  "reset_password_new_placeholder": "Entrez votre nouveau mot de passe",
+  "reset_password_confirm_label": "Confirmer le mot de passe :",
+  "reset_password_confirm_placeholder": "Entrez à nouveau votre mot de passe",
+  "reset_password_error": "Le mot de passe et sa confirmation ne correspondent pas. Veuillez saisir le même mot de passe dans les deux champs.",
+  "reset_password_button": "Réinitialiser le mot de passe",
+  "reset_password_back_to_login": "Retour à la page de connexion",
+
   "hero_one_stop_solution": "Une solution unique pour tous les besoins des agriculteurs.",
   "hero_plant_alt": "plante",
 

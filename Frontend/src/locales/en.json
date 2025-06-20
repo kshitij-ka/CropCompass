@@ -35,6 +35,23 @@
   "signup_journey_heading": "Start your Journey",
   "signup_with": "with",
 
+  "forget_password_heading": "Forget Password?",
+  "forget_password_subtitle": "No worries, we'll send you reset instructions.",
+  "forget_password_email_placeholder": "Enter your email",
+  "forget_password_send_email": "Send Email",
+  "forget_password_email_sent": "Email Sent to your Mail",
+  "forget_password_back_to_login": "Back to Login Page",
+
+  "reset_password_heading": "Create New Password",
+  "reset_password_subtitle": "Create your new, unique and secure password here.",
+  "reset_password_new_label": "New Password :",
+  "reset_password_new_placeholder": "Enter your New Password",
+  "reset_password_confirm_label": "Confirm Password :",
+  "reset_password_confirm_placeholder": "Enter your Confirm Password",
+  "reset_password_error": "Password and confirm password do not match. Please enter the same password in both fields.",
+  "reset_password_button": "Reset Password",
+  "reset_password_back_to_login": "Back to Login Page",
+
   "hero_one_stop_solution": "One stop solution for every farmer's need.",
   "hero_plant_alt": "plant",
 
