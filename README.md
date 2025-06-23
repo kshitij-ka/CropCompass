@@ -12,5 +12,6 @@ Crop Compass is a centralized management dashboard designed for farmers, enablin
 - Financial planning tools with expense and revenue tracking
 - AI-powered recommendations and disease detection capabilities
 - Utilizes Google Gemini for predictive crop health analysis
+- Multilingual (currently available in English, Hindi, Marathi and French!)
 
 ---
