@@ -62,7 +62,7 @@ function App() {
         <LanguageSwitcher language={language} setLanguage={setLanguage} />
 
         {/* 3. Pass language as prop to Navbar2 and Outlet if needed */}
-        <Navbar2 language={language} />
+        
         <Outlet context={{ language }} />
 
         <div

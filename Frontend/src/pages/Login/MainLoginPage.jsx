@@ -6,8 +6,6 @@ import Container from "../../components/Container.jsx";
 const MainLoginPage = ({ language = "en" }) => {
   return (
     <>
-      {/* If Navbar2 is used here, pass language */}
-      <Navbar2 language={language} />
       <Container>
         {/* Pass language to Outlet context for nested routes */}
         <Outlet context={{ language }} />
@@ -17,4 +15,3 @@ const MainLoginPage = ({ language = "en" }) => {
 };
 
 export default MainLoginPage;
-

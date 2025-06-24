@@ -53,7 +53,7 @@ export const HeroSecn = ({ language = "en" }) => {
 
 export const CardWithImage = ({ language = "en" }) => {
   return (
-    <div className="max-w-sm rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img
           className="rounded-t-lg"
@@ -97,18 +97,25 @@ export const CardWithImage = ({ language = "en" }) => {
   );
 };
 
-export const CardOnlyText = ({ headingText, bodyText, href, language = "en" }) => {
+export const CardOnlyText = ({
+  headingText,
+  bodyText,
+  href,
+  language = "en",
+}) => {
   return (
     <div>
       <a
         href={href}
         target="_blank"
-        className="block max-w-sm p-6 rounded-lg shadow-md backdrop-blur-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+        className="block max-w-sm min-h-[275px] p-6 rounded-lg shadow-md backdrop-blur-md dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       >
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">
           {headingText}
         </h5>
-        <p className="font-normal text-gray-50 dark:text-gray-400">{bodyText}</p>
+        <p className="font-normal text-gray-50 dark:text-gray-400">
+          {bodyText}
+        </p>
       </a>
     </div>
   );
@@ -116,7 +123,7 @@ export const CardOnlyText = ({ headingText, bodyText, href, language = "en" }) =
 
 export const CardWithButton = ({ language = "en" }) => {
   return (
-    <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm min-h-[290px] p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
       <a target="_blank" href="#">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-50 dark:text-white">
           {t("card_with_button_title", language)}
@@ -153,10 +160,11 @@ export const CardWithButton = ({ language = "en" }) => {
 
 export const CardWithOnlyImage = ({ language = "en" }) => {
   return (
-    <div className="w-full max-w-sm bg-white rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full h-full  object-cover max-w-sm bg-white rounded-lg shadow-xl dark:bg-gray-800 dark:border-gray-700">
       <a
         href="https://theprint.in/economy/telangana-is-the-success-story-of-indian-agritech-ai-tools-soil-testing-e-commerce-more/1630359/"
         target="_blank"
+        className="w-full h-full"
       >
         <img
           className="rounded-lg"
@@ -208,4 +216,3 @@ export const CardLayout = ({ language = "en" }) => {
     </div>
   );
 };
-

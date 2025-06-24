@@ -43,7 +43,7 @@ function Hero2(props) {
 
   return (
     <div>
-      <Navbar2 language={language} />
+      
       <ScrollReveal direction="up">
         <HeroSecn language={language} />
       </ScrollReveal>
