@@ -7,8 +7,7 @@ import { isPasswordPwned } from "../../utils/passwordUtils";
 
 const SignupPage = (props) => {
   const outletContext = useOutletContext?.();
-  const language =
-    (outletContext && outletContext.language) || props.language || "en";
+  const language = (outletContext && outletContext.language) || props.language || "en";
 
   const firstNameElement = useRef();
   const lastNameElement = useRef();
@@ -16,7 +15,27 @@ const SignupPage = (props) => {
   const passwordElement = useRef();
 
   const [error, setError] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
   const navigate = useNavigate();
+
+  const evaluatePasswordStrength = (password) => {
+    let score = 0;
+    if (password.length >= 8) score++;
+    if (/[a-z]/.test(password)) score++;
+    if (/[A-Z]/.test(password)) score++;
+    if (/\d/.test(password)) score++;
+    if (/[@$!%*?&]/.test(password)) score++;
+
+    if (score <= 2) return "Weak";
+    if (score === 3 || score === 4) return "Moderate";
+    return "Strong";
+  };
+
+  const handlePasswordChange = (e) => {
+    const pwd = e.target.value;
+    passwordElement.current.value = pwd; // keep the ref synced
+    setPasswordStrength(evaluatePasswordStrength(pwd));
+  };
 
   const handleRegisteration = async (event) => {
     event.preventDefault();
@@ -47,8 +66,7 @@ const SignupPage = (props) => {
     }
 
     const user = {
-      name:
-        firstNameElement.current.value + " " + lastNameElement.current.value,
+      name: `${firstNameElement.current.value} ${lastNameElement.current.value}`,
       email: emailElement.current.value,
       password: password,
     };
@@ -56,9 +74,7 @@ const SignupPage = (props) => {
     try {
       const response = await fetch(`${BACKEND_URL}/api/v1/register`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
         credentials: "include",
       });
@@ -79,6 +95,7 @@ const SignupPage = (props) => {
     lastNameElement.current.value = "";
     emailElement.current.value = "";
     passwordElement.current.value = "";
+    setPasswordStrength("");
   };
 
   return (
@@ -142,10 +159,42 @@ const SignupPage = (props) => {
                 type="password"
                 id="password"
                 ref={passwordElement}
+                onChange={handlePasswordChange}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder={t("signup_password_placeholder", language)}
                 required
               />
+
+              {/* Password Strength UI */}
+              {passwordStrength && (
+                <>
+                  <div className="mt-2 text-sm font-medium">
+                    Password strength:{" "}
+                    <span
+                      className={
+                        passwordStrength === "Weak"
+                          ? "text-red-500"
+                          : passwordStrength === "Moderate"
+                          ? "text-yellow-500"
+                          : "text-green-500"
+                      }
+                    >
+                      {passwordStrength}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 rounded bg-gray-200 mt-1">
+                    <div
+                      className={`h-2 rounded transition-all duration-300 ${
+                        passwordStrength === "Weak"
+                          ? "bg-red-500 w-1/4"
+                          : passwordStrength === "Moderate"
+                          ? "bg-yellow-500 w-2/4"
+                          : "bg-green-500 w-full"
+                      }`}
+                    ></div>
+                  </div>
+                </>
+              )}
             </div>
 
             {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
