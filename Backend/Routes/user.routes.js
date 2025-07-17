@@ -19,11 +19,13 @@ const { checkAuthenticated } = require("../Middlewares/authentication.js");
 
 const upload = require("../Middlewares/multer.js");
 
+const { loginLimiter } = require("../Middlewares/rateLimiter");
+
 const router = express.Router();
 
 router.route("/register").post(registerUser);
 
-router.route("/login").post(loginUser);
+router.route("/login").post(loginLimiter, loginUser);
 
 router.route("/password/forgot").post(forgetPassword);
 
