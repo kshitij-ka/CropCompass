@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const helmet = require("helmet");
 
 const userRoute = require("./Routes/user.routes.js");
 const farmRoute = require("./Routes/farm.routes.js");
@@ -16,6 +17,8 @@ dotenv.config({
 });
 
 const app = express();
+
+app.use(helmet()); // Secure headers
 
 const corsOptions = {
   origin: process.env.FRONTEND_URI,
@@ -42,5 +45,13 @@ app.use("/api/v1/crop", cropRoute);
 app.use("/api/v1/finance", financeRoute);
 
 app.use("/api/v1/task", taskRoute);
+
+// Redirect HTTP to HTTPS (works behind proxy)
+app.use((req, res, next) => {
+  if (req.headers["x-forwarded-proto"] !== "https" && process.env.NODE_ENV === "production") {
+    return res.redirect(`https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
 
 module.exports = app;
