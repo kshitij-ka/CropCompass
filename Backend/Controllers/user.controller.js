@@ -4,10 +4,27 @@ const { uploadOnCloudinary } = require("../Utils/cloudinary.js");
 const sendEmail = require("../Utils/sendmail.js");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+const sha1 = require("sha1");
+const axios = require("axios");
 
 // Register or Sign up new User -- Done
 const registerUser = catchAsyncErrors(async (req, res) => {
   const { name, email, password, role } = req.body;
+
+// Strong password policy
+  const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+  if (!strongPasswordRegex.test(password)) {
+    return res.status(400).json({ success: false, message: "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character." });
+  }
+
+// Check for data breach with haveibeenpwned.com
+  const hashed = sha1(password).toUpperCase();
+  const prefix = hashed.slice(0, 5);
+  const suffix = hashed.slice(5);
+  const response = await axios.get(`https://api.pwnedpasswords.com/range/${prefix}`);
+  if (response.data.includes(suffix)) {
+    return res.status(400).json({ success: false, message: "This password has appeared in a data breach. Please choose a different one." });
+  }
 
   const user = await User.create({
     name,
