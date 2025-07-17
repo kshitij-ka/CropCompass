@@ -13,10 +13,14 @@ const SignupPage = (props) => {
   const lastNameElement = useRef();
   const emailElement = useRef();
   const passwordElement = useRef();
+  const confirmPasswordElement = useRef();
 
   const [error, setError] = useState("");
   const [passwordStrength, setPasswordStrength] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const evaluatePasswordStrength = (password) => {
@@ -34,7 +38,7 @@ const SignupPage = (props) => {
 
   const handlePasswordChange = (e) => {
     const pwd = e.target.value;
-    passwordElement.current.value = pwd; // sync with ref
+    passwordElement.current.value = pwd;
     setPasswordStrength(evaluatePasswordStrength(pwd));
   };
 
@@ -43,6 +47,7 @@ const SignupPage = (props) => {
     setError("");
 
     const password = passwordElement.current.value;
+    const confirmPassword = confirmPasswordElement.current.value;
 
     const strongPasswordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
@@ -51,6 +56,11 @@ const SignupPage = (props) => {
       setError(
         "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character."
       );
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
       return;
     }
 
@@ -99,6 +109,7 @@ const SignupPage = (props) => {
     lastNameElement.current.value = "";
     emailElement.current.value = "";
     passwordElement.current.value = "";
+    confirmPasswordElement.current.value = "";
     setPasswordStrength("");
     setLoading(false);
   };
@@ -123,7 +134,7 @@ const SignupPage = (props) => {
                   type="text"
                   id="firstName"
                   ref={firstNameElement}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                   placeholder={t("signup_first_name_placeholder", language)}
                   required
                 />
@@ -136,7 +147,7 @@ const SignupPage = (props) => {
                   type="text"
                   id="lastName"
                   ref={lastNameElement}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                   placeholder={t("signup_last_name_placeholder", language)}
                   required
                 />
@@ -151,27 +162,37 @@ const SignupPage = (props) => {
                 type="email"
                 id="email"
                 ref={emailElement}
-                className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg block w-full p-2.5"
                 placeholder={t("signup_email_placeholder", language)}
                 required
               />
             </div>
 
+            {/* Password */}
             <div>
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-100">
                 {t("signup_password_label", language)}
               </label>
-              <input
-                type="password"
-                id="password"
-                ref={passwordElement}
-                onChange={handlePasswordChange}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder={t("signup_password_placeholder", language)}
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  ref={passwordElement}
+                  onChange={handlePasswordChange}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 pr-10"
+                  placeholder={t("signup_password_placeholder", language)}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-2 top-2 text-sm text-blue-500"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
 
-              {/* Password Strength UI */}
+              {/* Password Strength */}
               {passwordStrength && (
                 <>
                   <div className="mt-2 text-sm font-medium">
@@ -201,6 +222,30 @@ const SignupPage = (props) => {
                   </div>
                 </>
               )}
+            </div>
+
+            {/* Confirm Password */}
+            <div>
+              <label htmlFor="confirmPassword" className="block mb-2 text-sm font-medium text-gray-100">
+                Confirm Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  id="confirmPassword"
+                  ref={confirmPasswordElement}
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 pr-10"
+                  placeholder="Re-enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  className="absolute right-2 top-2 text-sm text-blue-500"
+                >
+                  {showConfirmPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
 
             {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
