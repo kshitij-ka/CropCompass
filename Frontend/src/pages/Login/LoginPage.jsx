@@ -1,45 +1,63 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { userSliceActions } from "../../store/userSlice";
 import { BACKEND_URL } from "../../constants";
-import { t } from "../../service/translation"; // Adjust path as needed
+import { t } from "../../service/translation";
+import Message from "../../components/Message"; // Import Message component
 
 const LoginPage = () => {
-  // Get language from outlet context
   const { language } = useOutletContext();
-
-  console.log("LoginPage language:", language);
-
   const emailElement = useRef();
   const passwordElement = useRef();
+
+  const [error, setError] = useState(""); // For showing errors
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const responce = await fetch(`${BACKEND_URL}/api/v1/login`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: emailElement.current.value,
-        password: passwordElement.current.value,
-      }),
-    });
-
-    const user = await responce.json();
-
-    dispatch(userSliceActions.addUser(user.data));
-
-    emailElement.current.value = "";
-    passwordElement.current.value = "";
-
-    if (user.success === true) {
-      navigate("/");
+    setError(""); // Clear previous error
+  
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/v1/login`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailElement.current.value,
+          password: passwordElement.current.value,
+        }),
+      });
+  
+      if (response.status === 429) {
+        setError("Too many login attempts. Please try again after 15 minutes.");
+        return;
+      }
+  
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        setError("Unexpected server response. Please try again.");
+        return;
+      }
+  
+      if (data.success === true) {
+        dispatch(userSliceActions.addUser(data.data));
+        navigate("/");
+      } else {
+        setError(data.message || "Login failed. Please check your credentials.");
+      }
+  
+      emailElement.current.value = "";
+      passwordElement.current.value = "";
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -55,9 +73,15 @@ const LoginPage = () => {
         </div>
         <div className="backdrop-blur-md bg-gradient-to-tr from-slate-300/10 to-slate-200/30 rounded-lg shadow-md lg:p-36">
           <h1 className="text-2xl font-bold text-gray-50 mb-4">{t("login_title", language)}</h1>
-          <p className="text-gray-100 mb-6">
-            {t("login_subtitle", language)}
-          </p>
+          <p className="text-gray-100 mb-6">{t("login_subtitle", language)}</p>
+
+          {/* Show error message */}
+          {error && (
+            <div className="my-4">
+              <Message message={error} type="error" />
+            </div>
+          )}
+
           <form className="space-y-6" onSubmit={handleLogin}>
             <div>
               <label
@@ -116,17 +140,14 @@ const LoginPage = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="text-white w-1/2 backdrop-blur-lg bg-gradient-to-tr from-slate-100/15 to-slate-200/15 shadow-lg   hover:backdrop-blur-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white w-1/2 backdrop-blur-lg bg-gradient-to-tr from-slate-100/15 to-slate-200/15 shadow-lg hover:backdrop-blur-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 {t("login_button", language)}
               </button>
             </div>
             <p className="text-gray-100 text-center mt-4">
               {t("login_new_user", language)}{" "}
-              <Link
-                to={"/user/signup"}
-                className="text-blue-600 hover:underline"
-              >
+              <Link to={"/user/signup"} className="text-blue-600 hover:underline">
                 {t("login_signup", language)}
               </Link>
             </p>
@@ -138,4 +159,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
