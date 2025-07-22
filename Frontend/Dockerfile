@@ -26,8 +26,8 @@ RUN npm install -g serve
 # Switch user
 USER nonroot
 
-# Expose backend port
+# Expose frontend port
 EXPOSE 3000
 
-# Run backend
+# Run frontend
 CMD ["serve", "-s", "/app"]
