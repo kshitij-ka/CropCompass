@@ -6,12 +6,12 @@ This directory holds code for AI model used for disease detection in crops.
 
 ## Requirements
 
-- `${FRONTEND_URI}` is used in [server.js](./models/server.js). This should be passed when creating the Docker container as an environment variable.
+- `${FRONTEND_URI}` is used in [server.js](./server.js). This should be passed when creating the Docker container as an environment variable.
 - `${FRONTEND_URI}` is essentially the URI where the frontend is hosted.
 
 ## Docker Run
 
-It is recommended that you use the [docker-compose.yaml](./docker-compose.yaml) file which creates all the required containers, however if you wish to run only the "models" part of this project in Docker run the following docker command.
+It is recommended that you use the [docker-compose.yaml](../docker-compose.yaml) file which creates all the required containers, however if you wish to run only the "models" part of this project in Docker run the following docker command.
 
 ```shell
 docker run -tid \
@@ -27,7 +27,7 @@ docker run -tid \
 
 ## Manual Run
 
-To run only the "models" part of this project, you will have to create a python virtual environement, followed by installing all the dependencies and then running the [server.js](./models/server.js) file using node.
+To run only the "models" part of this project, you will have to create a python virtual environement, followed by installing all the dependencies and then running the [server.js](./server.js) file using node.
 
 1. Install required packages (for Debian based systems):
 
@@ -50,7 +50,7 @@ python3 -m venv .
 pip install -r requirements.txt
 ```
 
-4. Run [server.js](./models/server.js):
+4. Run [server.js](./server.js):
 
 ```shell
 node server.js
