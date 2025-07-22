@@ -11,22 +11,16 @@ RUN apt update && apt upgrade -y && \
     apt install -y python3 python3-pip python3.11-venv && \
     apt clean all && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user
-RUN useradd -s /bin/bash nonroot
-
 # Create working directory
-RUN mkdir -p /app
-RUN chown -R nonroot:nonroot /app
+RUN mkdir -p /app /app/public/images/
 WORKDIR /app
 COPY . .
 
-# Switch user
-USER nonroot
+# Installing npm packages
+RUN npm install
 
 # Setup virtual env and install stuff
-RUN python3 -m venv /app
-RUN /app/bin/pip install --no-cache-dir -r requirements.txt
-ENV PATH="/app/bin:$PATH"
+RUN pip3 install --break-system-packages -r requirements.txt
 
 # Expose model port
 EXPOSE 8081
