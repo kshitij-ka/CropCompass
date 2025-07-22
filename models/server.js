@@ -9,10 +9,11 @@ const app = express();
 const PORT = 8081;
 
 const corsOptions = {
-  origin: "http://frontend:3000",
-  methods: "GET,PUT,POST",
+  origin: "${FRONTEND_URI}",
+  methods: "POST",
   credentials: true,
 };
+//methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 
 app.use(cors(corsOptions));
 
