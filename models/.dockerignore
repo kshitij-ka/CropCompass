@@ -2,7 +2,6 @@ archive/
 bin/
 Dockerfile
 include/
-leaf1.webp
 lib/
 lib64 -> lib/
 node_modules/
