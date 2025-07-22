@@ -58,6 +58,16 @@ services:
     env_file:
       - .exampleenv
 
+  model:
+    container_name: cropcompass-model
+    image: kshitijka/cropcompass-model:1.1.0
+    restart: no
+    security_opt:
+      - no-new-privileges:true
+    user: "nonroot:nonroot"
+    networks:
+      - cropcompass-ntwk
+
 networks:
   cropcompass-ntwk:
     driver: bridge
