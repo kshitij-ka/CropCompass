@@ -1,0 +1,13 @@
+archive/
+bin/
+Dockerfile
+include/
+leaf1.webp
+lib/
+lib64 -> lib/
+node_modules/
+package-lock.json
+public/
+pyvenv.cfg
+samples/
+share/
