@@ -53,6 +53,8 @@ services:
       - MONGO_INITDB_DATABASE=CropCompass # Do not change
     networks:
       - cropcompass-ntwk
+    volumes:
+      - ./db:/data/db
     env_file:
       - .exampleenv
 
