@@ -9,3 +9,5 @@ lib64
 pyvenv.cfg
 share/
 
+# Misc
+public/
