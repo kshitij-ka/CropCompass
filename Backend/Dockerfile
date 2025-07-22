@@ -8,8 +8,7 @@ LABEL description="Crop Compass is a centralized management dashboard designed f
 
 # Update and upgrade
 RUN apt update && apt upgrade -y && \
-    apt clean all && \
-    rm -rf /var/lib/apt/lists/*
+    apt clean all && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user
 RUN useradd -s /bin/bash nonroot
