@@ -2,8 +2,8 @@
 FROM node:22
 
 # Environment variables
-ENV MODEL_URI=<set_model_uri_here>
-ENV BACKEND_URI=<set_backend_uri_here>
+ENV MODEL_URI=http://model:8081
+ENV BACKEND_URI=http://backend:8000
 
 # Metadata
 LABEL maintainer="kshitijka"
