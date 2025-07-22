@@ -1,0 +1,61 @@
+services:
+  backend:
+    container_name: cropcompass-backend
+    image: kshitijka/cropcompass-backend:1.1.0
+    restart: no
+    security_opt:
+      - no-new-privileges:true
+    user: "nonroot:nonroot"
+    ports:
+      - "8000:8000" # Do not change
+    environment:
+      - FRONTEND_URI=http://frontend:3000 # Do not change
+      - MONGODB_URI=${MONGODB_URI}
+      - SMTP_SERVICE=${SMTP_SERVICE}
+      - SMTP_EMAILADDR=${SMTP_EMAILADDR}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    networks:
+      - cropcompass-ntwk
+    depends_on:
+      - database
+    env_file:
+      - .exampleenv
+
+  frontend:
+    container_name: cropcompass-frontend
+    image: kshitijka/cropcompass-frontend:1.1.0
+    restart: no
+    security_opt:
+      - no-new-privileges:true
+    user: "nonroot:nonroot"
+    ports:
+      - "3000:3000" # Do not change
+    networks:
+      - cropcompass-ntwk
+    depends_on:
+      - backend
+
+  database:
+    container_name: cropcompass-db
+    image: mongo:latest
+    restart: no
+    security_opt:
+      - no-new-privileges
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=CropCompass # Do not change
+    networks:
+      - cropcompass-ntwk
+    env_file:
+      - .exampleenv
+
+networks:
+  cropcompass-ntwk:
+    driver: bridge

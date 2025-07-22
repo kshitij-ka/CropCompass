@@ -1,0 +1,19 @@
+# Database
+MONGODB_ROOT_USERNAME=mongo_user
+MONGODB_ROOT_PASSWORD=mongo_pass
+MONGODB_URI=mongodb://mongo_user:mongo_pass@database:27017
+
+# SMTP
+SMTP_SERVICE=gmail
+SMTP_EMAILADDR=example@gmail.com
+SMTP_PASSWORD=app pass here
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=cloudname_here
+CLOUDINARY_API_KEY=api_key_here
+CLOUDINARY_API_SECRET=api_secret_here
+
+# Gemini
+GEMINI_API_KEY=gemini_api_here
