@@ -24,7 +24,7 @@ const Ai = () => {
       const formData = new FormData();
       formData.append("image", selectedFile);
 
-      const response = await fetch("http://model:8081/predict", {
+      const response = await fetch("${MODEL_URI}/predict", {
         method: "POST",
         body: formData,
       });
