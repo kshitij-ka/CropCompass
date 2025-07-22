@@ -5,13 +5,12 @@ from transformers import ViTImageProcessor, ViTForImageClassification
 import sys
 
 # Specify the local directory where the model files are stored
-local_model_path = '/home/overnion/Status200/models/pretrained'
+#local_model_path = './pretrained'
 
 # Check if the image path is provided
 if len(sys.argv) < 2:
     print("Error: No image path provided. Please provide the path to the image as an argument.")
     exit()
-
 
 # Load the image processor and model
 model_name = 'vishnun0027/Crop_Disease_model_1'
@@ -48,4 +47,3 @@ predicted_class_idx = logits.argmax(-1).item()
 
 # Print the predicted class
 print(model.config.id2label[predicted_class_idx])
-
