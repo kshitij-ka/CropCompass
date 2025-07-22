@@ -6,11 +6,11 @@ const upload = require("./Middleware/multer");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = 8081;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: "http://frontend:3000",
+  methods: "GET,PUT,POST",
   credentials: true,
 };
 
@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 
 // Endpoint to run the Python script
 app.post("/predict", upload.single("image"), (req, res) => {
-  console.log("File is uploaded successfully" + req.file?.path);
+  console.log("File is uploaded successfully " + req.file?.path);
   // const imagePath = path.join(__dirname, req.file?.path); // Path to your image
 
   const imagePath = req.file?.path;
@@ -26,7 +26,7 @@ app.post("/predict", upload.single("image"), (req, res) => {
   console.log("Image Path is : ", imagePath);
 
   // Spawn a new Python process
-  const pythonProcess = spawn("python", ["app.py", imagePath]);
+  const pythonProcess = spawn("python3", ["app.py", imagePath]);
 
   // Collect data from the script
   pythonProcess.stdout.on("data", (data) => {
