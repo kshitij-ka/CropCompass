@@ -21,12 +21,19 @@ RUN useradd -s /bin/bash nonroot
 RUN mkdir -p /app
 RUN chown -R nonroot:nonroot /app
 WORKDIR /app
+
+# Copying contents
 COPY . .
-RUN echo $BACKEND_URI > /app/.env
+
+# Writing backend uri in .env
+RUN echo "VITE_API_URL = $BACKEND_URI" > /app/.env
 
 # Building frontend
 RUN npm install
 RUN npm run build
+
+# Clean-up
+RUN rm -rf eslint.config.js index.html node_modules/ package-lock.json package.json postcss.config.js public/ src/ tailwind.config.js vite.config.js .dockerignore .gitignore .vite/
 
 # Install server
 RUN npm install -g serve
