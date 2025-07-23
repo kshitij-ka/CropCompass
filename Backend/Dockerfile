@@ -14,17 +14,21 @@ RUN apt update && apt upgrade -y && \
 RUN useradd -s /bin/bash nonroot
 
 # Create working directory
-RUN mkdir -p /app
-RUN chown -R nonroot:nonroot /app
+RUN mkdir -p /app /home/nonroot
+RUN chown -R nonroot:nonroot /app /home/nonroot
 WORKDIR /app
-COPY . .
-
-# Generate a random hex token and write it to .env
-RUN echo "REFRESH_TOKEN_SECRET = $(openssl rand -hex 32)" >> /app/.env
-RUN npm install
 
 # Switch user
 USER nonroot
+
+# Copy contents
+COPY . .
+
+# Generate a random hex token and write it to .env
+#RUN echo "REFRESH_TOKEN_SECRET = $(openssl rand -hex 32)" >> /app/.env
+
+# Install dependencies
+RUN npm install
 
 # Expose backend port
 EXPOSE 8000
