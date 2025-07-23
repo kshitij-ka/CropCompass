@@ -17,3 +17,6 @@ CLOUDINARY_API_SECRET=api_secret_here
 
 # Gemini
 GEMINI_API_KEY=gemini_api_here
+
+# Refresh token
+REFRESH_TOKEN_SECRET=a_random_60_or_more_char_secret_here

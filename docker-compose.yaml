@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000" # Do not change
     environment:
-      - FRONTEND_URI=http://frontend:3000 # Do not change
+      - FRONTEND_URI=http://localhost:3000 # Do not change
       - MONGODB_URI=${MONGODB_URI}
       - SMTP_SERVICE=${SMTP_SERVICE}
       - SMTP_EMAILADDR=${SMTP_EMAILADDR}
@@ -20,6 +20,7 @@ services:
       - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
       - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - REFRESH_TOKEN_SECRET=${REFRESH_TOKEN_SECRET}
     networks:
       - cropcompass-ntwk
     depends_on:
@@ -64,9 +65,10 @@ services:
     restart: no
     security_opt:
       - no-new-privileges:true
-    user: "nonroot:nonroot"
     networks:
       - cropcompass-ntwk
+    depends_on:
+      - frontend
 
 networks:
   cropcompass-ntwk:
