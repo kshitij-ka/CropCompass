@@ -19,7 +19,7 @@ node_modules/
 jspm_packages/
 
 # Environment files
-.env
+.env.bak
 .env.*.local
 
 # Build outputs

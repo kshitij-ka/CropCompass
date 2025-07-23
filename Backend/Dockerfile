@@ -20,7 +20,7 @@ WORKDIR /app
 COPY . .
 
 # Generate a random hex token and write it to .env
-RUN echo "REFRESH_TOKEN_SECRET=$(openssl rand -hex 32)" >> /app/.env
+RUN echo "REFRESH_TOKEN_SECRET = $(openssl rand -hex 32)" >> /app/.env
 RUN npm install
 
 # Switch user
