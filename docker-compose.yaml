@@ -21,6 +21,7 @@ services:
       - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - REFRESH_TOKEN_SECRET=${REFRESH_TOKEN_SECRET}
+      - NODE_ENV=production
     networks:
       - cropcompass-ntwk
     depends_on:
@@ -35,6 +36,8 @@ services:
     security_opt:
       - no-new-privileges:true
     user: "nonroot:nonroot"
+    environment:
+      - NODE_ENV=production
     ports:
       - "3000:3000" # Do not change this unless you have modified it in the Docker image and rebuilt it.
     networks:
@@ -69,6 +72,7 @@ services:
       - "8081:8081"
     environment:
       - FRONTEND_URI=http://localhost:3000
+      - NODE_ENV=production
     networks:
       - cropcompass-ntwk
     depends_on:
