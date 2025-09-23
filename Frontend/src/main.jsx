@@ -28,6 +28,7 @@ import UpdateFarm from "./pages/UserPanel/Farm/UpdateForm.jsx";
 import FarmPage from "./pages/UserPanel/Farm/FarmPage.jsx";
 import Ai from "./pages/UserPanel/Ai.jsx";
 import CropPage from "./pages/UserPanel/Farm/CropPage.jsx";
+import NotFound from "./pages/NotFound/Notfound.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={MentifyStore}>
@@ -65,6 +66,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="croppage/:cropId" element={<CropPage />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
