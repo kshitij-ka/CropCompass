@@ -33,10 +33,10 @@ createRoot(document.getElementById("root")).render(
     <Provider store={MentifyStore}>
       <BrowserRouter>
         <Routes>
-          <Route path="/ai" element={<Ai />} />
           {/* Routes for the main App */}
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
+            <Route path="/ai" element={<Ai />} />
             <Route path="home" element={<HomePage />} />
           </Route>
 
