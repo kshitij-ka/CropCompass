@@ -1,11 +1,11 @@
 import React from "react";
-import { IoMdContacts } from "react-icons/io";
-import { FaClock } from "react-icons/fa";
-import { FaMessage } from "react-icons/fa6";
+// import { IoMdContacts } from "react-icons/io";
+// import { FaClock } from "react-icons/fa";
+// import { FaMessage } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import TypeWriterEffect from "react-typewriter-effect";
-import cards from "./Cards";
+// import cards from "./Cards";
 import { t } from "../../service/translation";
 import { useOutletContext } from "react-router-dom";
 
@@ -67,7 +67,11 @@ const Testimonial = (props) => {
           <div className="flex flex-col sm:flex-row justify-around mt-8 h-auto min-h-[50]">
             <ScrollReveal direction="up">
               <div className="max-w-sm p-6 backdrop-blur-md rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <img src="/images/dashboard.png" alt="dashboard" className="w-7 h-7" />
+                <img
+                  src="/images/dashboard.png"
+                  alt="dashboard"
+                  className="w-7 h-7"
+                />
                 <a href="/user/dashboard/">
                   <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-50 dark:text-white">
                     {t("testimonial_card1_title", language)}

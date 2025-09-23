@@ -9,7 +9,7 @@ import {
   HeroSecn,
 } from "./Cards";
 import Testimonial from "./Testimonial";
-import Navbar2 from "../../components/Navbar2";
+// import Navbar2 from "../../components/Navbar2";
 import { t } from "../../service/translation"; 
 import { useOutletContext } from "react-router-dom";
 

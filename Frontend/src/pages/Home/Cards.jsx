@@ -51,6 +51,12 @@ export const HeroSecn = ({ language = "en" }) => {
   );
 };
 
+/**
+ * A React component that renders a card with an image, title, body, and read more link.
+ * @param {object} props - The props object.
+ * @param {string} props.language - The language code for the translation.
+ * @return {ReactElement} - The rendered React element.
+ */
 export const CardWithImage = ({ language = "en" }) => {
   return (
     <div className="max-w-sm  rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
