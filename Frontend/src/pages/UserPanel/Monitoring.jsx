@@ -33,7 +33,15 @@ const calculateRevenue = (farms) => {
 const MonitoringPage = () => {
   const { data: farms, error, isLoading } = useGetFarmsQuery();
 
- 
+  const totalSpend = useMemo(() => {
+    if (!farms) return 0;
+    return calculateSpend(farms);
+  }, [farms]);
+
+  const totalRevenue = useMemo(() => {
+    if (!farms) return 0;
+    return calculateRevenue(farms);
+  }, [farms]);
 
   return (
     <div className="w-full bg-white rounded-lg shadow p-4">
@@ -41,14 +49,8 @@ const MonitoringPage = () => {
         {/* Summary Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <MetricsCard title="Active Farms" value={farms?.length} />
-          <MetricsCard
-            title="Total Expence"
-            value={farms && calculateSpend(farms)}
-          />
-          <MetricsCard
-            title="Total Revenue"
-            value={farms && calculateRevenue(farms)}
-          />
+          <MetricsCard title="Total Expence" value={farms && totalSpend} />
+          <MetricsCard title="Total Revenue" value={farms && totalRevenue} />
           <MetricsCard title="Uptime" value="99.9%" />
         </div>
 
